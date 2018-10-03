@@ -1,0 +1,585 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+% \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading nips_2018
+
+% ready for submission
+\usepackage{proposal}
+
+% to compile a preprint version, e.g., for submission to arXiv, add
+% add the [preprint] option:
+% \usepackage[preprint]{nips_2018}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+% \usepackage[final]{nips_2018}
+
+% to avoid loading the natbib package, add option nonatbib:
+% \usepackage[nonatbib]{nips_2018}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{amsmath}
+\title{Game-Theoretic Models for Generative Learning \\{\normalsize PhD Thesis Proposal}
+}
+
+% The \author macro works with any number of authors. There are two
+% commands used to separate the names and addresses of multiple
+% authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to
+% break the lines. Using \AND forces a line break at that point. So,
+% if LaTeX puts 3 of 4 authors names on the first line, and the last
+% on the second line, try using \AND instead of \And before the third
+% author name.
+
+\begin{document}
+% \nipsfinalcopy is no longer used
+
+\maketitle
+
+\begin{abstract}
+Machine learning has achieved great success in classification tasks with the booming of powerful deep neural networks. However, there's still a big gap between computer and human intelligence. I identify three levels of artificial intelligence: memorization, recognition and creativity.
+%People wonder if machines can learn from the world like us and have the creative power.
+% To which extent can machines get the creative power of humans?
+Discriminative learning attempts to infer knowledge from data by modeling the conditional distribution of outputs given inputs, while generative learning tries to estimate the entire distribution of data and produces new samples.
+%, manipulate existing samples, and predict the future.
+% build generative models in a game-theoretic framework
+My thesis will focus on the latter problem and investigate generative learning from a game-theoretic perspective. We first formulate the problem as a distributionally robust game with payoff uncertainty, and then develop a robust optimization algorithm to solve the Nash equilibrium.
+%In this game there are groups of players with different objectives. The intergroup competition and intragroup collaboration enable the players to learn from others and optimize their worst-case performance.
+Meanwhile, we will study the distance metric to measure similarity between distributions, which is vital to build the objective functions.
+%In implementation, we use autoencoders to build feature representations for images and audio.
+Last, we plan to test our approach in simulations and apply it to train several generative models for images and audio.
+
+\end{abstract}
+
+
+
+\section{Introduction}
+\label{Sec:Intro}
+
+In the last decade, machine learning approaches have achieved great success with the boom of deep neural networks. There are three levels of human intelligence: memorization, recognition and generation. Computers are approaching humans on the first two levels, and now going to the third.
+
+Apart from recognition and classification tasks, people hope to learn the entire distribution of data and generate new samples. In mathematics, it means to learn a function describing the structure of unlabeled data, for example, density estimation is a direct application. It requires inferring the real data distribution given a set of observations. There's no straightforward way to evaluate the accuracy of generative models, because the goal is to produce lifelike artificial examples and the evaluation is subjective in most cases.
+
+In generative learning, new samples produced by the learned model should be indistinguishable from the original data and have enough diversity. Generative models are powerful tools for many tasks such as image and audio generation, video prediction, style transfer, voice conversion, and semi-supervised learning.
+
+If we work on low-dimension data, or just want some statistics instead of producing new samples, there's no need to model the data distribution. A bunch of unsupervised learning algorithms work well, e.g., k-means, Gaussian mixture model, EM, PCA, etc. But for complex tasks such as generating images, audios and videos, neural networks demonstrate more power. There are three popular mainstream methods in deep generative learning, generative adversarial network (GAN), variational auto-encoders (VAE) and autoregressive models (e.g., WaveNet, PixelRNN).
+
+In general, training deep generative models is hard and time consuming. For example, it requires 8 GPUs training 6 days to learn the WaveNet autoencoder. The high dimensional training data and complex objective structures lead to many problems in optimization, such as algorithm instability, saturation, and mode collapse. Moreover, the model should have strong generalization power to produce diverse artificial examples instead of just memorizing the training set.
+
+In this research work, we plan to develop a new game-theoretic framework for generative learning. We formulate the problem as a distributionally robust game with payoff uncertainty, and develop a learning algorithm to solve the robust Nash equilibrium. In this game there are several groups of players that are competitive, noncooperative and have different objectives. Each player works in a continuous action space to optimize its expected worst-case performance. The players are implemented with neural network models to perform prediction, classification or data generation tasks. Agents with similar objectives form a group and work together against the others in order to optimize their expected payoffs. The distributionally robust Nash equilibrium is achieved by solving a minimax optimization problem. We consider using stochastic optimization techniques to deal with large-scale learning tasks.
+
+Iterative optimization algorithms travel to the equilibria by minimizing a loss function, which is in our case a distance metric defined to measure the similarity between two distributions. As an important part of this research, We will study the pros and cons of several kinds of distance metrics, and compare Wasserstein distance with the most prevalent information-based metrics such as Kullback-Leibler and Jensen-Shannon divergence. We plan to develop a practical method to approximately calculate the distance between distributions and give theoretical analysis and numerical evaluations.
+
+We will first verify the theoretical results through simulations, and then apply our approach on real datasets for image and audio generation. We plan to work on several tasks such as object detection, vehicle tracking, image generation and audio synthesis. This research contributes to the areas of distributionally robust game, deep generative learning, stochastic optimization and time-series data analysis.
+
+
+\section{Distributionally Robust Games}
+\label{Sec:DRG}
+
+\subsection{Introduction}
+
+\subsubsection{Distribution Uncertainty Set}
+
+\subsubsection{Related Work}
+
+
+\subsection{Problem Formulation}
+
+\subsubsection{From unsupervised learning to Generative Model}
+
+\subsubsection{Game Theoretic Framework for Learning}
+
+\subsubsection{Definition}
+
+\subsubsection{The Existence of Distributionally Robust Nash Equilibria}
+
+
+\subsection{Minimax Robust Game}
+
+\subsubsection{From Duality to Triality Theory}
+
+\subsubsection{Dimension Reduction}
+
+\subsubsection{Evaluation}
+
+
+\subsection{Case Study: Learning a Generative Adversarial Model}
+
+
+
+\section{Wasserstein Metric}
+\label{Sec:Wasserstein}
+
+All headings should be lower case (except for first word and proper
+nouns), flush left, and bold.
+
+First-level headings should be in 12-point type.
+
+\subsection{Introduction}
+
+\subsubsection{Optimal Transportation Problem}
+
+\subsubsection{Definition}
+
+Second-level headings should be in 10-point type.
+
+\subsection{From KL divergence to Wasserstein Metric}
+
+Third-level headings should be in 10-point type.
+
+\subsection{Other Metrics: L1, L2, Maximum Mean Discrepancy}
+
+\subsection{Dynamic Optimal Transport}
+
+There is also a \verb+\paragraph+ command available, which sets the
+heading in bold, flush left, and inline with the text, with the
+heading followed by 1\,em of space.
+
+\subsection{Case Study: A Toy Example}
+
+
+
+\section{Learning Algorithms}
+\label{Sec:Learning}
+
+These instructions apply to everyone.
+
+
+\subsection{Bregman Learning under f-divergence}
+
+The \verb+natbib+ package will be loaded for you by default.
+Citations may be author/year or numeric, as long as you maintain
+internal consistency.  As to the format of the references themselves,
+any style is acceptable as long as it is used consistently.
+
+The documentation for \verb+natbib+ may be found at
+\begin{center}
+  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
+\end{center}
+Of note is the command \verb+\citet+, which produces citations
+appropriate for use in inline text.  For example,
+\begin{verbatim}
+   \citet{hasselmo} investigated\dots
+\end{verbatim}
+produces
+\begin{quote}
+  Hasselmo, et al.\ (1995) investigated\dots
+\end{quote}
+
+If you wish to load the \verb+natbib+ package with options, you may
+add the following before loading the \verb+nips_2018+ package:
+\begin{verbatim}
+   \PassOptionsToPackage{options}{natbib}
+\end{verbatim}
+
+If \verb+natbib+ clashes with another package you load, you can add
+the optional argument \verb+nonatbib+ when loading the style file:
+\begin{verbatim}
+   \usepackage[nonatbib]{nips_2018}
+\end{verbatim}
+
+
+\subsection{Distributionally Robust Optimization}
+
+Footnotes should be used sparingly.  If you do require a footnote,
+indicate footnotes with a number\footnote{Sample of the first
+  footnote.} in the text. Place the footnotes at the bottom of the
+page on which they appear.  Precede the footnote with a horizontal
+rule of 2~inches (12~picas).
+
+Note that footnotes are properly typeset \emph{after} punctuation
+marks.\footnote{As in this example.}
+
+
+\subsection{Train a Deep Generative Model}
+
+\begin{figure}
+  \centering
+  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+  \caption{Sample figure caption.}
+\end{figure}
+
+All artwork must be neat, clean, and legible. Lines should be dark
+enough for purposes of reproduction. The figure number and caption
+always appear after the figure. Place one line space before the figure
+caption and one line space after the figure. The figure caption should
+be lower case (except for first word and proper nouns); figures are
+numbered consecutively.
+
+You may use color figures.  However, it is best for the figure
+captions and the paper body to be legible if the paper is printed in
+either black/white or in color.
+
+
+\subsection{Case Study: Unsupervised Learning for Clustering}
+
+All tables must be centered, neat, clean and legible.  The table
+number and title always appear before the table.  See
+Table~\ref{sample-table}.
+
+Place one line space before the table title, one line space after the
+table title, and one line space after the table. The table title must
+be lower case (except for first word and proper nouns); tables are
+numbered consecutively.
+
+Note that publication-quality tables \emph{do not contain vertical
+  rules.} We strongly suggest the use of the \verb+booktabs+ package,
+which allows for typesetting high-quality, professional tables:
+\begin{center}
+  \url{https://www.ctan.org/pkg/booktabs}
+\end{center}
+This package was used to typeset Table~\ref{sample-table}.
+
+\begin{table}
+  \caption{Sample table title}
+  \label{sample-table}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \multicolumn{2}{c}{Part}                   \\
+    \cmidrule(r){1-2}
+    Name     & Description     & Size ($\mu$m) \\
+    \midrule
+    Dendrite & Input terminal  & $\sim$100     \\
+    Axon     & Output terminal & $\sim$10      \\
+    Soma     & Cell body       & up to $10^6$  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\subsection{Case Study: Generative Modeling for Image Synthesis}
+
+
+
+
+\section{Domain Transfer as a Minimax Game}
+\label{Sec:ST}
+
+%integration of new ideas with the learner’s existing "prior" knowledge
+%Generative learning: the construction of relationships between existing knowledge and stimuli
+
+\subsection{Introduction}
+Many problems in machine learning involve translating data from one domain to another. For example, transfer photograph to artistic painting, convert one person's voice to another, translate music to imitate different musical instruments, etc. In supervised learning, it assumes that the test samples have the same distribution as the training set. However, it is not valid in many practical cases, so the knowledge needs to be transferred across domains to capture the domain shift. The general problem is to learn a mapping from one domain to another, on condition that it changes the appearance style while keeps the underlying content.
+
+% Definition of the problem
+Let $x^s \in \mathbb{X}^S$ be samples in the source domain and $x^t \in \mathbb{X}^T$ be samples in the target domain. The goal of domain transfer is to learn a mapping: $G: \mathbb{X}^S \rightarrow \mathbb{X}^T$ such that the generated output $\hat{x}^t = G(x^s)$ is indistinguishable from the real samples drawn from the target domain. The optimal mapping $G$ transports $\mathbb{X}^S$ to $\mathbb{\hat{X}}^T$, which should have the same distribution as $\mathbb{X}^T$.
+
+We propose a game-theoretic approach to learn the mapping. The approach is based on neural network representations to capture the high-level and low-level features, and distributionally robust optimization to find the Nash equilibrium. In the game, there are several groups of players with different objectives. The intergroup competition and intragroup collaboration enable the players to learn from others and optimize their worst-case performance.
+
+This work has a wide range of use cases. In classification, since labelled data is scarce and expensive, people want to learn from unlabelled target domain by exploring the knowledge learnt from a well-labeled source domain. Domain transfer algorithms help to translate source data samples to target domain as well as the corresponding labels. In visual and performing arts, it's inspiring to automatically generate artificial paintings with user-specified style or play synthetic music with desired timbre and musical instrument. In informatics, it's useful to transform speaker identity by modifying his voice to sound like another person. It is also possible to learn and mimic animal's vocalization and study the feedback on the artificially generated sound. For case study, we apply our approach in two typical domain transfer tasks: image style transfer and emotional voice conversion.
+
+
+\subsection{Motivation} %Assumptions
+In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y|x)$, while generative models produce new data with desired labels by drawing samples from distribution $p(x|y)$. From a probabilistic modeling perspective, domain transfer models traslate samples from source domain to target domain by learning a joint distribution $p(x^s, x^t)$. If we do not have paired training data $\{{x_i^s, x_i^t\}}_{i=1}^N$, the problem is estimating joint distribution by its marginal distributions $p(x^s), p(x^t)$. According to coupling theory [1], the choice of valid joint distribution is generally not unique. Therefore, we need to make a choice so that the marginal distributions are related in a desirable way.
+
+There are bunch of assumptions and constrains proposed to deal with this ill-posed problem. Some suggest to partially preserve the content of source domain data, such as pixel intensity, gradient and object boundary [2][3]; others propose to keep certain properties unchanged during the transfer, such as semantic features and class labels [4].
+
+Gatys et al. [7] separate and recombine the content and style of images under the Convolutional Neural Network (CNN) representation. In the hierarchical network, high-level content information is stored in higher layers of the network, and low-level information such as texture and artistic style is captured by the correlations between filter responses in different CNN layers. They assume the representations of content and style in the Convolutional Neural Network are well separable. However, the style comes from only one image, not the entire training set. This limination prevents it from capturing the general theme of the target domain.
+%It can preserve the semantic content of source image and replace the style with that learnt from the target image.
+
+Zhu et al. [10] proposed a very straightforward constraint called cycle-consistency. It assumes if we transfer a sample from the source domain to the target domain and then translate back, we should get exactly the same sample. Choi et al. [11] generalized it to perform multiple-domain translation using a single generative model. However, domain transfer is not a one-to-one mapping, but many-to-many. That's why the cycle-consistency constraint is too strong and leads to the lack of diversity in the translated outputs.
+
+Based on the similar idea, Liu et al. [8] developed the UNIT framework by making a fully shared latent space assumption: corresponding images across domains can be mapped to the same latent code in a shared-latent space. This assumption implies the cycle-consistency constraint. Xun et al. [9] extended this idea to a partially shared latent space assumption, where each data sample is generated from a shared latent code for content and a domain-specific latent code for style. Images are translated across domains by reconstructing through encoder and decoder networks.
+
+Another idea is to make assumptions over data distributions. Covariate shift [5] assumes unchanged conditional distributions $p(y^s|x^s), p(y^t|x^t)$ and the only difference across domains exist in the input distributions. If the distributions share a common support, then importance weighting [6] can help to estimate the target density $\hat{p}(x^t) = \hat{w}(x)p(x^s)$, where $w(x) = p(x^s)/p(x^t)$ is estimated by minimizing the Kullback–Leibler divergence $KL(p(x^t),\hat{p}(x^t))$. The weighting parameters correspond to the last layer of the decoder network and the first layer of the encoder network, which are low-level features representing the style.
+
+Other approaches [11][12][13] assume there exist a transformation $\mathcal{T}$ so that the source and target distributions can be matched with the new representations, $p(\mathcal{T}(x^s)) = p(\mathcal{T}(x^t))$. It requires to minimize the distance between distributions, which has been discussed in chapter \ref{Sec:Wasserstein}. This assumption is equivalent to finding a transporation plan $\mathcal{T}$ such that $p(\mathcal{T}(x^s)) = p(x^t)$. A particular solution is the optimal plan with the minimum transportation cost, i.e., the Wasserstein distance between the source and target distributions. As a by-product of this optimization problem, minimizing the transporation cost is equivalent to matching the samples with common representations and labels, yielding better knowledge transfer across domains. Under this idea, Damodaran et al. [14] propose to minimize the Wasserstein distance between joint distributions of data-label pair $p(x^s, y^s), p(x^t, f(x^t))$, which aligns data samples from source and target domains as well as transfers the discriminative information to the classifier $f$ in the target domain.
+
+%Joint Distribution Optimal Transport
+%samples that share a common representation and a common label (through classification) are matched, yielding better discrimination.
+
+
+\subsection{Related Work}
+%disentangled representation of content and style
+Learning generative models for domain transfer is an open problem. There are several topics closely related to our work, but with different definitions.
+
+\paragraph{Deep Generative Modeling}
+The original objective of this topic is to generate new samples from scratch by learning complicated data distributions in an unsupervised way. At test time, it takes random noise as input and outputs realistic samples. In some cases, it can also take in conditional information to produce user-specified output. There are three main frameworks of deep generative modeling: generative adversarial networks (GANs) [15], variational auto-encoders (VAEs) [16], and auto-regressive models [17].
+
+GANs build the generative model on the top of a discriminative network to force the output to be indistinguishable from the real samples. This model works pretty well for generating images with impressive visual quality [18] and high resolution [19]. Variations under this framework include conditional GAN [20] that generate samples conditioned on class labels, LAPGAN [21] that generates images in a coarse-to-fine fashion, WGAN-GP [22] that enables stable training of GANs without hyperparameter tuning.
+
+VAEs use an encoder-decoder framework to model data in a latent space and optimize the reconstruction loss plus a regularizer. The generative process has two steps of sampling: first draw latent variables from $p(z)$ and then draw datapoints from the conditional distribution $p(x|z)$. At test time, the encoder part is discarded and the decoder takes random noise as input to generate new samples. However, the reconstructed samples are blurry. This is because the VAE decoder assumes $p(x|z)$ to be an isotropic Gaussian, which leads to the use of L2 loss. To remedy this, VAE-GAN [23] suggests learning the loss through a GAN discriminator.
+
+Auto-regressive model is quite different from the above two. It aims at modeling time-varying processes by assuming that the value of a time series depends on its previous values and a stochastic term. For a sequential data sample $x = (x_1, x_2, \ldots, x_T)$, the joint distribution $p(x)$ is factorised as a product of conditional distributions
+\begin{equation}
+p(x) = \prod_{t=1}^{T} p(x_t|x_1, \ldots, x_{t-1})
+\end{equation}
+This idea is quite straightforward for modeling audio sequence [24], but it also works for images. In PixelRNN [25], each image is written as a sequence, in which pixels are taken row by row from the image. The two-dimensional spatial autocorrelation of pixels is modeled by one-dimensional temporal correlations. Since the generation process is sequential, it requires a lot of GPU memory and computation time (200K updates over 32 GPUs) even after some modifications [26].
+
+
+\paragraph{Image Style Transfer} % Image Transformation, Image-to-Image Translation
+There are two types of style transfer problems: example-based style transfer where the style comes from one image, and domain-based style transfer where the style is learnt from a collection of images in a specific domain. The former problem originates from nonphotorealistic rendering (NPR) [27] in computer graphic, and has the similar meaning of realistic image manipulation. The goal is to edit image in a user-specified way and keep it as realistic as possible. Practical issues include texture synthesis and transfer [28], photo manipulation of shape and color [29], photorealistic image stylization [30], etc. In general, the output should be similar to the input in high-level structures and varies in low-level details such as color and texture.
+
+Recently, Gatys et al. [31] claimed the image content and style information are separable in Convolutional Neural Network representations. They introdueced a method [32] to separate and recombine content and style of natural images by matching feature correlations (Gram matrix) in different convolutional layers. However, their synthesis process is slow (an hour for a 512*512 image). Moreover, the style from a single image is ambigious and may not capture the general theme of an entire domain of images.
+
+The second problem, also named as image-to-image translation, learns a mapping to transfer images from one domain to another. For example, super-resolution [39] maps low-dimentional images to high-dimention, colorization [40] maps gray images to color; other cases include day to night, dog to cat, yong to old, summer to winter, photographs to paintings, aerial photos to maps [30,34,35,36,37,38,41]. The mapping can be learnt in a supervised or unsupervised manner. In supervised settings [33,42,43], corresponding image pairs across domains are available for training. In unsupervised settings [2,4,8,9,10], there's no paired data and the training set only contains independent set of images for each domain. Our work is under the unsupervised settings because it is more applicable, and the training data is almost free and unlimited. 
+
+
+\paragraph{Domain Adaptation}
+Most recognition algorithms are developed and evaluated on the same data distributions, e.g, the public datasets ImageNet, MS-COCO, CIFAR-10, MNIST. In real applications, people often confront performance degradation when apply a classifier trained on a source domain to a target domain.
+
+In unsupervised domain adaptation, source domain has labeled data $\mathcal{D}_s = {\{x_i^s, y_i^s\}}_{i=1}^{n_s}$ while target domain contains data without labels $\mathcal{D}_t = {\{x_i^t\}}_{i=1}^{n_t}$. The goal is to learn a classifier $f: x_i^t \mapsto y_i^t$ for the unseen target samples by exploring the knowledge learnt from the source domain. Domain adaptation algorithms attempts to transfer knowledge across domains by solving the domain shift problem, i.e., the data-label distributions $p(x^s, y^s)$ and $p(x^t, y^t)$ are different.
+
+There are many approaches to address this issue. One is to extract transferable features that are invariant across domains [45,46], or learn representative hash codes [47] to find a common latent space where the classifier can be used without considering the data's origin. Another trend is to learn the transformation between domains [48] to align the source and target datapoints through barycentric mapping, and train a classifier on the transferred source data. Courty [49] and Damodaran[14] proposed to look for a transformation that matches the data-label joint distributions $p(x^s, y^s)$ in source domain to its equivalent version $p(x^t, y^t)$ in target domain. The predictive function $f$ is learnt by minimizing the optimal transport loss between the distributions $p(x^s, y^s)$ and $p(x^t, f(x^t))$. As a by-product, minimizing the optimal transport cost is equivalent to mapping a source domain sample to a target domain sample with similar semantic content, and this is the domain transfer problem.
+
+
+\paragraph{Voice Conversion}
+Voice conversion (VC) aims to change a speaker's voice to make it sounds like uttered by another spearker. It transforms speacker identity by modifying speaker-dependent features of the speech signal while maintaining linguistic information.
+
+
+
+
+\paragraph{Music Style Transfer}
+
+
+
+\subsection{Method}
+
+\subsection{Case Study: Image Style Transfer}
+
+\subsection{Case Study: Emotional Voice Conversion}
+
+
+
+\section{Dissertation Outline}
+\label{Sec:Outline}
+
+The research will be split into the following four stages:
+
+\subsection{Introduction}
+
+\subsection{Related Work}
+
+\subsection{Distributionally Robust Games}
+%Problem Formulation
+In this part we introduce distributionally robust games and develop new filtering and learning architectures under this framework. The system may contain several competing neural networks: the attackers learn to generate synthetic samples that are supposed to have the same distribution as the original ones, while the defenders try to find counter-examples and create difficulties for the other side. Each player tries to perform better and beat the others, which forms a multi-agent zero-sum game with uncertain payoffs. The players use a robust optimization approach to contend with the worst-case scenario payoff. The attacker network is constructed based on the outcome of defender networks, and vice versa. The competing networks are trained together iteratively until achieving the distributional robust Nash equilibrium.
+
+\subsection{Wasserstein Metric}
+The loss function is designed to measure the similarity of two probability distributions. Unsupervised learning is conducted by minimizing the loss. We plan to study the properties of several widely used loss metrics:
+\begin{itemize}
+\item Compare L1, L2-loss, KL-divergence, f-divergence, and Wasserstein distance
+\item Study the time-dependent formulation of the optimal transportation cost
+\item Test the effect of translation and perturbation for a certain loss metric
+\end{itemize}
+
+\subsection{Learning Algorithms for Robust Optimization}
+\begin{itemize}
+\item Develop a specific learning algorithm to find robust Nash equilibria, which should be stable and efficient
+\item Compare with existing numerical optimization approaches in large-scale machine learning: SGD, Adam, Momentum, Ishikawa-Nesterov, Newton's method, conjugate gradient, natural gradient, etc.
+\item Compare with existing deep generative models: RBM, VAE, GAN, WGAN, etc.
+\end{itemize}
+
+\subsection{Generative Modeling for Vehicle Tracking}
+\subsection{Generative Modeling for Image Synthesis}
+\subsection{Generative Modeling for Domain Transfer}
+
+\subsection{Experiments on Large-scale Machine Learning datasets}
+\begin{itemize}
+\item Maryland Traffic Surveillance Dataset (vehicle tracking, done)
+\item Large-scale CelebFaces Attributes Dataset (CelebA, image synthesis, done)
+\item Large-scale Scene Understanding Challenge (LSUN, image synthesis)
+\item Interactive Emotional Dyadic Motion Capture (IEMOCAP, speech synthesis)
+\end{itemize}
+
+\subsection{Discussion}
+
+\subsection{Conclusion and Future Work}
+
+
+
+\section{Research Plan}
+\label{Sec:Plan}
+
+\subsection{Research Progress}
+\begin{itemize}
+\item[] Literature review, planning
+\item[] Theory part on distributional robust games, Bregman learning and convex optimization
+\item[] Theoretical analysis and comparison for L2 distance, f-divergence and Wasserstein metric
+\item[] Algorithm design, overall integration, simulations, specific implementations on real problems
+\item[] Application part on large-scale machine learning: experiments, evaluation and revision
+\item[] Documentation and Defence
+\end{itemize}
+
+\subsection{Application on Image and Audio Synthesis}
+\begin{itemize}
+\item Test on large-scale image dataset MNIST, CelebA and LSUN
+\item Literature review on emotional speech classification and audio synthesis
+\item Compare two sound representations in generative learning: waveform and spectrogram
+\item Design deep generative models for emotional speech generation
+\item Test on voice conversion or music style transfer if possible
+\end{itemize}
+
+
+\subsection{Timeline}
+\begin{align*}
+&\text{Fall 2018} && \text{Study on Generative Models for Image Style Transfer} \\
+&\text{Spring 2019} && \text{Study on Generative Models for Audio Style Transfer} \\
+&\text{Summer 2019} && \text{Writing of PhD Thesis} \\
+&\text{August 2019} && \text{Defense of PhD Thesis}
+\end{align*}
+
+
+%\subsection{Long-term, from Feb 2018}
+%\subsection{Short-term, from Spet 2018 (need discussion)}
+%Week 1-2: Literature review on deep generative models, sound classification and audio synthesis \\
+%Week 3-4: Investigation on two audio synthesis tasks: emotional speech generation and music style transfer \\
+%Week 5-6: Compare two sound representations in generative learning: waveform and spectrogram \\
+%Week 7-8: Algorithm design and experiments; submit a paper to ICASSP if possible \\
+%Week 9-12: Refine the model, test on voice conversion and music style transfer if possible.
+
+
+
+\section{Conclusion}
+\label{Sec:Con}
+
+Tackling the aforementioned problems would take us much closer to
+real intelligent systems, and defines three core pillars
+of Artificial Intelligence. However, there are many other problems which
+need to be solved and integrated to achieve a fully
+intelligent system, e.g. navigation, learning by imitation, cooperation, and many others.
+
+%However, I think that all that skills can be integrated by means of external interface, and
+%don't have to be modeled in any special way. For instance, navigation skill could emerge
+%as an use two interfaces (1) GPS location interface, and (2) an external memory.
+
+%This is my personal opinion, and it shouldn't be judged in a scientific way.
+%I strongly believe that creation of artificial intelligence is potentially
+%dangerous. However, I think, that more dangerous is avoiding to create it.
+%We exhaust resources of our planet in rapid fashion, and lack of resources
+%leads to wars. The only way to prevent it is to have abundance of resources.
+%Artificial intelligence could provide abundance of all resources.
+
+
+
+\section{List of Publications}
+\label{Sec:Pub}
+
+\subsection{Thesis Related Publications}
+\begin{enumerate}
+\item[] Jian Gao and Hamidou Tembine, Distributionally Robust Games for Deep Generative Learning, July 2018. DOI: 10.13140/RG.2.2.15305.44644
+\item[] Jian Gao, Yida Xu, Julian Barreiro-Gomez, Massa Ndong, Michalis Smyrnakis and Hamidou Tembine (September 5th 2018) \href{https://www.intechopen.com/books/optimization-algorithms-examples/distributionally-robust-optimization}{Distributionally Robust Optimization}. In Jan Valdman, Optimization Algorithms, IntechOpen. DOI: 10.5772/intechopen.76686. ISBN: 978-1-78923-677-4
+\item[] Jian Gao and Hamidou Tembine, Distributionally Robust Games: Wasserstein Metric, International Joint Conference on Neural Networks (IJCNN), Rio de Janeiro, Brazil, July 2018
+\item[] Jian Gao and Hamidou Tembine, Bregman Learning for Generative Adversarial Networks, Chinese Control and Decision Conference (CCDC), Shenyang, China, June 2018 \textit{(Best Paper Finalist Award)}
+\item[] Jian Gao and Hamidou Tembine, Distributed Mean-Field-Type Filter for Vehicle Tracking, in American Control Conference (ACC), Seattle, USA, May 2017 \textit{(Student Travel Award)}
+\item[] Dario Bauso, Jian Gao and Hamidou Tembine, Distributionally Robust Games: f-Divergence and Learning, 11th EAI International Conference on Performance Evaluation Methodologies and Tools (VALUETOOLS), Venice, Italy, Dec 2017
+%    \item Jian Gao and Hamidou Tembine, A mean-field filter for two-step ahead forward-looking problems, Workshop on Frontiers of Networks: Theory and Algorithms , Seventeenth International Symposium on Mobile Ad Hoc Networking and Computing, MobiHoc, July 5-7,2016, Paderborn, Germany
+\end{enumerate}
+
+
+\subsection{Other Publications}
+\begin{enumerate}
+\item[] J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Traffic Networks," in IEEE Transactions on Intelligent Transportation Systems. doi: 10.1109/TITS.2018.2816811
+\item[] J. Gao and H. Tembine, "Empathy and berge equilibria in the forwarding dilemma in relay-enabled networks," 2017 International Conference on Wireless Networks and Mobile Communications (WINCOM), Rabat, 2017, pp. 1-8. doi: 10.1109/WINCOM.2017.8238199 \href{https://nyuad.nyu.edu/en/news/latest-news/science-and-technology/2017/december/next-generation-cell-phone-networks.html}{(\textit{Best paper Award})}
+\item[] J. Gao and H. Tembine, "Correlative mean-field filter for sequential and spatial data processing," IEEE EUROCON 2017 -17th International Conference on Smart Technologies, Ohrid, 2017, pp. 243-248. doi: 10.1109/EUROCON.2017.8011113
+\item[] Fanhuai Shi, Jian Gao, Xixia Huang, An affine invariant approach for dense wide baseline image matching. International Journal of Distributed Sensor Networks (IJDSN) 12(12) (2016)
+\item[] J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Big Data Assimilation," 2016 IEEE 18th International Conference on High Performance Computing and Communications; IEEE 14th International Conference on Smart City; IEEE 2nd International Conference on Data Science and Systems (HPCC/SmartCity/DSS), Sydney, NSW, 2016, pp. 1446-1453. doi: 10.1109/HPCC-SmartCity-DSS.2016.0206
+\end{enumerate}
+
+
+
+%\subsubsection*{Acknowledgments}
+%
+%Use unnumbered third level headings for the acknowledgments. All
+%acknowledgments go at the end of the paper. Do not include
+%acknowledgments in the anonymized submission, only in the final paper.
+
+\cite{NIPS2014_5423}
+
+
+
+%\section*{References}
+
+%References follow the acknowledgments. Use unnumbered first-level
+%heading for the references. Any choice of citation style is acceptable
+%as long as you are consistent. It is permissible to reduce the font
+%size to \verb+small+ (9 point) when listing the references. {\bf
+%  Remember that you can use more than eight pages as long as the
+%  additional pages contain \emph{only} cited references.}
+%
+%\medskip
+%
+%\small
+%
+%[1] Alexander, J.A.\ \& Mozer, M.C.\ (1995) Template-based algorithms
+%for connectionist rule extraction. In G.\ Tesauro, D.S.\ Touretzky and
+%T.K.\ Leen (eds.), {\it Advances in Neural Information Processing
+%  Systems 7}, pp.\ 609--616. Cambridge, MA: MIT Press.
+%
+%[2] Bower, J.M.\ \& Beeman, D.\ (1995) {\it The Book of GENESIS:
+%  Exploring Realistic Neural Models with the GEneral NEural SImulation
+%  System.}  New York: TELOS/Springer--Verlag.
+%
+%[3] Hasselmo, M.E., Schnell, E.\ \& Barkai, E.\ (1995) Dynamics of
+%learning and recall at excitatory recurrent synapses and cholinergic
+%modulation in rat hippocampal region CA3. {\it Journal of
+%  Neuroscience} {\bf 15}(7):5249-5262.
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{proposal}
+
+
+
+\end{document}
+
+
+
+%[1] T. Lindvall, Lectures on the coupling method. Wiley, New York, 1992.
+%[2] Unsupervised pixel-level domain adaptation with generative adversarial networks
+%[3] Learning from simulated and unsupervised images through adversarial training
+%[4] Unsupervised cross-domain image generation.
+%[5] Improving predictive inference under covariate shift by weighting the log-likelihood function
+%[6] Direct Importance Estimation with Model Selection and Its Application to Covariate Shift Adaptation
+%[7] Image Style Transfer Using Convolutional Neural Networks
+%[8] Unsupervised image-to-image translation networks
+%[9] Multimodal Unsupervised Image-to-Image Translation
+%[10] Unpaired image-to-image translation using cycle-consistent adversarial networks
+%[11] Domain adaptation with conditional transferable components
+%[12] Bregman divergence-based regularization for transfer subspace learning
+%[13] Domain-adversarial training of neural networks
+%[14] DeepJDOT: Deep Joint Distribution Optimal Transport for Unsupervised Domain Adaptation
+%[15] Generative Adversarial Nets
+%[16] Auto-Encoding Variational Bayes
+%[17] Pixel Recurrent Neural Networks
+%[18] DCGAN
+%[19] Progressive growing of GANs for improved Quality, Stability, and Variation
+%[20] Conditional Generative Adversarial Nets
+%[21] Deep Generative Image Models using a Laplacian Pyramid of Adversarial Networks
+%[22] Improved Training of Wasserstein GANs
+%[23] Autoencoding beyond pixels using a learned similarity metric
+%[24] WAVENET: A GENERATIVE MODEL FOR RAW AUDIO
+%[25] Pixel Recurrent Neural Networks
+%[26] Conditional Image Generation with PixelCNN Decoders
+%[27] State of the "Art": A Taxonomy of Artistic Stylization Techniques for Images and Video
+%[28] Style-transfer via texture-synthesis.
+%[29] Generative Visual Manipulation on the Natural Image Manifold
+%[30] A Closed-form Solution to Photorealistic Image Stylization
+%[31] Image Style Transfer Using Convolutional Neural Networks
+%[32] A Neural Algorithm of Artistic Style
+%[33] Image-to-image translation with conditional adversarial networks
+%[34] Unsupervised crossdomain image generation.
+%[35] Generative attribute controller with conditional filtered generative adversarial networks
+%[36] Universal Style Transfer via Feature Transforms
+%[37] High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs
+%[38] Learning to generate images of outdoor scenes from attributes and semantic layouts
+%[39] Photo-realistic single image superresolution using a generative adversarial network.
+%[40] Colorful image colorization.
+%[41] Age progression/regression by conditional adversarial autoencoder.
+%[42] Perceptual losses for real-time style transfer and super-resolution.
+%[43] Generative image modeling using style and structure adversarial networks. 
+%[44] Coupled generative adversarial networks (CoGAN)
+%[45] Domain-Adversarial Training of Neural Networks (DANN)
+%[46] Learning transferable features with deep adaptation networks (DAN)
+%[47] Deep Hashing Network for Unsupervised Domain Adaptation
+%[48] Optimal transport for domain adaptation
+%[49] Joint distribution optimal transportation for domain adaptation
