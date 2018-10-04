@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  3 OCT 2018 05:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  4 OCT 2018 07:43
 entering extended mode
 **./proposal.tex
 (proposal.tex
@@ -803,38 +803,34 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [3] [4] [5]
-[6]
-Underfull \vbox (badness 1348) has occurred while \output is active []
+[6] [7] [8]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 381.
 
- [7]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 369.
-
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 369.
- [8] [9]
-(proposal.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 533.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 533.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 381.
+ [9]
+[10] (proposal.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 545.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 545.
  (proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 533.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 533.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 545.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 545.
 Package rerunfilecheck Info: File `proposal.out' has not changed.
 (rerunfilecheck)             Checksum: 8EC6F801604DF59CE5F6670705EB500C;4285.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 533.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 545.
  ) 
 Here is how much of TeX's memory you used:
- 8563 strings out of 493323
- 126504 string characters out of 3139066
- 248744 words of memory out of 3000000
+ 8564 strings out of 493323
+ 126511 string characters out of 3139066
+ 248746 words of memory out of 3000000
  11760 multiletter control sequences out of 15000+200000
  45865 words of font info for 150 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,10n,38p,1166b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,10n,38p,1205b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\bottl\App
 Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/
@@ -849,9 +845,9 @@ Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on proposal.pdf (10 pages, 201390 bytes).
+Output written on proposal.pdf (11 pages, 206452 bytes).
 PDF statistics:
- 408 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 500000)
+ 412 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
  21953 words of extra memory for PDF output out of 24883 (max. 10000000)
 
