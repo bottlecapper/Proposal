@@ -26,6 +26,9 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{amsmath}
+
+\usepackage{color}
+
 \title{Game-Theoretic Models for Generative Learning \\{\normalsize PhD Thesis Proposal}
 }
 
@@ -344,7 +347,7 @@ stationary speech signal, % fixed time window, the statistical parameters of the
 frame-by-frame mapping, % each frame is mapped independent of other frames
 time-invariant linear filter, etc. Recently, Tamamori et. al [53] proposed a speaker-dependent WaveNet vocoder that does not require explicit modeling of excitation signals and those assumptions. 
 
-%software: Merlin baseline system, sprocket baseline system, STRAIGHT, WORLD, Griffin-Lim, Speech Signal Processing Toolkit (SPTK)
+{\color{blue} Software: Merlin baseline system, sprocket baseline system, STRAIGHT, WORLD, Griffin-Lim, Speech Signal Processing Toolkit (SPTK)}
 
 In terms of conversion conditions, VC can be categorized into parallel and non-parallel, text-dependent and text-independent systems [50]. In parallel systems, the training corpus consists of paired recodings from the source and target spearkers with same liguistic contents. The shared acoustic features can be used to train the mapping model. To get parallel feature sequences of equal length, a time-alignment step must be included to remove the temporal differences in the recordings, for example, the dynamic time warping (DTW) [56] algorithm. Phoneme transcriptions are also useful for time alignment. Non-parallel system does not require sentences with the same linguistic contents. It is much more useful and practical because non-parallel speech data is easier to collect and therefore can get larger training set. There are several ways to learn the mapping without paired data: (1) use unit selection method [60] to choose matched linguistic feature pairs; (2) build pseudo parallel sentences using text-to-speech (TTS) system [61]; (3) extract speaker-independent features in a latent space [62]; (4) use unpaired image-to-image translation approaches such as CycleGAN [10]. 
 
