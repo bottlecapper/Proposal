@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  7 OCT 2018 04:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  7 OCT 2018 04:55
 entering extended mode
 **./proposal.tex
 (proposal.tex
@@ -829,7 +829,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [3] [4] [5]
 [6] [7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2310) has occurred while \output is active []
 
  [8]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 386.
@@ -859,7 +859,7 @@ Here is how much of TeX's memory you used:
  12340 multiletter control sequences out of 15000+200000
  46125 words of font info for 154 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,10n,38p,1205b,404s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,10n,38p,1228b,404s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\bottl\App
 Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/
@@ -874,7 +874,7 @@ Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on proposal.pdf (11 pages, 207361 bytes).
+Output written on proposal.pdf (11 pages, 207640 bytes).
 PDF statistics:
  412 PDF objects out of 1000 (max. 8388607)
  80 named destinations out of 1000 (max. 500000)
