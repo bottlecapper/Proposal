@@ -27,7 +27,12 @@
 \usepackage{microtype}      % microtypography
 \usepackage{amsmath}
 
-\usepackage{color}
+\usepackage{color,graphicx}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.5pt] (char) {#1};}}
+
+
 
 \title{Game-Theoretic Models for Generative Learning \\{\normalsize PhD Thesis Proposal}
 }
@@ -48,7 +53,7 @@
 \maketitle
 
 \begin{abstract}
-Machine learning has achieved great success in classification tasks with the booming of powerful deep neural networks. However, there's still a big gap between computer and human intelligence. I identify three levels of artificial intelligence: memorization, recognition and creativity.
+Machine learning has achieved great success in classification tasks thanks to the powerful deep neural networks. However, there's still a big gap between computer and human intelligence.
 %People wonder if machines can learn from the world like us and have the creative power.
 % To which extent can machines get the creative power of humans?
 Discriminative learning attempts to infer knowledge from data by modeling the conditional distribution of outputs given inputs, while generative learning tries to estimate the entire distribution of data and produces new samples.
@@ -67,7 +72,7 @@ Last, we plan to test our approach in simulations and apply it to train several 
 \section{Introduction}
 \label{Sec:Intro}
 
-In the last decade, machine learning approaches have achieved great success with the boom of deep neural networks. There are three levels of human intelligence: memorization, recognition and generation. Computers are approaching humans on the first two levels, and now going to the third.
+In the last decade, machine learning approaches have achieved great success with the rapid development of deep neural networks.  I identify three levels of artificial intelligence: memorization, recognition and generation. Computers are approaching humans on the first two levels, and now going to the third.
 
 Apart from recognition and classification tasks, people hope to learn the entire distribution of data and generate new samples. In mathematics, it means to learn a function describing the structure of unlabeled data, for example, density estimation is a direct application. It requires inferring the real data distribution given a set of observations. There's no straightforward way to evaluate the accuracy of generative models, because the goal is to produce lifelike artificial examples and the evaluation is subjective in most cases.
 
@@ -262,40 +267,53 @@ This package was used to typeset Table~\ref{sample-table}.
 \subsection{Case Study: Generative Modeling for Image Synthesis}
 
 
+\newpage
 
 
-\section{Domain Transfer as a Minimax Game}
+\section{Style Transfer as a Minimax Game}
 \label{Sec:ST}
 
 %integration of new ideas with the learner’s existing "prior" knowledge
 %Generative learning: the construction of relationships between existing knowledge and stimuli
 
 \subsection{Introduction}
-Many problems in machine learning involve translating data from one domain to another. For example, transfer photograph to artistic painting, convert one person's voice to another, translate music to imitate different musical instruments, etc. In supervised learning, it assumes that the test samples have the same distribution as the training set. However, it is not valid in many practical cases, so the knowledge needs to be transferred across domains to capture the domain shift. The general problem is to learn a mapping from one domain to another, on condition that it changes the appearance style while keeps the underlying content.
+Style transfer originally means rendering an image in different styles. This meaning can be extended to other kinds of data like music and speech. More generally, it refers to mapping data from one domain to anther while keeping {\color{blue} its semantic (underlying) content / the domain-invariant knowledge}. For example, transfer photographs to artistic paintings, convert one person's voice to another, or translate music to imitate different instruments. Another case is transfer learning. It adapts a pre-trained model in source domain to classify samplpes in target domain where labeled data is limited.
+%It applies pre-trained model on source data to sovle a different but related problem, which involves tranferring knowledge between domains.
+%Supervised learning assumes that training and test data have the same distribution, but it's not always true as these two sets may have domain shift. Thus knowledge nees to be transferred across domains. The general problem is to learn a mapping from one domain to another, on condition that it changes the appearance style while keeps the underlying content.
 
 % Definition of the problem
-Let $x^s \in \mathbb{X}^S$ be samples in the source domain and $x^t \in \mathbb{X}^T$ be samples in the target domain. The goal of domain transfer is to learn a mapping: $G: \mathbb{X}^S \rightarrow \mathbb{X}^T$ such that the generated output $\hat{x}^t = G(x^s)$ is indistinguishable from the real samples drawn from the target domain. The optimal mapping $G$ transports $\mathbb{X}^S$ to $\mathbb{\hat{X}}^T$, which should have the same distribution as $\mathbb{X}^T$.
+Let $x_1 \in \mathbb{X}_1$ be samples in the source domain and $x_2 \in \mathbb{X}_2$ be samples in the target domain. The goal of {\color{blue} style} transfer is to learn a mapping function $\mathcal{T}: \mathbb{X}_1 \rightarrow \mathbb{X}_2$ such that the generated output $x_{2\leftarrow1}' = \mathcal{T}(x_1)$ is indistinguishable from the real samples drawn from the target domain. The optimal mapping $\mathcal{T}^*$ transforms $x_1$ to $x_{2\leftarrow1}'$ such that $x_{2\leftarrow1}' \overset{d}{=} x_2$. Semantic content should be preserved during the transformation.
 
-We propose a game-theoretic approach to learn the mapping. The approach is based on neural network representations to capture the high-level and low-level features, and distributionally robust optimization to find the Nash equilibrium. In the game, there are several groups of players with different objectives. The intergroup competition and intragroup collaboration enable the players to learn from others and optimize their worst-case performance.
+We propose a game-theoretic approach to learn the mapping. The domain-invariant content information and domain-specific style information are decomposed by disentangled representation learning. For high dimensional data like image and speech waveform, we employ autoencoders to independently model the high-level semantic content and the low-level style information. The learning problem is formulated as a distributionally robust game with {\color{blue} cooperative agents} and payoff uncertainty. In this game, several groups of players run with different objectives. The intergroup competition and intragroup collaboration enable the players to learn from each other and optimize their worst-case performance.
+%The approach is based on neural network representations to capture the high-level and low-level features, and distributionally robust optimization to find the Nash equilibrium.
+%cooperative games, form coalitions of the players
+%the players are partitioned into a certain collection of coalitions
+%A coalitional game with transferable utility
+%Utility (money) can be tranferred between the players
 
-This work has a wide range of use cases. In classification, since labelled data is scarce and expensive, people want to learn from unlabelled target domain by exploring the knowledge learnt from a well-labeled source domain. Domain transfer algorithms help to translate source data samples to target domain as well as the corresponding labels. In visual and performing arts, it's inspiring to automatically generate artificial paintings with user-specified style or play synthetic music with desired timbre and musical instrument. In informatics, it's useful to transform speaker identity by modifying his voice to sound like another person. It is also possible to learn and mimic animal's vocalization and study the feedback on the artificially generated sound. For case study, we apply our approach in two typical domain transfer tasks: image style transfer and emotional voice conversion.
-
+%Applications
+This work has a wide range of applications. In visual and performing arts, it's inspiring to automatically generate artificial paintings with user-specified style or play synthetic music with desired timbre and musical instrument. In informatics, it's useful to transform speaker identity by modifying his voice to sound like another person. It is also possible to learn and mimic animal's vocalization and study the feedback on the artificially generated sound. For case study, we apply our approach in two scenarios: image style transfer and emotional voice conversion.
+%In transfer learning, people use a pre-trained model in source domain to classify samplpes in target domain where labeled data is limited. Style transfer helps to translate source data to target domain as well as their corresponding labels.
 
 \subsection{Motivation} %Assumptions
-In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y|x)$, while generative models produce new data with desired labels by drawing samples from distribution $p(x|y)$. From a probabilistic modeling perspective, domain transfer models traslate samples from source domain to target domain by learning a joint distribution $p(x^s, x^t)$. If we do not have paired training data $\{{x_i^s, x_i^t\}}_{i=1}^N$, the problem is estimating joint distribution by its marginal distributions $p(x^s), p(x^t)$. According to coupling theory [1], the choice of valid joint distribution is generally not unique. Therefore, we need to make a choice so that the marginal distributions are related in a desirable way.
+In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y|x)$, while generative models {\color{blue} synthesize} new data with desired labels by drawing samples from estimated distribution $p(x|y)$. From a perspective of probabilistic modeling, style transfer learns two conditions $p(x_1|x_2)$ and $p(x_2|x_1)$. When paired data is available, it is easy to infer from the joint distribution $p(x_1,x_2)$. For nonparallel data, the problem is ill-posed because the joint solution is not unique given two marginals $p(x_1), p(x_2)$.
 
-There are bunch of assumptions and constrains proposed to deal with this ill-posed problem. Some suggest to partially preserve the content of source domain data, such as pixel intensity, gradient and object boundary [2][3]; others propose to keep certain properties unchanged during the transfer, such as semantic features and class labels [4].
+Additional conditions are required to handle this problem. Some suggested to keep some parts of the data unchanged, such as pixel intensity, gradient or object boundary [2][3]; others proposed to preserve certain properties of the samples after style transfer, for example semantic features and class labels [4].
+%According to coupling theory [1], the choice of valid joint distribution is generally not unique.
+%Therefore, we need to make a choice so that the marginal distributions are related in a desirable way.
+%There are bunch of assumptions and constrains proposed to deal with this ill-posed problem.
 
-Gatys et al. [7] separate and recombine the content and style of images under the Convolutional Neural Network (CNN) representation. In the hierarchical network, high-level content information is stored in higher layers of the network, and low-level information such as texture and artistic style is captured by the correlations between filter responses in different CNN layers. They assume the representations of content and style in the Convolutional Neural Network are well separable. However, the style comes from only one image, not the entire training set. This limination prevents it from capturing the general theme of the target domain.
+Gatys et al. [7] introduced an algorithm to separate and recombine the content and style of natural images. They claimed that a Convolutional Neural Network (CNN) is the ideal representation to factorize semantic content and artistic style. High-level features are extracted by higher layers of the network, while low-level features are captured by the correlations between filter responses in various layers. However, the style is learnt from a single image, which limits the ability to capture the general theme of the target domain.
 %It can preserve the semantic content of source image and replace the style with that learnt from the target image.
 
-Zhu et al. [10] proposed a very straightforward constraint called cycle-consistency. It assumes if we transfer a sample from the source domain to the target domain and then translate back, we should get exactly the same sample. Choi et al. [11] generalized it to perform multiple-domain translation using a single generative model. However, domain transfer is not a one-to-one mapping, but many-to-many. That's why the cycle-consistency constraint is too strong and leads to the lack of diversity in the translated outputs.
+Zhu et al. [10] proposed a very straightforward constraint called cycle-consistency. It assumes that if a sample is translated from source domain to target domain and then translated back, it should be unchanged. Choi et al. [11] generalized it to perform multiple-domain translation using a single generative model. However, domain transfer is not a one-to-one mapping, but many-to-many. In some cases, the cycle-consistency constraint is too strong to provide enough diversity in the translated outputs.
 
-Based on the similar idea, Liu et al. [8] developed the UNIT framework by making a fully shared latent space assumption: corresponding images across domains can be mapped to the same latent code in a shared-latent space. This assumption implies the cycle-consistency constraint. Xun et al. [9] extended this idea to a partially shared latent space assumption, where each data sample is generated from a shared latent code for content and a domain-specific latent code for style. Images are translated across domains by reconstructing through encoder and decoder networks.
+Based on a similar idea, Liu et al. [8] developed the UNIT framework by making a fully shared latent space assumption, in which corresponding images across domains can be mapped to a same latent code in shared-latent space. This assumption implies the cycle-consistency constraint. Xun et al. [9] extended it to a partially shared latent space assumption, where each example is generated from a shared content code and a domain-specific style code. Images are translated across domains by replacing the style code.
 
-Another idea is to make assumptions over data distributions. Covariate shift [5] assumes unchanged conditional distributions $p(y^s|x^s), p(y^t|x^t)$ and the only difference across domains exist in the input distributions. If the distributions share a common support, then importance weighting [6] can help to estimate the target density $\hat{p}(x^t) = \hat{w}(x)p(x^s)$, where $w(x) = p(x^s)/p(x^t)$ is estimated by minimizing the Kullback–Leibler divergence $KL(p(x^t),\hat{p}(x^t))$. The weighting parameters correspond to the last layer of the decoder network and the first layer of the encoder network, which are low-level features representing the style.
+%Another idea is to make assumptions on data distribution. Covariate shift [5] assumes unchanged conditional distributions $p(y_1|x_1), p(y_2|x_2)$. The only difference across domains exist in the input distributions. If the distributions share a common support, then importance weighting [6] can help to estimate the target density $\hat{p}(x^t) = \hat{w}(x)p(x^s)$, where $w(x) = p(x^s)/p(x^t)$ is estimated by minimizing the Kullback–Leibler divergence $KL(p(x^t),\hat{p}(x^t))$. The weighting parameters correspond to the last layer of the decoder network and the first layer of the encoder network, which are low-level features representing the style.
 
-Other approaches [11][12][13] assume there exist a transformation $\mathcal{T}$ so that the source and target distributions can be matched with the new representations, $p(\mathcal{T}(x^s)) = p(\mathcal{T}(x^t))$. It requires to minimize the distance between distributions, which has been discussed in chapter \ref{Sec:Wasserstein}. This assumption is equivalent to finding a transporation plan $\mathcal{T}$ such that $p(\mathcal{T}(x^s)) = p(x^t)$. A particular solution is the optimal plan with the minimum transportation cost, i.e., the Wasserstein distance between the source and target distributions. As a by-product of this optimization problem, minimizing the transporation cost is equivalent to matching the samples with common representations and labels, yielding better knowledge transfer across domains. Under this idea, Damodaran et al. [14] propose to minimize the Wasserstein distance between joint distributions of data-label pair $p(x^s, y^s), p(x^t, f(x^t))$, which aligns data samples from source and target domains as well as transfers the discriminative information to the classifier $f$ in the target domain.
+Other approaches [11][12][13] assume there exist a transformation $\mathcal{T}$ so that the source and target distributions can be matched by the transformed representations, $p(\mathcal{T}(x_1)) = p(\mathcal{T}(x_2))$. It requires minimizing the distance between distributions, which has been discussed in chapter \ref{Sec:Wasserstein}. It is equivalent to searching for a transporation plan $\mathcal{T}$ such that $p(\mathcal{T}(x_1)) = p(x_2)$. A particular solution is the optimal plan that minimizes the transportation cost, i.e., the Wasserstein distance between the source and target data points. As a by-product, minimizing the transporation cost gives an alignment of the corresponding samples as well as their labels. Based on this idea, Damodaran et al. [14] proposed to minimize the Wasserstein distance between joint distributions $p(x_1, y_1)$ and $p(x_2, f(x_2))$, where $f$ is the classifier in the target domain. Category knowlege is transferred between domains by matching the data-label pairs.
+%which aligns data samples from source and target domains as well as transfers the discriminative information to the classifier $f$ in the target domain.
 
 %Joint Distribution Optimal Transport
 %samples that share a common representation and a common label (through classification) are matched, yielding better discrimination.
@@ -303,7 +321,7 @@ Other approaches [11][12][13] assume there exist a transformation $\mathcal{T}$ 
 
 \subsection{Related Work}
 %disentangled representation of content and style
-Learning generative models for domain transfer is an open problem. There are several topics closely related to our work, but with different definitions.
+Learning generative models for style transfer is an open problem. There are several topics closely related to this work, but with different definitions.
 
 \paragraph{Deep Generative Modeling}
 The original objective of this topic is to generate new samples from scratch by learning complicated data distributions in an unsupervised way. At test time, it takes random noise as input and outputs realistic samples. In some cases, it can also take in conditional information to produce user-specified output. There are three main frameworks of deep generative modeling: generative adversarial networks (GANs) [15], variational auto-encoders (VAEs) [16], and auto-regressive models [17].
@@ -347,7 +365,7 @@ stationary speech signal, % fixed time window, the statistical parameters of the
 frame-by-frame mapping, % each frame is mapped independent of other frames
 time-invariant linear filter, etc. Recently, Tamamori et. al [53] proposed a speaker-dependent WaveNet vocoder that does not require explicit modeling of excitation signals and those assumptions.
 
-{\color{blue} Software: Merlin baseline system, sprocket baseline system, STRAIGHT, WORLD, Griffin-Lim, Speech Signal Processing Toolkit (SPTK)}
+%Software: Merlin baseline system, sprocket baseline system, STRAIGHT, WORLD, Griffin-Lim, Speech Signal Processing Toolkit (SPTK)
 % STRAIGHT: a vocoder which can decompose speech signal into parameters so as to precisely control and modify them
 
 In terms of conversion conditions, VC can be categorized into parallel and non-parallel, text-dependent and text-independent systems [50]. In parallel systems, the training corpus consists of paired recodings from the source and target spearkers with same liguistic contents. The shared acoustic features can be used to train the mapping model. To get parallel feature sequences of equal length, a time-alignment step must be included to remove the temporal differences in the recordings, for example, the dynamic time warping (DTW) [56] algorithm. Phoneme transcriptions are also useful for time alignment. Non-parallel system does not require sentences with the same linguistic contents. It is much more useful and practical because non-parallel speech data is easier to collect and therefore can get larger training sets. There are several ways to learn the mapping without paired data: (1) use unit selection method [60] to choose matched linguistic feature pairs; (2) build pseudo parallel sentences using an extra automatic speech recognition (ASR) module [61]; (3) extract speaker-independent features in a shared latent space [62]; (4) use unpaired image-to-image translation approaches such as CycleGAN [10].
@@ -355,15 +373,94 @@ In terms of conversion conditions, VC can be categorized into parallel and non-p
 Parallel, text-dependent systems are supposed to have better performancce. However, parallel utterance pairs are difficult to get. Most parallel VC systems require time alignment to extract parallel source-target features. The misalignment in automatic time alignment algorithms often leads to degradation in speech quality, while manual correction is arduous. Recently, the winner of VC Challenge 2018 [51] showed their algorithm can achieve similar results in both parallel and non-parallel settings. It first uses a lot of external speech data with phonetic transcriptions to train a speaker-independent content-posterior-feature extractor, followed by a speaker-dependent LSTM-RNN to predict fundamental frequency $f_0$ and STRAIGHT spectral features [52], and then reconstruct the waveforms with a speaker-dependent WaveNet vocoder [53]. Moreover, Kaneko et.al [64] and Fang et. al [54] claimed their nonparallel, text-independent VC algorithms based on CycleGAN [10] perform comparable to or better than the state-of-the-art parallel approaches.
 
 
-\paragraph{Music Style Transfer}
+%\paragraph{Music Style Transfer}
 
 
 
 \subsection{Method}
+We propose a general approach for style transfer. %with {\color{blue} cooperative agents} and payoff uncertainty.
+Let $x_i \in \mathbb{X}_i$ be a datapoint sampled from domain $i$. The goal is to learn a conversion model $p(x_j|x_i)$ that maps $x_i$ to domain $j$ ($j\neq i$) by changing its style and preseving the original content. For unpaired training data, we have marginal distributions $p(x_i)$, $p(x_j)$ instead of the joint $p(x_i, x_j)$, so it requires additional constraints to determine $p(x_j|x_i)$. Inspired by disentangled representation learning in [32], we assume that each example $x_i \in \mathbb{X}_i$ can be decomposed into a content code $c\in \mathcal{C}$ that encodes domain-invariant information and a style code $s_i\in \mathcal{S}_i$ that encodes domain-dependent information. $\mathcal{C}$ is shared across domains and contains the information we want to preserve. $\mathcal{S}_i$ is domain-specific and contains the information we want to change. In conversion stage, we extract the content code of $x_i$ and recombine it with a style code randomly sampled from $\mathcal{S}_j$. A generative adversarial network (GAN) [15] is added to ensure that the converted samples are indistinguishable from the real ones.
+
+Figure \ref{fig:model} shows the autoencoder model of style transfer with a partially shared latent space. Any pair of corresponding datapoints $(x_i, x_j)$ is assumed to have a shared latent code $c\in \mathcal{C}$ and domain-specific style codes $s_i\in \mathcal{S}_i$, $s_j\in \mathcal{S}_j$. The generative model of domain $i$ is an autoencoder that consists of a deterministic decoder $x_i = G_i(c_i,s_i)$ and two encoders $c_i = E_i^c(x_i)$, $s_i = E_i^s(x_i)$. The encoder $E_i = (E_i^c, E_i^s)$ and decoder $G_i$ are inverse operations such that $E_i = G_i^{-1}$. To generate converted sample $x_{j\leftarrow i}'$, we just extract and recombine the content code of $x_i$ with the style code of domain $j$.
+\begin{equation}
+\begin{aligned}
+x_{i\leftarrow j}' = G_i(c_j, s_i) = G_i(E_j^c(x_j), s_i) \\
+x_{j\leftarrow i}' = G_j(c_i, s_j) = G_j(E_i^c(x_i), s_j)
+\end{aligned}
+\end{equation}
+It should be noted that the style code $s_i$ is not inferred from one example, but learnt from the entire target domain $j$, which is a major difference from [32]. This is because the style extracted from a single example is ambiguous and may not capture the general characteristics of the target domain. To restrict the mapping $p(x_j|x_i)$, we use an constriant that is slightly different from the cycle consistency [10]. It assumes that an example converted to another domain and converted back should be unchanged, i.e., $x_{i\leftarrow j\leftarrow i}'' = x_i$. Instead, we apply a semi-cycle consistency in the latent space by assuming that only the latent codes remain unchanged $E_i^c(x_{i\leftarrow j}') = c_i$ and $E_i^s(x_{i\leftarrow j}') = s_i$. The relaxed constriant provides diversity to the generated samples.
+
+\begin{figure}[htb]
+\center
+\includegraphics[width=0.6\textwidth]{FIG/model}
+\caption{Autoencoder model with partially shared latent space. Sample $x_i$ is encoded into a domain-specific space $\mathcal{S}_i$ and a shared content space $\mathcal{C}$. Corresponding datapoints $(x_1,x_2)$ are encoded in the same content code. Converted sample $x_{j\leftarrow i}'$ is generated by recombining the original content code of $x_i$ and the style code randomly sampled from $\mathcal{S}_j$.}
+\label{fig:model}
+\end{figure}
+
+We formulate the learning problem as a distributionally robust game. Each domain $i$ has four agents $E_i^c, E_i^s, G_i, D_i$, in which $D_i$ is a discriminator with two objectives. One is to distinguish between real samples and machine-generated samples, the other is to classify domain category. There are $4n$ agents for $n$ domains. For simplicity, we first investigate the conversion model between two domains.
+
+
+\subsubsection{Style transfer between two domains}
+When $n=2$, there are 8 agents: $E^c_1, E^s_1, G_1, D_1$ for domain $\mathbb{X}_1$ and $E^c_2, E^s_2, G_2, D_2$ for domain $\mathbb{X}_2$. Each agent has a different objective, and the utility function of one agent depends on the action of other agents. Collaboration and competition exist among them. So this is a distributionally robust game with cooperative agents and uncertain utility functions. 
+Based on the analysis above, there are five modules need to learn:
+\begin{enumerate}
+\item [\circled{1}] domain-invariant content encoder
+\item [\circled{2}] domain-specific style encoders
+\item [\circled{3}] real/fake discriminator
+\item [\circled{4}] domain classifier $D_i$
+\item [\circled{5}] fake samples generator
+\end{enumerate}
+
+The encoders and decoders form a group to synthesize converted samples in the target domain. Another group is the discriminator and classifier. They work on the opposite side to distinguish between real/fake samples and find out the domain category. The intergroup competition and intragroup collaboration are listed in table \ref{tab:game}.
+
+\begin{table}[htb]
+\centering
+\caption{Cooperative game}
+%\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{|c|c|c|}
+\hline
+Intergroup competition   & Learning module & Objective          \\ \hline
+$E^s_1, E^s_2$      & \circled{2}       & $\min L^s_{cyc}$      \\ \hline
+$D_1, D_2$          & \circled{4}       & $\min L^x_{cls}$      \\ \hline
+\hline
+Intragroup collaboration & Learning module & Objective          \\ \hline
+$E^c_1, E^s_1, G_1$ & $Autoencoder_1$   & $\min L^{x_1}_{rec}$  \\ \hline
+$E^c_2, E^s_2, G_2$ & $Autoencoder_2$   & $\min L^{x_2}_{rec}$  \\ \hline
+$G_1, G_2$          & \circled{5}       & $\min L^x_{GAN}$      \\ \hline
+$D_1, D_2$          & \circled{3}       & $\max L^x_{GAN}$      \\ \hline
+$E_1^c, E_2^c$      & \circled{1}       & $\min L^c_{cyc}$      \\ \hline
+
+\end{tabular}%}
+\label{tab:game}
+\end{table}
+
+$L^x_{cls}$ is the KL divergence between two classes. 
+
+
+
+
+
+
+\subsubsection{Multi-domain transformation}
+
+%$\mathcal{S}_i, \mathcal{S}_j, \mathcal{S}_1, \mathcal{S}_2, \mathcal{S}_3$
+
+
 
 \subsection{Case Study: Image Style Transfer}
 
+
+
 \subsection{Case Study: Emotional Voice Conversion}
+
+
+%(animal voice conversion -- cat/dog voice recognition)
+
+
+
+
+
+
 
 
 
@@ -542,7 +639,7 @@ intelligent system, e.g. navigation, learning by imitation, cooperation, and man
 
 
 \bibliographystyle{unsrt}
-\bibliography{proposal}
+\bibliography{ref}
 
 
 
