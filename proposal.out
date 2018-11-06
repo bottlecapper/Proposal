@@ -32,7 +32,7 @@
 \BOOKMARK [2][-]{subsection.5.2}{Motivation}{section.5}% 32
 \BOOKMARK [2][-]{subsection.5.3}{Related Work}{section.5}% 33
 \BOOKMARK [2][-]{subsection.5.4}{Method}{section.5}% 34
-\BOOKMARK [3][-]{subsubsection.5.4.1}{Style transfer between two domains}{subsection.5.4}% 35
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Two-domain transformation}{subsection.5.4}% 35
 \BOOKMARK [3][-]{subsubsection.5.4.2}{Multi-domain transformation}{subsection.5.4}% 36
 \BOOKMARK [2][-]{subsection.5.5}{Case Study: Image Style Transfer}{section.5}% 37
 \BOOKMARK [2][-]{subsection.5.6}{Case Study: Emotional Voice Conversion}{section.5}% 38
