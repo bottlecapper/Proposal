@@ -53,17 +53,17 @@
 \maketitle
 
 \begin{abstract}
-Machine learning has achieved great success in classification tasks thanks to the powerful deep neural networks. However, there's still a big gap between computer and human intelligence.
+Machine learning has achieved great success in object recognition and classification problems based on the rapid development of deep neural networks. However, there's still a big gap between computer and human intelligence.
 %People wonder if machines can learn from the world like us and have the creative power.
 % To which extent can machines get the creative power of humans?
-Discriminative learning attempts to infer knowledge from data by modeling the conditional distribution of outputs given inputs, while generative learning tries to estimate the entire distribution of data and produces new samples.
+Discriminative learning attempts to infer knowledge from data by modeling the conditional distribution of class labels given data samples, while generative learning tries to estimate the full data distribution and synthesizes new samples. It can control the generated samples by changing its class domain or modifing its visual appearance.
 %, manipulate existing samples, and predict the future.
 % build generative models in a game-theoretic framework
 My thesis will focus on the latter problem and investigate generative learning from a game-theoretic perspective. We first formulate the problem as a distributionally robust game with payoff uncertainty, and then develop a robust optimization algorithm to solve the Nash equilibrium.
 %In this game there are groups of players with different objectives. The intergroup competition and intragroup collaboration enable the players to learn from others and optimize their worst-case performance.
-Meanwhile, we will study the distance metric to measure similarity between distributions, which is vital to build the objective functions.
+Meanwhile, we will study the distance metrics that measure the similarity between distributions, which is a major issue in many generative learning problems.
 %In implementation, we use autoencoders to build feature representations for images and audio.
-Last, we plan to test our approach in simulations and apply it to train several generative models for images and audio.
+We then propose a conditional generative model to sovle the style transfer problem in image and speech processing. The disentangled representations of domain-specific style information and domain-invariant content information are modeled by autoencoders and domain classifiers. The encoders, decoders and classifiers form a distributinally robust game with competitive and collaborative agent coalitions. Finally, we plan to test our approach on real-world applications including conditional image synthesis and emotional speech conversion.
 
 \end{abstract}
 %rapidly developing field of deep learning
@@ -73,21 +73,44 @@ Last, we plan to test our approach in simulations and apply it to train several 
 \section{Introduction}
 \label{Sec:Intro}
 
-In the last decade, machine learning approaches have achieved great success with the rapid development of deep neural networks.  I identify three levels of artificial intelligence: memorization, recognition and generation. Computers are approaching humans on the first two levels, and now going to the third.
+In the last decade, machine learning has achieved great success with the rapid development of deep neural networks. Recent algorithms beat humans on ImageNet Challenge [79], the largest benchmark for image recognition. On the other side, people use computers to mimic the creative power of humans. A stream of papers [75][76][77][78][19] claimed their ability to generate lifelike pictures, text and music that can fool the human evaluators as well as machine classifiers. I identify three levels of artificial intelligence: memorization, recognition and creativity. Computers are approaching humans on the first two levels, and now going to the third.
+%Can Computers Be Creative? creativity is considered by most to be an essential component of human intelligence
+% they have little hope of ever producing truly creative work
 
-Apart from recognition and classification tasks, people hope to learn the entire distribution of data and generate new samples. In mathematics, it means to learn a function describing the structure of unlabeled data, for example, density estimation is a direct application. It requires inferring the real data distribution given a set of observations. There's no straightforward way to evaluate the accuracy of generative models, because the goal is to produce lifelike artificial examples and the evaluation is subjective in most cases.
+Apart from object recognition and classification, people want to learn the mechanism of data generation and synthesize new samples with desired properties. Discriminative learning tries to infer knowledge from data, while generative learning attempts to learn the full distribution of data and generate new samples. My research focuses on the latter problem.
 
-In generative learning, new samples produced by the learned model should be indistinguishable from the original data and have enough diversity. Generative models are powerful tools for many tasks such as image and audio generation, video prediction, style transfer, voice conversion, and semi-supervised learning.
+In probability theory, discriminative models make predictions by learning a conditional distribution $p(y|x)$, and generative models synthesize new data by drawing samples from $p(x)$. Both distributions are estimated from a limited set of observations, which could be noisy and imcomplete. The former problem is easier since $y$ is ususally in the low dimension space. Sometimes people only use a small portion of the data and ignore the other parts. For example in support vector machines (SVM) only points near the decision surface have influence on the classifier. The latter problem is harder because generative models need to estimate the full data distribution $p(x)$. Modeling the high-dimensional random variable $x$ is difficult. As the number of configurations can grow exponentially with the number of dimensions, there are not enough training examples for each dimension. Another concern is the computation challenge; many algorithms involve operations that grow exponentially with the number of dimensions.
+% Other data points play no part in determining the decision surface that is chosen.
+%One is the computation challenge: most algorithms include computations that grow exponentially with the dimension number. The other concern is the generalization ability.
+%A simple case is density estimation.
+%it means to learn a function describing the structure of unlabeled data, for example, density estimation is a direct application.
 
-If we work on low-dimension data, or just want some statistics instead of producing new samples, there's no need to model the data distribution. A bunch of unsupervised learning algorithms work well, e.g., k-means, Gaussian mixture model, EM, PCA, etc. But for complex tasks such as generating images, audios and videos, neural networks demonstrate more power. There are three popular mainstream methods in deep generative learning, generative adversarial network (GAN), variational auto-encoders (VAE) and autoregressive models (e.g., WaveNet, PixelRNN).
+Generative models are widely used in unsupervised learning. A major limitation of the current learning algorithms is that they rely on large amounts of well-labelled data to achieve good accuracy. However, it is not available in many industrial applications. For this reason, people adapt a pretrained model on a source dataset to a similar target dataset. The model may perform pooly as it is specialized to the source domain. Domain adaptation strategies can solve this problem. Let $x_1 \in X_1$ be source domain data with associated labels $y_1$, $x_2 \in X_2$ be target domain data with unknown labels $f(x_2)$. A mapping from the source domain to the target domain can be established by the conditional generative model $p{x_2|x_1}$. The classifier $f$ in the target domain is learnt by the category knowledge from the source domain.
 
-In general, training deep generative models is hard and time consuming. For example, it requires 8 GPUs training 6 days to learn the WaveNet autoencoder. The high dimensional training data and complex objective structures lead to many problems in optimization, such as algorithm instability, saturation, and mode collapse. Moreover, the model should have strong generalization power to produce diverse artificial examples instead of just memorizing the training set.
+Apart from traditional generative models like Gaussian mixture model (GMM) and Naive Bayes, neural network models exhibit increaing importance in modeling high dimension data. It is amazing if machines can generate artistic work in painting, music and sculpture. There are three kinds of dominant approaches in deep generative learning: generative adversarial networks (GAN), variational auto-encoders (VAE) and autoregressive models.
+% A shortcoming of the current state of the art for industrial applications is that our learning algorithms require large amounts of supervised data to achieve good accuracy
+%There's no straightforward way to evaluate the accuracy of generative models, because the goal is to produce lifelike artificial examples and the evaluation is subjective in most cases.
+%In generative learning, new samples produced by the learned model should be indistinguishable from the original data and have enough diversity. Generative models are powerful tools for many tasks such as image and audio generation, video prediction, style transfer, voice conversion, and semi-supervised learning.
+%If we work on low-dimension data, or just want some statistics instead of producing new samples, there's no need to model the data distribution. A bunch of unsupervised learning algorithms work well, e.g., k-means, Gaussian mixture model, EM, PCA, etc. But for complex tasks such as generating images, audios and videos, neural networks demonstrate more power. There are three popular mainstream methods in deep generative learning, generative adversarial network (GAN), variational auto-encoders (VAE) and autoregressive models (e.g., WaveNet, PixelRNN).
+In general, training deep generative models is hard and time consuming. The high dimensional training data and complex objective structures lead to many problems in optimization, such as instability, saturation, and mode collapse. Moreover, some models fail to provide enough diversity in the generated examples or just memorize the training set.
 
-In this research work, we plan to develop a new game-theoretic framework for generative learning. We formulate the problem as a distributionally robust game with payoff uncertainty, and develop a learning algorithm to solve the robust Nash equilibrium. In this game there are several groups of players that are competitive, noncooperative and have different objectives. Each player works in a continuous action space to optimize its expected worst-case performance. The players are implemented with neural network models to perform prediction, classification or data generation tasks. Agents with similar objectives form a group and work together against the others in order to optimize their expected payoffs. The distributionally robust Nash equilibrium is achieved by solving a minimax optimization problem. We consider using stochastic optimization techniques to deal with large-scale learning tasks.
+In this research, we plan to develop a new game-theoretic framework for generative learning. We first address the problem of data synthesis. The goal is to produce lifelike artificial examples that are indistinguishable from the training data. This involves the problem of computing the statistical distance between two datasets: the original real sample set and the generated fake sample set. Several distance metrics will be investigated to measure the similarity between distributions. As an important part of this research, We will compare Wasserstein distance [?] with the most prevalent information-based metrics such as Kullback-Leibler [?] and Jensen-Shannon divergence [?]. We plan to develop a practical method to approximately calculate the distance between distributions. Both theoretical analysis and experimental simulations will be provided. % numerical evaluations
 
-Iterative optimization algorithms travel to the equilibria by minimizing a loss function, which is in our case a distance metric defined to measure the similarity between two distributions. As an important part of this research, We will study the pros and cons of several kinds of distance metrics, and compare Wasserstein distance with the most prevalent information-based metrics such as Kullback-Leibler and Jensen-Shannon divergence. We plan to develop a practical method to approximately calculate the distance between distributions and give theoretical analysis and numerical evaluations.
+We then propose a conditional generative model to solve the unsupervised style transfer problem in image and speech processing. The objective is to learn a translation model between domains that can modify the domain-specific style features and preserve the domain-invariant content information. The disentangled representations of style and content are modeled by autoencoders and domain classifiers.
 
-We will first verify the theoretical results through simulations, and then apply our approach on real datasets for image and audio generation. We plan to work on several tasks such as object detection, vehicle tracking, image generation and audio synthesis. This research contributes to the areas of distributionally robust game, deep generative learning, stochastic optimization and time-series data analysis.
+We formulate the problem as a distributionally robust game with payoff uncertainty. The encoders, decoders and classifiers form competitive and collaborative agent coalitions in this game. They optimize towards their self objectives as well as the common interst with other players. Agents with similar objectives form a group and work together against the others in order to optimize their expected payoffs. The optimization process is not deterministic since the payoff function of each player depends on the actions of other players. The distributionally robust Nash equilibrium is achieved by solving a minimax optimization problem, in which each agent tries to maximize its worst-case payoff. An iterative learning algorithm is introduced to solve the robust Nash equilibrium.
+%In this game there are several groups of players that are competitive, noncooperative and have different objectives. Each player works in a continuous action space to optimize its expected worst-case performance.
+%We consider using stochastic optimization techniques to deal with large-scale learning tasks.
+%Iterative optimization algorithms travel to the equilibria by minimizing a loss function, which is in our case a distance metric defined to measure the similarity between two distributions.
+
+We will first verify the theoretical results through simulations, and then apply our approach on real datasets of images and speech. The agents are implemented with deep convolution neural networks to capture the spatial and temporal correlations in high dimension data. We plan to work on several tasks such as object detection, vehicle tracking, image synthesis and voice conversion. This research contributes to the areas of distributionally robust game, deep generative learning, stochastic optimization and time-series data analysis.
+%The agents are implemented with neural network models to perform prediction, classification or data generation tasks.
+
+The following chapters first describes the already completed work: the theory part of distributionally robust games (Chapter \ref{Sec:DRG}), the investigation of distance metrics (Chapter \ref{Sec:Wasserstein}), learning algorithms (Chapter \ref{Sec:Learning}). After that the progress on the current work of style transfer is described in Chapter \ref{Sec:ST}. Finally, the thesis outline and research plan are given in Chapter \ref{Sec:Outline} and Chapter \ref{Sec:Plan}.
+%Experiments and evaluation results are provided in the end of each chapter.
+
+\newpage
+
 
 
 \section{Distributionally Robust Games}
@@ -297,7 +320,7 @@ This work has a wide range of applications. In visual and performing arts, it's 
 %In transfer learning, people use a pre-trained model in source domain to classify samplpes in target domain where labeled data is limited. Style transfer helps to translate source data to target domain as well as their corresponding labels.
 
 \subsection{Motivation} %Assumptions
-In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y|x)$, while generative models {\color{blue} synthesize} new data with desired labels by drawing samples from estimated distribution $p(x|y)$. From a perspective of probabilistic modeling, style transfer learns two conditional distributions $p(x_1|x_2)$ and $p(x_2|x_1)$. When paired data is available, it is easy to infer from the joint distribution $p(x_1,x_2)$. For nonparallel data, the problem is ill-posed because the joint solution is not unique given two marginal distributions $p(x_1), p(x_2)$.
+In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y|x)$, while generative models {\color{blue} synthesize} new data with desired labels by drawing samples from estimated distribution $p(x|y)$. From a perspective of probabilistic modelling, style transfer learns two conditional distributions $p(x_1|x_2)$ and $p(x_2|x_1)$. When paired data is available, it is easy to infer from the joint distribution $p(x_1,x_2)$. For nonparallel data, the problem is ill-posed because the joint solution is not unique given two marginal distributions $p(x_1), p(x_2)$.
 %According to coupling theory [1], the choice of valid joint distribution is generally not unique.
 %Therefore, we need to make a choice so that the marginal distributions are related in a desirable way.
 %There are bunch of assumptions and constrains proposed to deal with this ill-posed problem.
@@ -310,19 +333,21 @@ Based on a similar idea, Liu et al. [8] developed the UNIT framework by making a
 
 %Another idea is to make assumptions on data distribution. Covariate shift [5] assumes unchanged conditional distributions $p(y_1|x_1), p(y_2|x_2)$. The only difference across domains exist in the input distributions. If the distributions share a common support, then importance weighting [6] can help to estimate the target density $\hat{p}(x^t) = \hat{w}(x)p(x^s)$, where $w(x) = p(x^s)/p(x^t)$ is estimated by minimizing the Kullback–Leibler divergence $KL(p(x^t),\hat{p}(x^t))$. The weighting parameters correspond to the last layer of the decoder network and the first layer of the encoder network, which are low-level features representing the style.
 
-Other approaches [11][12][13] assume there exists a transformation $\mathcal{T}$ such that the source and target data can be matched in a new representation $p(\mathcal{T}(x_1)) = p(\mathcal{T}(x_2))$. The types of transformation includes projections, affine transform, and non-linear mapping defined by neural networks. The optimization problem is to minimize the distance between two transformed distributions. Several metrics used to measure the distance have been discussed in chapter \ref{Sec:Wasserstein}. 
+Some approaches [11][12][13] assume there exists a transformation $\mathcal{T}$ such that the source and target data can be matched in a new representation $p(\mathcal{T}(x_1)) = p(\mathcal{T}(x_2))$. The types of transformation includes projections, affine transform, and non-linear mapping defined by neural networks. The objective is to minimize the gap between two transformed distributions. Several metrics used to compare distributions have been discussed in chapter \ref{Sec:Wasserstein}. One requirement is that $p(x_1)$ and $p(x_2)$ share a common support, otherwise the optimization process is instable due to vanishing gradient issues.
 
-
-This is equivalent to searching for a transporation plan $\mathcal{T}$ such that $p(\mathcal{T}(x_1)) = p(x_2)$. A particular solution is the optimal plan that minimizes the global transportation cost (Wasserstein distance) between the source and target distributions. As a by-product, minimizing the transporation cost gives an alignment of the corresponding samples as well as their labels. Based on this idea, Damodaran et al. [14] proposed to minimize the Wasserstein distance between joint distributions $p(x_1, y_1)$ and $p(x_2, f(x_2))$, where $f$ is the classifier in the target domain. Category knowlege is transferred between domains by matching the data-label pairs.
+Anothter idea is to directly assume the mapping $\mathcal{T}: x_2 = \mathcal{T}(x_1)$ to be the optimal transport between $p(x_1)$ and $p(x_2)$. The optimal solution $\mathcal{T}^*$ minimizes the global transportation cost (Wasserstein distance) between the source and target distributions. As a by-product, minimizing the transporation cost gives the alignment of corresponding samples as well as their labels. It can be used to solve the domain adaptation problem [14] by finding the joint distribution optimal transport between $p(x_1, y_1)$ and $p(x_2, f(x_2))$. $f$ is the classifier in the target domain, which can be infered from the aligned data-label pairs.
+%Category knowlege is transferred between domains by matching the data-label pairs.
 %which aligns data samples from source and target domains as well as transfers the discriminative information to the classifier $f$ in the target domain.
-
 %Joint Distribution Optimal Transport
 %samples that share a common representation and a common label (through classification) are matched, yielding better discrimination.
+
+While many approaches have been proposed, learning the mapping between different domains is still an open problem. Our work is motivated to support the development of more robust and comprehensible generative models for style transfer.
 
 
 \subsection{Related Work}
 %disentangled representation of content and style
-Learning generative models for style transfer is an open problem. There are several topics closely related to this work, but with different definitions.
+%Learning generative models for style transfer is an open problem.
+There are several topics closely related to this work, but with different definitions.
 
 \paragraph{Deep Generative Modeling}
 The original objective of this topic is to generate new samples from scratch by learning complicated data distributions in an unsupervised way. At test time, it takes random noise as input and outputs realistic samples. In some cases, it can also take in conditional information to produce user-specified output. There are three main frameworks of deep generative modeling: generative adversarial networks (GANs) [15], variational auto-encoders (VAEs) [16], and auto-regressive models [17].
@@ -416,7 +441,6 @@ The encoders and decoders form a group to synthesize converted samples in the ta
 
 {\color{blue} How to define the game? \\
 When Nash equilibrium reaches, the autoencoder $(E^{c*}_i, E^{s*}_i, G^*_i)$ minimizes the reconstruction error $L^x_{rec}\rightarrow0, L^c_{rec}\rightarrow0, L^s_{rec}\rightarrow0$. The GAN network $(D^*_i, G^*_i)$ and adversarial loss $L^{x_i}_{GAN}$ converge at saddle points that minimize the distance between $p(x_i)$ and $p(x_{j\leftarrow i}')$. The classifier $D^{cls*}_i$ correctly predicts the domain category of both real and fake samples $D^{cls*}_i(x_i)=i$, $D^{cls*}_i(x_{i\leftarrow j}')=i$.
-
 }
 
 \begin{table}[htb]
@@ -790,5 +814,9 @@ intelligent system, e.g. navigation, learning by imitation, cooperation, and man
 %[71] Iemocap: Interactive emotional dyadic motion capture database
 %[72] Automatic speech emotion recognition using recurrent neural networks with local attention
 %[73] Language modeling with gated convolutional networks
-
-
+%[74] Large Scale GAN Training for High Fidelity Natural Image Synthesis
+%[75] MuseGAN: Multi-Track Sequential Generative Adversarial Networks for Symbolic Music Generation and Accompaniment
+%[76] StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation
+%[77] Generating Text through Adversarial Training using Skip-Thought Vectors
+%[78] A Universal Music Translation Network
+%[79] ImageNet: A Large-Scale Hierarchical Image Database
