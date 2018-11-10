@@ -115,8 +115,16 @@ The following chapters first describes the already completed work: the theory pa
 
 \section{Distributionally Robust Games}
 \label{Sec:DRG}
+One fundamental problem in generative learning is to estimate the full data distribution given finite noisy observations. Suppose the training samples $x$ are drawn from a distribution $m$, and the generative model produces new data $x'$ by sampling from an estimated distribution $m'$. The objective is to minimize the statistical distance between $m$ and $m'$ so that the synthesized data is similar to the real ones. Since the comparison is made on two statistical objects instead of two individual sample points, {\color{blue} there is no deterministic objective to use.} In this chapter, we formulate the problem as a distributionally robust game with payoff uncertainty, and then solve it by stochastic robust optimization. 
+
+We first introduce the concept of distributionally robust games, and then define the objective function based on the statistical notions of $f-$divergence between two distributions. The complexity of the problem is analyzed and reduced by means of triality theory. We propose stochastic Bregman learning algorithms to solve the robust Nash equilibria. The algorithm is proved to have doubly logarithmic convergence time with respect to the precision of the minimax value in potential convex games. In simulation, the theoretical findings are illustrated in convex setting and its limitations are tested with a non-convex non-concave example. Finally, we apply this approach to train a generative model.
+
 
 \subsection{Introduction}
+
+
+
+
 
 \subsubsection{Distribution Uncertainty Set}
 
