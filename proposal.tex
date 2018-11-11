@@ -26,13 +26,22 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{amsmath}
-
+\usepackage{amsthm,amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \usepackage{color,graphicx}
 \usepackage{tikz}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=0.5pt] (char) {#1};}}
 
+\newtheorem{thm}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{defi}{Definition}
+\newtheorem{example}{Example}
 
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+\renewcommand{\theenumiii}{\theenumi.\arabic{enumii}.\arabic{enumiii}}
 
 \title{Game-Theoretic Models for Generative Learning \\{\normalsize PhD Thesis Proposal}
 }
@@ -79,13 +88,13 @@ In the last decade, machine learning has achieved great success with the rapid d
 
 Apart from object recognition and classification, people want to learn the mechanism of data generation and synthesize new samples with desired properties. Discriminative learning tries to infer knowledge from data, while generative learning attempts to learn the full distribution of data and generate new samples. My research focuses on the latter problem.
 
-In probability theory, discriminative models make predictions by learning a conditional distribution $p(y|x)$, and generative models synthesize new data by drawing samples from $p(x)$. Both distributions are estimated from a limited set of observations, which could be noisy and imcomplete. The former problem is easier since $y$ is ususally in the low dimension space. Sometimes people only use a small portion of the data and ignore the other parts. For example in support vector machines (SVM) only points near the decision surface have influence on the classifier. The latter problem is harder because generative models need to estimate the full data distribution $p(x)$. Modeling the high-dimensional random variable $x$ is difficult. As the number of configurations can grow exponentially with the number of dimensions, there are not enough training examples for each dimension. Another concern is the computation challenge; many algorithms involve operations that grow exponentially with the number of dimensions.
+In probability theory, discriminative models make predictions by learning a conditional distribution $p(y\mid x)$, and generative models synthesize new data by drawing samples from $p(x)$. Both distributions are estimated from a limited set of observations, which could be noisy and imcomplete. The former problem is easier since $y$ is ususally in the low dimension space. Sometimes people only use a small portion of the data and ignore the other parts. For example in support vector machines (SVM) only points near the decision surface have influence on the classifier. The latter problem is harder because generative models need to estimate the full data distribution $p(x)$. Modeling the high-dimensional random variable $x$ is difficult. As the number of configurations can grow exponentially with the number of dimensions, there are not enough training examples for each dimension. Another concern is the computation challenge; many algorithms involve operations that grow exponentially with the number of dimensions.
 % Other data points play no part in determining the decision surface that is chosen.
 %One is the computation challenge: most algorithms include computations that grow exponentially with the dimension number. The other concern is the generalization ability.
 %A simple case is density estimation.
 %it means to learn a function describing the structure of unlabeled data, for example, density estimation is a direct application.
 
-Generative models are widely used in unsupervised learning. A major limitation of the current learning algorithms is that they rely on large amounts of well-labelled data to achieve good accuracy. However, it is not available in many industrial applications. For this reason, people adapt a pretrained model on a source dataset to a similar target dataset. The model may perform pooly as it is specialized to the source domain. Domain adaptation strategies can solve this problem. Let $x_1 \in X_1$ be source domain data with associated labels $y_1$, $x_2 \in X_2$ be target domain data with unknown labels $f(x_2)$. A mapping from the source domain to the target domain can be established by the conditional generative model $p{x_2|x_1}$. The classifier $f$ in the target domain is learnt by the category knowledge from the source domain.
+Generative models are widely used in unsupervised learning. A major limitation of the current learning algorithms is that they rely on large amounts of well-labelled data to achieve good accuracy. However, it is not available in many industrial applications. For this reason, people adapt a pretrained model on a source dataset to a similar target dataset. The model may perform pooly as it is specialized to the source domain. Domain adaptation strategies can solve this problem. Let $x_1 \in X_1$ be source domain data with associated labels $y_1$, $x_2 \in X_2$ be target domain data with unknown labels $f(x_2)$. A mapping from the source domain to the target domain can be established by the conditional generative model $p(x_2\mid x_1)$. The classifier $f$ in the target domain is learnt by the category knowledge from the source domain.
 
 Apart from traditional generative models like Gaussian mixture model (GMM) and Naive Bayes, neural network models exhibit increaing importance in modeling high dimension data. It is amazing if machines can generate artistic work in painting, music and sculpture. There are three kinds of dominant approaches in deep generative learning: generative adversarial networks (GAN), variational auto-encoders (VAE) and autoregressive models.
 % A shortcoming of the current state of the art for industrial applications is that our learning algorithms require large amounts of supervised data to achieve good accuracy
@@ -94,7 +103,7 @@ Apart from traditional generative models like Gaussian mixture model (GMM) and N
 %If we work on low-dimension data, or just want some statistics instead of producing new samples, there's no need to model the data distribution. A bunch of unsupervised learning algorithms work well, e.g., k-means, Gaussian mixture model, EM, PCA, etc. But for complex tasks such as generating images, audios and videos, neural networks demonstrate more power. There are three popular mainstream methods in deep generative learning, generative adversarial network (GAN), variational auto-encoders (VAE) and autoregressive models (e.g., WaveNet, PixelRNN).
 In general, training deep generative models is hard and time consuming. The high dimensional training data and complex objective structures lead to many problems in optimization, such as instability, saturation, and mode collapse. Moreover, some models fail to provide enough diversity in the generated examples or just memorize the training set.
 
-In this research, we plan to develop a new game-theoretic framework for generative learning. We first address the problem of data synthesis. The goal is to produce lifelike artificial examples that are indistinguishable from the training data. This involves the problem of computing the statistical distance between two datasets: the original real sample set and the generated fake sample set. Several distance metrics will be investigated to measure the similarity between distributions. As an important part of this research, We will compare Wasserstein distance [?] with the most prevalent information-based metrics such as Kullback-Leibler [?] and Jensen-Shannon divergence [?]. We plan to develop a practical method to approximately calculate the distance between distributions. Both theoretical analysis and experimental simulations will be provided. % numerical evaluations
+In this research, we plan to develop a new game-theoretic framework for generative learning. We first address the problem of data synthesis. The goal is to produce lifelike artificial examples that are indistinguishable from the training data. This involves the problem of computing the statistical distance between two datasets: the original real sample set and the generated fake sample set. Several distance metrics will be investigated to measure the similarity between distributions. As an important part of this research, we will compare Wasserstein distance \cite{Villani} with the most prevalent information-based metrics such as Kullback-Leibler [80] and Jensen-Shannon divergence [81] in generative learning. We plan to develop a practical method to approximately calculate the distance between distributions. Both theoretical analysis and experimental simulations will be provided. % numerical evaluations
 
 We then propose a conditional generative model to solve the unsupervised style transfer problem in image and speech processing. The objective is to learn a translation model between domains that can modify the domain-specific style features and preserve the domain-invariant content information. The disentangled representations of style and content are modeled by autoencoders and domain classifiers.
 
@@ -106,7 +115,7 @@ We formulate the problem as a distributionally robust game with payoff uncertain
 We will first verify the theoretical results through simulations, and then apply our approach on real datasets of images and speech. The agents are implemented with deep convolution neural networks to capture the spatial and temporal correlations in high dimension data. We plan to work on several tasks such as object detection, vehicle tracking, image synthesis and voice conversion. This research contributes to the areas of distributionally robust game, deep generative learning, stochastic optimization and time-series data analysis.
 %The agents are implemented with neural network models to perform prediction, classification or data generation tasks.
 
-The following chapters first describes the already completed work: the theory part of distributionally robust games (Chapter \ref{Sec:DRG}), the investigation of distance metrics (Chapter \ref{Sec:Wasserstein}), learning algorithms (Chapter \ref{Sec:Learning}). After that the progress on the current work of style transfer is described in Chapter \ref{Sec:ST}. Finally, the thesis outline and research plan are given in Chapter \ref{Sec:Outline} and Chapter \ref{Sec:Plan}.
+The following chapters first describes the already completed work: the theory part of distributionally robust games (Chapter \ref{Sec:DRG}), the investigation of distance metrics (Chapter \ref{Sec:Wasserstein}), learning algorithms and applications on image synthesis (Chapter \ref{Sec:Learning}). After that the progress on the current work of style transfer is described in Chapter \ref{Sec:ST}. Finally, the thesis outline and research timeline are given in Chapter \ref{Sec:Outline}.
 %Experiments and evaluation results are provided in the end of each chapter.
 
 \newpage
@@ -115,191 +124,822 @@ The following chapters first describes the already completed work: the theory pa
 
 \section{Distributionally Robust Games}
 \label{Sec:DRG}
-One fundamental problem in generative learning is to estimate the full data distribution given finite noisy observations. Suppose the training samples $x$ are drawn from a distribution $m$, and the generative model produces new data $x'$ by sampling from an estimated distribution $m'$. The objective is to minimize the statistical distance between $m$ and $m'$ so that the synthesized data is similar to the real ones. Since the comparison is made on two statistical objects instead of two individual sample points, {\color{blue} there is no deterministic objective to use.} In this chapter, we formulate the problem as a distributionally robust game with payoff uncertainty, and then solve it by stochastic robust optimization. 
+One fundamental problem in generative learning is to estimate the full data distribution given finite noisy observations. Suppose the training samples $x$ are drawn from a distribution $m$, and the generative model produces new data $\tilde{x}$ by sampling from an estimated distribution $\tilde{m}$. The objective is to minimize the statistical distance between $m$ and $\tilde{m}$ so that the synthesized data is similar to the real ones. Since the comparison is made on two statistical objects instead of two individual sample points, {\color{blue} there is no deterministic objective to use.} We formulate the problem as a distributionally robust game (DRG) with payoff uncertainty, and offer a corresponding distributionally robust equilibrium concept.
+%and then solve it by stochastic robust optimization.
 
-We first introduce the concept of distributionally robust games, and then define the objective function based on the statistical notions of $f-$divergence between two distributions. The complexity of the problem is analyzed and reduced by means of triality theory. We propose stochastic Bregman learning algorithms to solve the robust Nash equilibria. The algorithm is proved to have doubly logarithmic convergence time with respect to the precision of the minimax value in potential convex games. In simulation, the theoretical findings are illustrated in convex setting and its limitations are tested with a non-convex non-concave example. Finally, we apply this approach to train a generative model.
+In this chapter, we first introduce the definition of distribution uncertainty set and formulate the distributionally robust game as a minimax optimization problem. Then, we define the distributionally robust equilibrium, analysis the complexity of the problem, and use triality theory to reduce model dimensionality via Lagrangian relaxation. Finally, we apply this model to solve an unsupervised generative learning problem.
+%we formulate the generative learning problem into the distributionally robust game framework.
+%We first introduce the concept of distributionally robust games, and then define the objective function based on the statistical notions of $f-$divergence between two distributions. The complexity of the problem is analyzed and reduced by means of triality theory. We propose stochastic Bregman learning algorithms to solve the robust Nash equilibria. The algorithm is proved to have doubly logarithmic convergence time with respect to the precision of the minimax value in potential convex games. In simulation, the theoretical findings are illustrated in convex setting and its limitations are tested with a non-convex non-concave example. Finally, we apply this approach to train a generative model.
 
 
 \subsection{Introduction}
+Games with payoff uncertainty refer to games where the outcome of a play is not known with certainty by the players. Such games are also called incomplete information games and can be formalized in different ways. Distribution-free models of incomplete information games, both with and without private information are examined in \cite{Aghassi2006,doi:10.1137/080734510}. There the players use a robust optimization approach to contend with the worst-case scenario payoff. The distribution free approach relaxes the well-known Bayesian game model approach by Harsanyi. The limitation of the distribution-free model is that the uncertainty set has to be carefully designed and in most cases such approach leads to too conservative and unrealistic scenarios. {\color{blue} We propose a distribution-dependent model in which the uncertainty set contains all possible distributions within a bounded region.}
 
-
+Distributionally robust game (DRG) is a game with incomplete information. Instead of assuming an underlying mean-field or exactly known probability distribution, one acts with an uncertainty set, which could be distributions chosen by other players. The set of distributions should be chosen to fit for the applications at hand. In robust best-response problems, the uncertain sets are represented by deterministic models. The opponent players have a bounded capability to change the uncertain parameters, and therefore affects the objective function the decision maker seeks to optimize. Each player has his own robust best response optimization problem to solve. Thus, the standard best response problem of agent $j$: $\inf_{a_j \in \mathcal{A}_j} l_j(a_j,a_{-j},\omega)$ becomes the minimax robust best response:
+\begin{equation}
+\inf_{a_j\in \mathcal{A}_j} \sup_{\omega \in \Omega} l_j(a_j, a_{-j},\omega)
+\end{equation}
+where $a_j$ is the action to choose and $l$ is the objective functional evaluated at uncertain state $\omega$. This approach to uncertainty has a long history in optimization, control and games \cite{scarf1957min, sion1958, DBLP:journals/ior/Soyster73}. A credible alternative to this set-based uncertainty is to use a stochastic model, in which the uncertain state $\omega$ is a random variable with distribution $m$. If we assume the generating mean-field distribution $m$ is known, it becomes the standard stochastic optimal control paradigm. If $m$ is not known and the only known is a set of distributions lie in the neighborhood of $m$: $\tilde{m} \in B_{\rho}(m)$, the resulting best response to mean-field formulation is the so-called distributionally robust best response:
+\begin{equation}
+\inf_{a_j \in \mathcal{A}_j}\sup_{\tilde{m} \in B_{\rho}(m)} \mathbb{E}_{\omega \sim \tilde{m}} l_j(a_j, a_{-j}, \omega)
+\end{equation}
 
 
 
 \subsubsection{Distribution Uncertainty Set}
+Let $(\Omega, \mathcal{F},m)$ be a probability space. Here $m$ is a probability measure defined on $(\Omega, \mathcal{F})$. The distribution $m$ of the state $\omega$ is used to capture the probability of the different scenarios and of the corresponding performance function obtained under each of such scenarios for fixed action profile. We assume that the exact distribution of the state is not available in general. Therefore we propose an uncertainty/constraint set among all possible distributions with a divergence bounded by above by a scalar $\rho$. When $f-$divergence \cite{Csiszar1963,Morimoto1963,Silvey1966} is applied, such a constraint takes the form
+\begin{equation}
+B_{\rho}(m)=\{ \tilde{m}\mid \int_{\Omega} d\tilde{m}=\tilde{m}(\Omega)=1,\ D_{f}(\tilde{m}\parallel m) \leq \rho\},
+\label{eq:setf}
+\end{equation}
+When the Wasserstein distance \cite{Villani} is applied, the uncertainty set contains probability distributions within a Wasserstein ball.
+\begin{equation}
+B_{\rho}(m)=\{ \tilde{m}\mid \int_{\Omega} d\tilde{m}=\tilde{m}(\Omega)=1,\ W(m,\tilde{m}) \leq \rho\},
+\label{eq:setwass}
+\end{equation}
+
+\paragraph{$f-$Divergence}
+Let $m$ and $\tilde{m}$ be two probability measures over a space $\Omega$ such that $\tilde{m}$ is absolutely continuous with respect to $m$. Then, for a convex function $f$, the $f-$divergence of $\tilde{m}$ from $m$ is defined as
+\begin{equation*}
+D_f(\tilde{m}\parallel m) \equiv \int_{\Omega} f\left(\frac{d\tilde{m}}{dm}\right)\,dm - f(1),
+\end{equation*}
+where $\frac{d\tilde{m}}{dm}$ is the Radon-Nikodym derivative of the measure $\tilde{m}$ with respect to the measure $m$.
+
+Recall that for a proper convex function $f$, the Legendre-Fenchel duality holds: $(f^*)^*=f$ where
+\begin{eqnarray}
+f^*(\xi) = \sup_{x}[\langle x,\xi\rangle-f(x)] =-\inf_{x}[ f(x)-\langle x,\xi\rangle].
+\end{eqnarray}
 
 \subsubsection{Related Work}
-
+Strategic learning has proven to be a powerful approach in stochastic games. In particular, its algorithmic nature is well suited to accommodate parallel and distributed information exchange and processing as well as hardware realizability. However, almost all existing learning approaches work well only for specific classes of games such as concave-convex zero-sum games, convex potential games, and some S-modular game problems with unimodal objective functions. For more general classes of games, convergence of strategic learning dynamics is still an open issue. In addition, learning algorithms for finding fixed points or equilibria for general classes of games still present several challenges. For polymatrix games with finite action spaces, there have been great progress including Cournot adjustment, Brown-von Neumann-Nash dynamics, reinforcement learning, combined learning (see \cite{Tembine:2012:DSL:2378729} and the references therein). For continuous action spaces, however, only few handful works are available. Evolutionary dynamics and revision protocols based actions has been proposed \cite{FRIEDMAN2013743,conti1,FRIEDMAN2010691}. The exploration of continuous action takes too much time if the dynamics is based on individual action or measurable subsets \cite{7727688,PERKINS2014179,CHEUNG2014344}. Moreover, the convergence time of these existing strategic learning algorithms (when a convergence to a point or a limit cycle occurs) are unacceptably high even for potential games and it often requires strong assumptions such as bounded densities. The above mentioned prior works do not consider robust games setting. In \cite{Aghassi2006,doi:10.1137/080734510} a robust game framework is presented. The authors defined a distributed-free approach by considering the worst-case performance. However the choice of the uncertainty set remains an important part of the robust game modelling \cite{Bauso2016}. In this chapter we are interested in learning in distributionally robust games under $f$-divergence \cite{Csiszar1963,Morimoto1963,Silvey1966,Csiszar1967}.
 
 \subsection{Problem Formulation}
+In distributionally robust games, each agent $j$ adjusts his action $a_j\in \mathcal{A}_j$ to optimize the worst-case payoff functional $\mathbb{E}_{\tilde{m}} l_j(a,\omega)$ subject to the constraint that the divergence $D_f(\tilde{m}\parallel m )\leq \rho$. This means that the worst-case performance is obtained under the assumption that a virtual player (nature) acts as a defender who modifies the distribution $m$ into $\tilde{m}$ with an effort capacity that should not exceed $\rho>0$. 
+%The robust stochastic optimization of agent $j$ given $a_{-j}, m, \rho$ is formulated as a minimax problem
+%\begin{equation}\label{eq00} (P_j):
+%\begin{array}{l}
+%\inf_{a_j\in \mathcal{A}_j} \ \sup_{\tilde{m}\in B_{\rho}(m)}\ \mathbb{E}_{\omega \sim \tilde{m}} l_j(a,\omega).
+%\end{array}
+%\end{equation}
 
-\subsubsection{From unsupervised learning to Generative Model}
+Throughout the paper we assume that the following conditions hold. The measure $\tilde{m}$ is continuous with respect to $m$; it is not a given profile, and it could be deformed or falsified by the defender. The payoff function $l_j(\cdot,\omega)$ is proper and upper semi-continuous for $m-$almost all $\omega\in\Omega$. Either the domain $\mathcal{A}_j$ is a non-empty compact set or $\mathbb{E}_{\omega \sim \tilde{m}} l_j(a,\omega)$ is coercive.
 
-\subsubsection{Game Theoretic Framework for Learning}
+\begin{defi}[Distributionally Robust Game]
+The robust game $\mathcal{G}(m)$ involves
+\begin{itemize}
+\item The set of agents $\mathcal{J}=\{1,2,\ldots, n\}, \ n\geq 2$
+\item The action profile of each agent $j$, $\mathcal{A}_j$, $j\in \mathcal{J}$
+\item The uncertainty set of probability distributions defined on $m$, $\Omega$ and $\rho>0$: $B_{\rho}(m)$
+\item The expected payoff function of agent $j$: $\mathbb{E}_{\omega \sim \tilde{m}} l_j(a,\omega)$, where $\tilde{m}$ is an alternative distribution of $m$ within some bounded distance
+\end{itemize}
+\end{defi}
 
-\subsubsection{Definition}
+Then the robust stochastic optimization of agent $j$ given the uncertain set and the action of other agents is formulated as a minimax problem
+\begin{equation}(P_j):
+\begin{array}{l}
+\inf_{a_j\in \mathcal{A}_j} \ \sup_{\tilde{m}\in B_{\rho}(m)}\ \mathbb{E}_{\omega \sim \tilde{m}} l_j(a,\omega).
+\end{array}
+\end{equation}
 
-\subsubsection{The Existence of Distributionally Robust Nash Equilibria}
+With the above game in mind, we introduce the following solution concept for game $\mathcal{G}(m)$.
+%With the above game in mind, we can introduce the following solution concept.
+\begin{defi}[Distributionally Robust Nash Equilibrium]
+Let $a^*_j$ be the configuration of agent $j$ and $a^*_{-j}:=(a^*_k)_{k\neq j}$.
+A strategy profile $a^*=(a^*_1,\ldots,a^*_n)$ satisfying
+\begin{equation*}
+\sup_{\tilde{m}\in B_{\rho}(m)}\mathbb{E}_{\tilde{m}} l_j(a^*,\omega)\leq \sup_{\tilde{m}\in B_{\rho}(m)}\mathbb{E}_{\tilde{m}} l_j(a_j,a^*_{-j},\omega)
+\end{equation*}
+for every $\ a_j\in\mathcal{A}_j$ and every agent $j \in \mathcal{J}$, is said to be the \emph{distributionally robust pure Nash equilibrium} of game $\mathcal{G}(m)$.
+\end{defi}
+
+\paragraph{Existence of distributionally robust Nash equilibria} In other words, reaching the robust Nash equilibrium means all agents achieve the optimal payoff in their worst-case scenario. As in classical game theory, sufficient condition for existence of robust equilibrium can be obtained from the standard fixed-point theory: if $\mathcal{A}_j$ are nonempty compact convex sets and $l_j$ are continuous functions such that for any fixed $a_{-j}$, the function $a_j \mapsto l_j(a,\omega)$ is quasi-convex for each $j$, then there exists at least one distributionally robust {\it pure} Nash equilibrium. This result can be easily extended to the coupled-action constraint case for generalized robust Nash equilibria.
 
 
 \subsection{Minimax Robust Game}
 
-\subsubsection{From Duality to Triality Theory}
+\subsubsection{Infinite Dimension}
+Assume that $a\mapsto \mathbb{E}_{\tilde{m}} l_j(a,\omega)$ is continuous for $m-$almost all $\omega$. Then, the functional $F_j:\ \tilde{m}\mapsto \inf_{a_j}\mathbb{E}_{\tilde{m}} l_j(a,\omega)$ is Gateaux differentiable with derivative
+$$F_{j,m} (\hat{m})=\inf_{a_j\in \mathcal{A}_j^*(m)}\mathbb{E}_{\hat{m}} l_j(a,\omega),
+$$
+where $ \mathcal{A}_j^*(m)=\arg\min_{a_j} \mathbb{E}_{m} l_j(a,\omega)$ is the best-response under $m$. This derivative in the space of square integrable measurable functions under $m$ is of infinite dimensions, which does not facilitate the computation of the robust optimal strategy $a_j^*, \tilde{m}^*$.
+Below we propose an equivalent problem that reduces considerably the curse of dimensionality of the problem.
+
+\subsubsection{Triality Theory}
+\label{sec:TT}
+We here streamline the basic idea of triality theory. For this purpose, consider uncoupled domains
+$\mathcal{A}_j,\ j\in \mathcal{J}$. For a general real-valued loss function $l_2$ on $\mathcal{A}_1 \times \mathcal{A}_2$, one has
+$$\sup_{a_2\in \mathcal{A}_2}\inf_{a_1\in \mathcal{A}_1}l_2(a_1,a_2)\leq \inf_{a_1\in \mathcal{A}_1}\sup_{a_2\in \mathcal{A}_2}l_2(a_1,a_2)
+$$
+and the difference is called the well-known duality gap.
+$$\min_{a_1\in \mathcal{A}_1}\max_{a_2\in \mathcal{A}_2}l_2(a_1,a_2)-\max_{a_2\in \mathcal{A}_2}\min_{a_1\in \mathcal{A}_1}l_2(a_1,a_2)
+$$
+It is widely known in duality theory from Sion's minimax Theorem \cite{sion1958} (which is an extension of von Neumann minimax Theorem) there is an equality, for example for convex-concave function, and the value is achieved by a saddle point in the case of non-empty convex compact domain.
+Similarly, for a general loss function $l_3$: $(a_1,a_2, a_3) \mapsto l_3(a_1,a_2, a_3)$, one has
+\begin{eqnarray*}
+\inf_{a_3\in \mathcal{A}_3}\sup_{a_2\in \mathcal{A}_2}\inf_{a_1\in \mathcal{A}_1}l_3(a_1, a_2, a_3)\leq
+\inf_{a_1\in \mathcal{A}_1,a_3\in \mathcal{A}_3}\sup_{a_2\in \mathcal{A}_2}l_3(a_1, a_2, a_3), \\
+\sup_{a_3\in \mathcal{A}_3}\inf_{a_2\in \mathcal{A}_2}\sup_{a_1\in \mathcal{A}_1}l_3(a_1, a_2, a_3)\geq
+\sup_{a_1\in \mathcal{A}_1,a_3\in \mathcal{A}_3}\inf_{a_2\in \mathcal{A}_2}l_3(a_1, a_2, a_3).
+\end{eqnarray*}
+\begin{proposition}[Triality]
+Let $(a_1,a_2, a_3) \mapsto l_3(a_1,a_2, a_3) \in \mathbb{R}$ be a loss function $l_3$ defined on $\prod_{i=1}^3 \mathcal{A}_i$. Then, the following inequalities hold:
+\begin{equation} \label{eqtri}
+\begin{array}{ll}
+&\sup_{a_2\in \mathcal{A}_2}\inf_{a_1\in \mathcal{A}_1,a_3\in \mathcal{A}_3}l_3(a_1,a_2, a_3) \\
+\leq &\inf_{a_3\in \mathcal{A}_3}\sup_{a_2\in \mathcal{A}_2}\inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3) \\
+\leq &\inf_{a_1\in \mathcal{A}_1,a_3\in \mathcal{A}_3}\sup_{a_2\in \mathcal{A}_2}l_3(a_1,a_2, a_3),
+\end{array}
+\end{equation}
+and similarly
+\begin{equation} \label{eqtri2}
+\begin{array}{ll}
+&\sup_{a_1\in \mathcal{A}_1,a_3\in \mathcal{A}_3}\inf_{a_2\in \mathcal{A}_2}l_3(a_1,a_2, a_3) \\
+\leq &\sup_{a_3\in \mathcal{A}_3}\inf_{a_2\in \mathcal{A}_2}\sup_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3) \\
+\leq &\inf_{a_2\in \mathcal{A}_2}\sup_{a_1\in \mathcal{A}_1,a_3\in \mathcal{A}_3}l_3(a_1,a_2, a_3).
+\end{array}
+\end{equation}
+\end{proposition}
+\begin{proof}
+First we shall prove the $\sup \inf$ inequality. Define
+$$g(a_2,a_3) = \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3).
+$$
+Thus, for all $a_2,a_3$ one has $g(a_2,a_3) \leq l_3(a_1,a_2, a_3)$. It follows that, for any $a_1, a_3$,
+$$\sup_{a_2\in \mathcal{A}_2} g(a_2,a_3)\leq \sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3).\
+$$
+Using the definition of $g$, one obtains
+$$\sup_{a_2\in \mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)\leq \sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),\ \forall a_1,a_3.
+$$
+Taking the infinimum in $a_1$ yields:
+\begin{equation}\label{eq:minmax}
+\sup_{a_2\in \mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)\leq  \inf_{a_1\in \mathcal{A}_1}\sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),\  \forall a_3
+\end{equation}
+Now, for variable in $a_3$ we use two operations:
+\begin{enumerate}
+\item Taking the infininum in inequality (\ref{eq:minmax}) in $a_3$ yields
+\begin{equation}
+\begin{aligned}
+\inf_{a_3 \in \mathcal{A}_3} \sup_{a_2\in\mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)
+\leq &\inf_{a_3\in\mathcal{A}_3}\inf_{a_1\in\mathcal{A}_1}\sup_{a_2\in\mathcal{A}_2} l_3(a_1,a_2, a_3) \\
+= &\inf_{(a_1,a_3) \in \mathcal{A}_1 \times \mathcal{A}_3 } \sup_{a_2 \in \mathcal{A}_2} l_3(a_1,a_2, a_3),
+\end{aligned}
+\end{equation}
+which proves the second part of the inequalities (\ref{eqtri}). The first part of the inequalities (\ref{eqtri}) follows immediately from (\ref{eq:minmax}).
+\item Taking the supremum in inequality (\ref{eq:minmax}) in $a_3$ yields
+$$\sup_{(a_2,a_3)\in \mathcal{A}_2\times \mathcal{A}_3} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3) \leq   \sup_{a_3\in \mathcal{A}_3}\inf_{a_1\in \mathcal{A}_1}\sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),
+$$
+which proves the first part of the inequalities (\ref{eqtri2}). The second part of the inequalities (\ref{eqtri2}) follows immediately from (\ref{eq:minmax}).
+\end{enumerate}
+This completes the proof.
+\end{proof}
+We use the above inequalities in the Lagrangean relaxation of the minimax robust game.
 
 \subsubsection{Dimension Reduction}
+\label{sec:dimReduct}
+In order to reduce the curse of dimensionality of the problem, we use the triality theory and convert the original infinite dimensional problem $(P_j)$ into a finite dimensional problem.
+\begin{proposition}
+The (distributionally) robust best-response problem of player $j$ is equivalent to the finite dimensional stochastic optimization problem when $\mathcal{A}_j$ are of finite dimensions:
+\begin{equation}\label{eq:finite} ({P}^*_j)\left\{
+\begin{array}{l}
+\inf_{a_j\in \mathcal{A}_j,\lambda\geq 0,\mu\in \mathbb{R}}l_j^*(a,\lambda,\mu,m) \\
+l_j^*(a,\lambda,\mu,m) = \lambda(\rho+f(1))+\mu +\int \lambda f^*(\frac{ {l}_j-\mu}{\lambda}) dm = \mathbb{E}_{m} h_i,
+\end{array} \right.
+\end{equation}
+where $h_i$ is the integrand cost $\lambda(\rho+f(1))+\mu + \lambda f^*(\frac{ {l}_i-\mu}{\lambda})$.
+\end{proposition}
 
-\subsubsection{Evaluation}
+\begin{proof}
+The (distributionally) robust best-response problem of agent $j$ is equivalent to
+\begin{equation}\label{eq022}
+\begin{array}{l}
+\inf_{a_j} \sup_{L\in L_{\rho}(m)} \mathbb{E}_{m} [l_j L]
+\end{array}
+\end{equation}
+where $L(\omega)=\frac{d\tilde{m}}{dm}(\omega)$ is the likelihood, and set $L_{\rho}(m)$ is
+$$L_{\rho}(m)=\{ L\  | \   \int_{\omega}  f(L(\omega)) d{m} -f(1)\leq \rho,\ \  \int_{\omega} L(\omega)dm=1\}.
+$$
+We introduce the Lagrangian as
+$$\begin{array}{ll}
+\tilde{l}_j(a,L,\lambda,\mu) &= \int_{\omega} l_j(a,\omega) L(\omega) dm + \lambda(\rho+f(1) - \int_{\omega}  f(L(\omega)) d{m}) \\
+&+ \mu(1-\int_{\omega} L(\omega)dm),
+\end{array}
+$$
+where $\lambda \geq 0$ and $\mu\in \mathbb{R}$. The problem solved by Player $j$ becomes
+\begin{equation}\label{eq02} (\tilde{P}^*_j):
+\begin{array}{l}
+\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu).
+\end{array}
+\end{equation}\
+A full understanding of problem $(\tilde{P}^*_j)$ requires a triality theory (not a duality theory) whose main principles were streamlined in Section \ref{sec:TT}. The underlying idea is that one can use a transformation of the last two terms to derive a finite dimensional optimization problem. The Lagrangian $\tilde{l}_j$ of agent $j$  is clearly concave in $L$ and convex in $\lambda,\mu$, and is semi-continuous jointly. By the triality theory above, $\tilde{l}_j: (a,L,\lambda,\mu) \mapsto \tilde{l}_j(a,L,\lambda,\mu)$ satisfies the $\sup\inf$ inequality and has the following inequality:
+$$\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu)
+\leq \inf_{a_j}\inf_{\lambda\geq 0,\mu\in \mathbb{R}}  \sup_{L\in L_{\rho}(m)}\tilde{l}_j(a,L,\lambda,\mu).
+$$
+In this case there is no gap in the second part of the optimization and the following equality holds:
+$$\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu)
+=\inf_{a_j}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \sup_{L\in L_{\rho}(m)}\tilde{l}_j(a,L,\lambda,\mu).
+$$
+The latter problem can be rewritten as
+\begin{equation}\label{eq04} (\tilde{P}^*_j):
+\begin{array}{l}
+\inf_{a_j\in \mathcal{A}_j,\lambda\geq 0,\mu\in \mathbb{R}}[\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu)].
+\end{array}
+\end{equation}\
+The Lagrangian function takes the form as
+\begin{equation}
+\tilde{l}_j=  \lambda(\rho+f(1))+\mu +\int \{ L [ {l}_j-\mu] -\lambda f(L)\} dm
+\end{equation}
+It follows that
+\begin{equation}
+\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu) = \lambda(\rho+f(1))+\mu +\sup_{L}\int \{ L [{l}_j-\mu] - \lambda f(L)\} dm
+\end{equation}
+Introducing the Fenchel-Legendre transform on $L$ and exchanging $\sup$ and $\int$, one gets
+\begin{equation}
+\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu) = \lambda(\rho+f(1))+\mu +\int \lambda f^*(\frac{ {l}_j-\mu}{\lambda}) dm.
+\end{equation}
+Since $\mathcal{A}_j\times\mathbb{R}_+\times \mathbb{R}$ is a subset of a finite dimensional vector space, it follows that the robust best-response problem of agent $j$ is equivalent to the finite dimensional stochastic optimization problem:
+\begin{equation}\label{eq:finite2} ({P}^*_j)\left\{
+\begin{array}{l}
+\inf_{a_j\in \mathcal{A}_j,\lambda\geq 0,\mu\in \mathbb{R}}l_j^*(a,\lambda,\mu,m)
+\\ l_j^*(a,\lambda,\mu,m) = \mathbb{E}_{m} h_j.
+\end{array} \right.
+\end{equation}
+where $h_j$ is the integrand cost $\lambda(\rho+f(1))+\mu + \lambda f^*(\frac{ {l}_j-\mu}{\lambda})$.
+\end{proof}
+
+We have converted the infinite dimensional problem $(P_j)$ into a finite dimensional problem $(P_j^*)$. The above calculations culminate in the following result:
+\begin{proposition}
+If $a, \lambda^*(a), \mu^*(a)$ is a solution of $(P_j^*)$ then the optimal likelihood $L^*$ is such that $\int_{\omega} L^* dm=1,\ f'(L^*)=\frac{ l_j-\mu^*}{\lambda^*}$. This means that $a_j$ and $d\tilde{m}^*=L^*dm$ provide a solution of the original problem $(P_j)$.
+\end{proposition}
+
+\begin{proof}
+Let $\lambda^*(a), \mu^*(a)$ be solution to $(P_j^*)$ associated with the profile $a$, then the optimal likelihood $L^*$ is obtained by differentiating $f^*$ or by inverting the equation $f'(L^*)=\frac{ l_j-\mu^*}{\lambda^*}$. As $\tilde{m}$ is a probability measure, using the definition of $L^*$ one gets
+$$d\tilde{m}^*(\omega)=  L^*dm(\omega).
+$$
+It follows that $a^*_j, L^*$ solves the original problem $(P_j)$.
+\end{proof}
+
+%Next we look at the existence of robust equilibria.
 
 
-\subsection{Case Study: Learning a Generative Adversarial Model}
+%\subsection{Existence of distributionally robust Nash equilibria}
+%\label{subsec:Nash}
+%In this game, reaching the robust Nash equilibrium means all players achieve the minimum loss in their worst-case scenario. As in classical game theory, sufficient condition for existence of robust equilibrium can be obtained from the standard fixed-point theory: if $\mathcal{A}_j$ are nonempty compact convex sets and $l_j$ are continuous functions such that for any fixed $a_{-j}$, the function $a_j \mapsto l_j(a,\omega')$ is quasi-convex for each $j$, then there exists at least one distributionally robust {\it pure} Nash equilibrium. This result can be easily extended to the coupled-action constraint case for generalized robust Nash equilibria.
+
+
+%\subsection{Evaluation}
+%\noindent Using
+%$$l_j^*(a,\lambda,\mu,m) = \lambda(\rho+f(1)) + \mu + \lim_{N_j \rightarrow +\infty}\frac{1}{N_j}\sum_{k=1}^{N_j} \lambda f^*(\frac{l_j(\cdot,\omega_k)-\mu}{\lambda})
+%$$
+%where $\omega_k \sim m$, and let
+%$$m_{N_j} = \frac{1}{N_j}\sum_{k=1}^{N_j} \delta_{\omega_k}
+%$$
+%be the empirical measure of the channel state, and define
+%$$\epsilon_{N_j}\sqrt{N_j} = \sqrt{N_j}\sup_{\tilde{m}\in D_{\rho_{N_j}}(m_{N_j})} \mathbb{E}_{\tilde{m}} l_j -\sqrt{N_j} \mathbb{E}_{m_{N_j}} l_j - \sqrt{N_j \rho_{N_j} \mbox{var}_{m_{N_j}}[l_j]}
+%$$
+%with $N_j \rho_{N_j} <+\infty$.
+%
+%Then, the following holds:
+%$\epsilon_{N_j}\sqrt{N_j} \rightarrow 0$ as $N_j$ grows.
+%The above result states that the robust performance captures the risk by considering the variance and not just  the ergodic performance.
+
+
+\subsection{Case Study: Unsupervised Generative Learning}
+\label{subsec:GAN}
+In unsupervised learning, people want to learn from the distribution of training data without labeled information. Denote $m$ as the real data distribution, and $\tilde{m}$ as the distribution of synthesized outputs. Learning generative model means minimizing the statistical distance between these two distributions $\inf_{m}D_f(m\parallel \tilde{m})$. However, $m$ is not a given profile, so it needs to be estimated from the training samples. We use Legendre-Fenchel duality to transform it into a minimax optimization problem
+\begin{equation}
+\begin{aligned}
+\inf_{m}D_f(m\parallel \tilde{m} ) &= \inf_{m}\int_{\Omega} f^{**}\left(\frac{dm}{d\tilde{m}}\right)\,d\tilde{m} -f(1) \\
+&= \inf_{m} \int_{\Omega}[ \sup_{\xi} \langle \xi, \left(\frac{dm}{d\tilde{m}}\right)\rangle -f^*(\xi)\, ]d\tilde{m} -f(1) \\
+&= \inf_{m} \int_{\Omega}\sup_{\xi} \langle \xi, dm \rangle - f^*(\xi)\, d\tilde{m} -f(1) \\
+&\geq \inf_{m} \sup_{\xi} \int_{\Omega}\mathbb{E}_{m} \xi(\omega) - \mathbb{E}_{\tilde{m}}f^*(\xi(\omega))-f(1)
+\end{aligned}
+\end{equation}
+The optimal structure for $\xi$ is $\xi^*(\omega)=f'(\frac{dm}{d\tilde{m}})(\omega)$. We assume that the optimal $\xi^*$  can be parametrized by and represented as $ \xi^*(\omega)=h_f(V(a_1,\omega) )$ for some functions $h_f$ and $V$, where $V(a_1,\omega): \ A_1\times \Omega \rightarrow \mathbb{R},\ $ and $h_f:\ \mathbb{R} \rightarrow Dom(f^*), $ $Dom(f^*)=\{ x \mid f^*(x) \in \mathbb{R}\}$. The measure $\tilde{m}$ is re-parametrized with $\tilde{m}_{a_2}$. Then,
+\begin{equation}
+\inf_{m}D_f(m\parallel \tilde{m}) = \inf_{a_1} \sup_{a_2} \mathbb{E}_{m_{a_1}} h_f(V) -  \mathbb{E}_{\tilde{m}_{a_2}}f^*(h_f(V))-f(1)
+\end{equation}
+Therefore, the optimization problem $\inf_{m}D_f(m\parallel \tilde{m})$ is formulated as a zero-sum game with two adversarial players. The defender acts as a discriminator to find the maximum gap between $m$ and $\tilde{m}$, while the attacker acts as a generator that tries to synthesize indistinguishable samples to fool the discriminator. Since the payoff function is not deterministic and dependent on the other side, each agent optimizes its worst-case performance. It forms a distributionally robust game and the corresponding optimization problem is as follow:
+\begin{equation}
+\label{eq1}
+(P)\left\{
+\begin{aligned}
+&\inf_{a_1\in A_1} \sup_{a_2\in A_2} L(a_1,a_2),\\
+&L(a_1,a_2) = \mathbb{E}_{m_{a_1}} h_f(V(a_1,\omega)) + \mathbb{E}_{\tilde{m}_{a_2}}(-f^*)(h_f(V(a_1,\omega) ))-f(1)
+\end{aligned}
+\right.
+\end{equation}
+where $A_1$ denotes the decision space of the attacker and $A_2$ is the decision space of the defender.
+
+\begin{example}
+Let $f(x)=x\log x - (1+x)\log (1+x)$. Then the derivative of the function $f$ is $f'(x)=1+\log x  -1-\log(1+x)=\log(1-\frac{1}{1+x})$ and $f''(x)=\frac{1}{x(1+x)}>0$. As $f$ is a convex function, we can apply the Legendre transform
+% $f(1)=-2 \log 2=-\log 4$
+\begin{equation*}
+f^*(\xi)=\sup_{x}[ x\xi-f(x)]=-\log(1-e^{\xi})
+\end{equation*}
+The parameterized objective function is now
+%$$L(a_1,a_2)=\mathbb{E}_{m_{a_1}} h_f(V(a_1,\omega) ) +  \mathbb{E}_{\tilde{m}_{a_2}}\log (1-e^{h_f(V(a_1,\omega) )})-f(1),$$
+\begin{equation*}
+L(a_1,a_2)=\mathbb{E}_{m_{a_1}} h_f(V) +  \mathbb{E}_{\tilde{m}_{a_2}}\log (1-e^{h_f(V)})-f(1)
+\end{equation*}
+If $h_f=\log$, then
+%$$L(a_1,a_2)=\mathbb{E}_{m_{a_1}} \log(V(a_1,\omega) ) +  \mathbb{E}_{\tilde{m}_{a_2}}\log (1-V(a_1,\omega) )-f(1).$$
+\begin{equation*}
+L(a_1,a_2)=\mathbb{E}_{m_{a_1}} \log(V) +  \mathbb{E}_{\tilde{m}_{a_2}}\log (1-V)-f(1).
+\end{equation*}
+\end{example}
+
+In order to provide training data with enough diversity, a particular sampling process was considered in \cite{gan05}. Real data is randomly sampled from the training set $\omega \sim m$; fake data is first sampled from a noise distribution $z$ then fed into the generative model $G(z) \sim \tilde{m}$. The discriminator takes in both real and synthetic examples, and outputs two probabilities $V=D(\omega)$ and $D(G(z))$ for $a_1, a_2$ respectively. In this game, two opponent agents optimize on different objective functions. It is a zero-sum game with no cooperation. The attacker $G(z)$ tries to fool the defender $D$ by minimizing $\log(1-D(G(z)))$, which means incorrectly predicting a synthetic example as real. The defender optimizes the discriminator by maximizing the sum $\log(D(\omega)) + \log(1-D(G(z)))$, which means correctly predicting both the real and fake examples.
+%There is a sort of tradeoff: the first term is maximized when the network correctly identifies real images, and the second term is maximized when it correctly finds out the fakes.
+The generative model is trained by solving the Nash equilibrium in a distributional robust game. The formulation is robust in the sense that the attacker tries to sneak into the real data distribution while facing the supervision of the defender.
+%Next section will focus on the distance metric $D$ and develop relevant learning algorithms.
+
+%\subsubsection{From unsupervised learning to Generative Model}
+%\subsubsection{Game Theoretic Framework for Learning}
+Based on the ideas above, we formulate the generative learning problem into the DRG framework. As depicted in Figure \ref{fig:DRGmodel}, there are two groups of players in this game. The attackers train the generative model $G_{\theta_a}(z)$ to produce fake samples $\tilde{x}_i$ that are similar to the real ones, where $z$ is a low dimension random variable feed to the generator and $\theta_a$ is the model parameter. The defenders explore the neighborhood of $m$ and slightly change the real data to produce hard samples $x'_i$ which have the maximum distance from the model distribution. The attackers again refine the model to fit for those hard samples. The loss function is defined by the discrepancy $D(\tilde{m}, m')$, where $m'$ is the hard sample distribution chosen by the defender. Since the real distribution $m$ is unknown and we only have an observation dataset $\{ x_1, \cdots, x_N \} \subset \mathbb{R}^d$, the optimization is performed by iteratively updating the generative model as well as the hard sample distribution $m'$, which is an approximation of $m$ within some bounded uncertain set $B_\rho(m)$.
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.6\textwidth]{FIGDRG/w4}
+\caption{Distributionally robust game (DRG) framework for generative learning}
+\label{fig:DRGmodel}
+\end{figure}
+
+As displayed in the right column of Figure \ref{fig:model}, initially, the fake samples are drawn from an arbitrary distribution $\tilde{m}_0$, e.g., a uniform distribution. In each iteration, the attackers refine it closer to the hard sample distribution $m'$, while the defenders keep looking for the worst-case approximation $m'$ within the uncertain set $B_\rho(m)$. Once the algorithm converges, i.e. $D(\tilde{m}, m') \leq \epsilon$, we can ensure that the discrepancy is bounded by a small value if $D(\cdot,\cdot)$ satisfies triangle inequality:
+\begin{equation}
+D(\tilde{m}, m) \leq D(\tilde{m}, m') + D(m',m) \leq \epsilon + \rho
+\end{equation}
+If $m'$ is exactly the worst distribution in $B_\rho(m)$, we can say that $D(\tilde{m}, m) \leq |\rho - \epsilon|$ (see Figure \ref{fig:Wasserstein}).
+Therefore, the learning task is completed and the fake samples drawn from $\tilde{m}$ will be indistinguishable from the real ones.
+
+Next chapter will discuss the properties of Wasserstein distance as a metric for $D(\cdot,\cdot)$ and compare it with the popular used KL divergence.
+
+\newpage
 
 
 
 \section{Wasserstein Metric}
 \label{Sec:Wasserstein}
 
-All headings should be lower case (except for first word and proper
-nouns), flush left, and bold.
-
-First-level headings should be in 12-point type.
-
 \subsection{Introduction}
+The uncertain set involves a term to measure the similarity between two distributions. There are various ways to define the divergence between two sets. A straightforward way is to sum up the point-wise loss on those two sets, such as $L^p$ distances used in ridge regression ($L^2$-norm) and Lasso ($L^1$-norm), KL divergence and its symmetric alternative Jensen-Shannon (JS) divergence. These loss functions are decomposable and widely adopted in both discriminative and generative tasks. Since the evaluation can be conducted on individual parts, they provide convenience for incremental learning and it's easier to develop efficient algorithms. However, they do not take into account the interactions of the individual points within a set. Non-decomposable losses such as F-measure, total variation and Wasserstein distance capture the entire structure of data and provide better topologies for optimization, at the cost of additional computational burden in loss evaluation.
 
 \subsubsection{Optimal Transportation Problem}
+The optimal transport cost measures the least energy required to move all the mass in the initial distribution $f_0$ to match the target distribution $f_1$.
+\begin{equation}
+C(f_0, f_1) = \inf_{\pi \in \Pi(f_0, f_1)} \int_{\mathcal{X}\times\mathcal{Y}} c(x,y) d\pi(x,y)
+\end{equation}
+where $c(x,y)$ is the ground cost for moving one unit of mass from $x$ to $y$, and $\Pi(f_0, f_1)$ denotes the set of all measures on $\mathcal{X}\times\mathcal{Y}$ with marginal distributions $f_0, f_1$, i.e., the collection of all possible transport plans \cite{Villani}.
 
-\subsubsection{Definition}
+Wasserstein distance is a specific kind of optimal transport cost in which $c(x,y)$ is a distance function. The $p^{th}$ Wasserstein distance ($p \geq 1$) is defined on a completely separable metric space $(\mathcal{X},d)$:
+\begin{equation}
+W_p(f_0, f_1) := (\inf_{\pi \in \Pi(f_0, f_1)} \int_{\mathcal{X}\times\mathcal{X}} d(x,y)^p d\pi(x,y))^\frac{1}{p}
+\end{equation}
+Specifically, when $p=1$, $W_1$ is called the Kantorovich-Rubinstein distance or Earth-Mover (EM) distance. It has duality as a supremum over all 1-Lipschitz functions $\psi$:
+\begin{equation}
+\label{eq:Kantorovich}
+W_1(f_0, f_1) = \sup_{\|\psi\|_{Lip} \leq 1} \ \mathbb{E}_{f_0}[\psi(x)] -  \mathbb{E}_{f_1}[\psi(x)]
+\end{equation}
+Moreover, if $f_0, f_1$ are densities defined on $\mathbb{R}$, $F_0, F_1$ denotes their cumulative distribution functions (CDF). In this one dimensional case $f_0, f_1$ have inverse CDFs $F_0^{-1}$ and $F_1^{-1}$. Then the Wasserstein distance can be computed by the integration of their CDF difference.
+\begin{equation}
+W_1(f_0, f_1) = \int_\mathbb{R} |F_0(x) - F_1(x)| dx
+\end{equation}
 
-Second-level headings should be in 10-point type.
 
 \subsection{From KL divergence to Wasserstein Metric}
+Although KL divergence and its generalized version $f-$divergence are very popular in generative learning literatures, using Wasserstein metric $D(m,\tilde{m}) = W_p(m,\tilde{m})$ has at least three advantages. First, Wasserstein metric is a true distance: the properties of positivity, symmetry and triangular inequality are fulfilled. Thanks to triangular inequality (Figure \ref{fig:Wasserstein}), the maximum discrepancy $D(m,\tilde{m})$ is bounded by $\rho + \epsilon$ when the optimizer approaches the distributionally robust equilibrium.
 
-Third-level headings should be in 10-point type.
+Second, the Wasserstein space has a finer topology where the loss changes smoothly with respect to the model parameters, thus effective gradients are always available during optimization. The information based divergence like KL doesn't recognize the spatial relationship between random variables. $D_{KL}(m,\tilde{m}) = \int m(x)\log(\frac{m(x)}{\tilde{m}(x)}) dx$ is invariant of reversible transformations on $x = (x_1, x_2, \cdots)^T$ because $m(x)dx$ removes the dimensional information. This property is illustrated in Figure \ref{fig:w6}. Therefore defining the uncertain set in Wasserstein space is more reasonable than using KL. It ensures the hard samples drawn from the Wasserstein neighborhood $B_\rho(m)$ will not deviate too far from the real distribution.
 
-\subsection{Other Metrics: L1, L2, Maximum Mean Discrepancy}
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.4\textwidth]{FIGDRG/w5}
+\caption{Wasserstein metric as a true distance}
+\label{fig:Wasserstein}
+\end{figure}
+
+Third, f-divergence $D_f(m\ || \ \tilde{m}) = \int_{\Omega} f(\frac{dm}{d\tilde{m}}) d\tilde{m}$ requires the model distribution $\tilde{m}$ to be positive everywhere, which is not possible in many cases. But adding a widespread noise term to enforce this constraint will lead to unwanted blur in generated samples \cite{DBLP:journals/corr/WuBSG16}. The Wasserstein metric does not impose such constraint, thus can produce sharp images.
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.6\textwidth]{FIGDRG/w6}
+\caption{An example to show Wasserstein metric can recognize permutation changes, while KL divergence outputs the same value. }
+\label{fig:w6}
+\end{figure}
+
+Thanks to these properties, optimizing with Wasserstein loss can continuously improve the model, while the discontinuity behavior of KL divergence will deteriorate the gradients and makes the training process unstable.
+
+Consider the learning process as changing the model from one distribution $\tilde{m}_0$ to another $\tilde{m}_t$, then each path represents a specific kind of interpolation between them. A good learning algorithm should seek for the optimal path. Next part shows that Wasserstein metric prefers displacement interpolation than linear interpolation, which has better property in generative learning.
+%Next section will discuss numerical algorithms to compute the Wasserstein distance.
+
+
+%\subsection{Other Metrics: L1, L2, Maximum Mean Discrepancy}
+
 
 \subsection{Dynamic Optimal Transport}
 
-There is also a \verb+\paragraph+ command available, which sets the
-heading in bold, flush left, and inline with the text, with the
-heading followed by 1\,em of space.
+Optimizing the geodesic path between two distributions gives the optimal transport cost as well as displacement interpolations. Compare with simple linear interpolations, displacement interpolations can keep modes (e.g., the Gaussian peak) and reflect translational motions between two objects. Figure \ref{fig:w7} shows that under Wasserstein metric, displacement interpolation (up) has lower cost than linear interpolation (down), while in KL-divergence the contrary is the case.
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.6\textwidth]{FIGDRG/w7}
+\caption{Displacement interpolation has lower cost in Wasserstein metric.}
+\label{fig:w7}
+\end{figure}
+
 
 \subsection{Case Study: A Toy Example}
+This example shows learning the optimal transportation between two density distributions. The initial and target distributions are given by two Gaussians (Figure \ref{fig:f0f1}).
+%The distributions from the space-time continuous domain $[0,1]^2 \times [0,1]$ are uniformly discretized into $20*20$ spacial grids at $20$ time points (Figure \ref{fig:iter}). In the beginning, $f(x,t)$ are initialized as linear interpolations of $f_0,f_1$ (Figure \ref{fig:iter}), which has the lowest cost based on KL divergence.
+
+\begin{equation}
+\begin{aligned}
+&m_0 = \mathcal{N}(\mu = (0.2,0.3), \sigma = 0.1) \\
+&m_1 = \mathcal{N}(\mu = (0.6,0.7), \sigma = 0.07)
+\end{aligned}
+\end{equation}
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.3\textwidth]{FIGDRG/f0f1}
+\caption{Initial and target distribution $m_0, m_1$.}
+\label{fig:f0f1}
+\end{figure}
+
+Initially, the intermediate states are set as linear interpolations, where a unimodal distribution is changed to bimodal. This is not desirable because it doesn't keep the mode. (think of an object being split into two parts while moving and then put together, as the lower part of Figure \ref{fig:w7}). It has been proved in [32] that optimizing with Wasserstein loss can preserve variance of the intermediate distributions, thus the object moves from one position to another without changing its shape. Figure \ref{fig:iter} shows that after 1000 iterations, the Gaussian peak is preserved in the intermediate distributions, and the loss decreases to the optimal transport cost (Figure \ref{fig:cost}).
+
+\begin{figure}[htb!]
+\centering
+{\includegraphics[width=0.4\textwidth]{FIGDRG/iter0}
+%\label{fig_first_case}
+}
+\hfil
+{\includegraphics[width=0.4\textwidth]{FIGDRG/iter1000}
+\\ \qquad \quad {Linear interpolation $(iter=0)$} \qquad \qquad {Displacement interpolation $(iter=1000)$}
+%\label{fig_second_case}
+}
+\caption{Learning the optimal transportation between two normal distributions.}
+\label{fig:iter}
+\end{figure}
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.5\textwidth]{FIGDRG/Jw}
+\caption{{\color{blue} Transportation cost during optimization.}}
+\label{fig:cost}
+\end{figure}
+
+%\begin{figure}[htb!]
+%\label{fig:iter}
+%\centering
+%\includegraphics[width=0.47\textwidth]{FIG/iter0} \\
+%{Linear interpolation $(iter=0)$} \\
+%\includegraphics[width=0.47\textwidth]{FIG/iter1000} \\
+%{Displacement interpolation $(iter=1000)$} \\
+%\caption{Learning the optimal transportation between two normal distributions}
+%\end{figure}
+
+\newpage
 
 
 
 \section{Learning Algorithms}
 \label{Sec:Learning}
 
-These instructions apply to everyone.
+In this section we provide learning procedure to solve the distributionally robust Nash equilibria, and develop practical implementation algorithms to train deep generative models.
 
-
-\subsection{Bregman Learning under f-divergence}
-
-The \verb+natbib+ package will be loaded for you by default.
-Citations may be author/year or numeric, as long as you maintain
-internal consistency.  As to the format of the references themselves,
-any style is acceptable as long as it is used consistently.
-
-The documentation for \verb+natbib+ may be found at
-\begin{center}
-  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
-Of note is the command \verb+\citet+, which produces citations
-appropriate for use in inline text.  For example,
-\begin{verbatim}
-   \citet{hasselmo} investigated\dots
-\end{verbatim}
-produces
-\begin{quote}
-  Hasselmo, et al.\ (1995) investigated\dots
-\end{quote}
-
-If you wish to load the \verb+natbib+ package with options, you may
-add the following before loading the \verb+nips_2018+ package:
-\begin{verbatim}
-   \PassOptionsToPackage{options}{natbib}
-\end{verbatim}
-
-If \verb+natbib+ clashes with another package you load, you can add
-the optional argument \verb+nonatbib+ when loading the style file:
-\begin{verbatim}
-   \usepackage[nonatbib]{nips_2018}
-\end{verbatim}
+%\subsection{Bregman Learning under f-divergence}
 
 
 \subsection{Distributionally Robust Optimization}
+In DRG,
+%each attacker adjusts his action $a_j$ (i.e., the generative model parameters $\theta_a$) to minimize the worst-case Wasserstein loss based on the actions of other players $a_{-j}$. The defenders use an alternative distribution $m'$ within the Wasserstein ball $B_\rho(m)$ to approximate the real one $m$. $m'$ is chosen to maximize the discrepancy between the real and artificial sample distributions.
+the attacker and defender work against each other to find the robust Nash equilibrium by solving a minimax optimization problem
+\begin{equation*}(P_j):
+\begin{array}{l}
+\inf_{a_j\in \mathcal{A}_j} \ \sup_{m' \in B_{\rho}(m)}\ \mathbb{E}_{m'} l_j(a,\omega') \\
+\end{array}
+\end{equation*}
+Since $B_\rho(m)$ is a subset of Lebesgue space (the set of integrable measurable functions under $m$), the original problem $(P_j)$ has infinite dimensions, which does not facilitate the computation of robust optimal strategies. It has been proved in section \ref{sec:dimReduct} that $(P_j)$ can be reduced to a finite dimensional stochastic optimization problem when $\omega' \mapsto l_j(a,\omega')$ is upper semi-continuous and $(\Omega, d)$ is a Polish space. We introduce a Lagrangian function for constraint (\ref{eq:setwass}),
+\begin{equation}
+\tilde{l_j}(a,\lambda, m,m') = \int_\omega' l_j(a,\omega') dm' + \lambda(\rho - W(m,m'))
+\end{equation}
+the original problem $(P_j)$ becomes
+\begin{equation}\label{eq:Pj*}(\tilde{P_j}):
+\begin{array}{l}
+\inf_{a_j\in \mathcal{A}_j, \lambda \geq 0} \sup_{m' \in B_\rho(m)}\tilde{l_j}(a,\lambda,m,m') \\
+\end{array}
+\end{equation}
+In robust game $\mathcal{G}(m)$, the defenders search for the worst hard sample distribution $m'$ in the Wasserstein neighborhood of $m$ to maximize its loss against the model $\tilde{m}$. According to the definition of Wasserstein metric with ground distance $d(\cdot,\cdot)$,
+\begin{equation}
+\begin{aligned}
+\sup_{m'} \tilde{l_j} &= \lambda \rho + \sup_{m'} \int_{\omega'} [l_j(a,\omega')] \ dm' - \lambda W(m,m') \\
+&= \lambda \rho + \int_\omega \sup_{\omega'} [l_j(a,\omega') - \lambda d(\omega, \omega')] \ dm
+\end{aligned}
+\end{equation}
+Define the integrand cost as
+\begin{equation}
+h_j(a, \lambda, \omega) = \lambda \rho + \sup_{\omega'} [l_j(a,\omega') - \lambda d(\omega,\omega')],
+\end{equation}
+then $(\tilde{P_j})$ becomes a finite dimension problem on $\mathcal{A}_j \times \mathbb{R}_+ \times \Omega$ if $\mathcal{A}_j$ and $\Omega$ have finite dimensions
+\begin{equation}
+\label{eq:Pj**}
+(\tilde{P_j^*})
+\inf_{a_j\in \mathcal{A}_j, \lambda \geq 0} \mathbb{E}_m h_j(a, \lambda, \omega)
+\end{equation}
 
-Footnotes should be used sparingly.  If you do require a footnote,
-indicate footnotes with a number\footnote{Sample of the first
-  footnote.} in the text. Place the footnotes at the bottom of the
-page on which they appear.  Precede the footnote with a horizontal
-rule of 2~inches (12~picas).
+Since $m$ is an unknown distribution observed by the noisy unsupervised dataset $x_1, \ldots, x_N$, it is challenging to compute the expected payoff $\mathbb{E}_{m'}l_j(a,\omega')$, $\mathbb{E}_m h_j(a, \lambda, \omega)$ and their partial derivatives. We need a stochastic learning algorithm to estimate the empirical gradients for the Wasserstein metric.
 
-Note that footnotes are properly typeset \emph{after} punctuation
-marks.\footnote{As in this example.}
+For a single player, the stochastic state $\omega_j$ leads to error
+\begin{equation*}
+\varepsilon_j = \nabla_{a,\lambda} h_j(a,\lambda,\omega_{j}) - \nabla_{a,\lambda} \mathbb{E}_m h_j(a,\lambda,\omega)
+\end{equation*}
+The variance of $\varepsilon_j$ is high and not vanishing. To handle this, we introduce a swarm of players $\omega_j \sim m$, $j \in \mathcal{J}$, then the error term becomes
+\begin{equation*}
+\varepsilon = \frac{1}{|\mathcal{J}|}\sum_j \ \nabla_{a,\lambda} h_j(a,\lambda,\omega_{j}) - \nabla_{a,\lambda} \mathbb{E}_m h_j(a,\lambda,\omega)
+\end{equation*}
+It has zero mean and standard deviation as
+\begin{equation*}
+\sqrt{\mathbb{E}[\varepsilon^2]} = \frac{1}{|\mathcal{J}|}\sqrt{var[\nabla_{a,\lambda}h_j(a,\lambda,\cdot)]}
+\end{equation*}
+For realized $\omega \leftarrow \{x_1, \ldots, x_N\}$, the expected payoff for $N$ players is
+$\frac{1}{N} \sum_{j=1}^{N} h_j(a,\lambda,\omega_j)$,
+and the optimal strategy is
+$$(a^*, \lambda^*) \in \arg\min_{a,\lambda} \sum_{j=1}^{N} h_j(a,\lambda,\omega_j)$$
+This provides an accurate robust equilibrium payoff when $N$ is very large.
+
+
+\subsection{Numerical Investigation}
+
+To illustrate the stochastic learning algorithm we consider specific robust games with finite number of players. Each player acts as if he is facing a group of opponents whose randomized control actions are limited to a Wasserstein ball, and tries to optimize the worst case payoff. The random variable $\omega$ is distributed over $m$ and we assume it has finite $p$ moments. We choose $|\mathcal{J}|=2$, $p=2$, $d(\omega,\omega')=\| \omega-\omega'\|_2^2$ and a convex payoff function $l_j(a,\omega')$ defined on $\mathbb{R}^2 \times \mathbb{R}^2$
+%\begin{equation*}
+%l_j(a,\omega') = c_j\left(1+\omega'_1 a_1^2+\omega'_2 a^2_2\right)
+%\end{equation*}
+%where $c_j, \omega'$ have positive values. The optimal state $\omega'^*$ is computed through the Moreau-Yosida regularization
+%\begin{equation}
+%\begin{aligned}
+%& \sup_{m'} \tilde{l_j} = \lambda \rho + \mu + \int_{\omega \in \Omega} \phi_j(a,\omega,\lambda,\mu) dm \\
+%& \phi_j(a,\omega,\lambda,\mu) = \sup_{\omega' \in \mathbb{R}^2}[l_j(a,\omega') - \mu - \lambda d(\omega,\omega')] \\
+%& \omega'^*_i= \frac{a_i^2}{2 \lambda} + \omega_i, \qquad i = 1,2
+%\end{aligned}
+%\end{equation}
+%%$$
+%%\frac{2\tilde{\omega}_ia_i^2}{1+\sum_{k=1}^2 \tilde{\omega}_k^2a_k^2} -2\lambda \tilde{\omega}_i=-2\lambda \omega_i
+%%$$
+%Thus, $d(\omega,\omega'^*) = \sum_i (\frac{a_i^2}{2\lambda})^2$, and the worst-case loss function is
+%\begin{equation}
+%\begin{aligned}
+%l_j(a,\omega'^*) &= c_j\left(1+\sum_{i=1}^2\omega'^*_i a_i^2\right) \\
+%&= c_j\left(1+\sum_{i=1}^2\frac{a_i^4}{2\lambda } +\sum_{i=1}^2 \omega_i a_i^2\right).
+%\end{aligned}
+%\end{equation}
+%The Moreau-Yosida regularization on $m'$ realized at $\omega'^*$ is
+%\begin{equation}
+%\begin{aligned}
+%\phi_j(a,\omega,\lambda,\mu) &= l_j(a,\omega'^*)-\mu-\lambda d(\omega,\omega'^*) \\
+%&= c_j(1+\sum_{i=1}^2\frac{a_i^4}{2\lambda } +\sum_{i=1}^2 \omega_i a_i^2)-\mu-\lambda \sum_{i=1}^{2}  (\frac{a_i^2}{2\lambda})^2.
+% % = l_j(a,{\omega})+\frac{2c_j-1}{4\lambda} \sum_{i=1}^2a_i^4-\mu
+%\end{aligned}
+%\end{equation}
+%The integrand cost function $h_j(a,\omega,\lambda,\mu)$ is
+%\begin{equation*}
+%h_j=\lambda \rho^2+\mu+\phi_j(a,\omega,\lambda,\mu).
+%\end{equation*}
+%Given $N$ observations, the stochastic robust loss is
+%\begin{equation*}
+%\begin{aligned}
+%l^*_{j,N} &= \frac{1}{N}\sum_{k=1}^N h_j(a,\omega_{jk},\lambda,\mu) \\
+%&= \lambda \rho^2 + \frac{1}{N}\sum_{k=1}^N c_j\left(1+\sum_{i=1}^2\frac{a_i^4}{2\lambda } + \sum_{i=1}^2 \omega_{ik} a_i^2\right) - \sum_{i=1}^{2} \frac{a_i^4}{4\lambda}
+%\end{aligned}
+%\end{equation*}
+\begin{equation}
+l_j(a,\omega') = \| \omega' - a \|_2^2 = (\omega'_1 - a_1)^2 + (\omega'_2 - a_2)^2
+\end{equation}
+The optimal defender state $\omega'^*$ is computed through the Moreau-Yosida regularization, and the attacker's action pushes it closer to the destination $\omega$ as shown in Figure \ref{fig:action}.
+\begin{equation}
+\begin{aligned}
+\sup_{m'} \tilde{l_j} &= \lambda \rho + \int_{\omega \in \Omega} \phi_j(a,\lambda,\omega) dm \\
+\phi_j(a,\lambda,\omega) &= \sup_{\omega' \in \mathbb{R}^2}[l_j(a,\omega') - \lambda d(\omega,\omega')] \\
+&= \sup_{\omega' \in \mathbb{R}^2} (\| \omega'-a \|_2^2 - \lambda \| \omega'-\omega \|_2^2)
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\omega'^* = \omega + \frac{\omega - a}{\lambda - 1}, \quad (\lambda > 1)
+\end{equation}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.3\textwidth]{FIGDRG/action}
+\caption{Action pushes the particle toward $\omega$ (which is unknown) given $\omega'^*$}
+\label{fig:action}
+\end{figure}
+
+\noindent Then $d(\omega,\omega'^*) = \| \frac{\omega - a}{\lambda-1} \|_2^2 $, leads to the worst-case loss
+\begin{equation}
+l_j(a,\omega'^*) = \| \omega'^*-a \|_2^2 = \frac{\lambda^2}{(\lambda-1)^2} \| \omega-a \|_2^2
+\end{equation}
+The Moreau-Yosida regularization on $m'$ realized at $\omega'^*$ is
+\begin{equation}
+\begin{aligned}
+\phi_j(a,\lambda,\omega) &= l_j(a,\omega'^*)-\lambda d(\omega,\omega'^*) \\
+&= \frac{\lambda}{\lambda - 1}\| \omega - a \|_2^2
+\end{aligned}
+\end{equation}
+The integrand cost function $h_j = \lambda \rho^2 + \frac{\lambda}{\lambda - 1} \| \omega - a \|_2^2$.
+Thus, problem $(\tilde{P_j^*})$ becomes
+\begin{equation}
+\inf_{a,\lambda} \ \mathbb{E}_m h_j = \inf_{a,\lambda} \ \int_\omega \lambda \rho^2 + \frac{\lambda}{\lambda - 1} \| \omega - a \|_2^2 \ dm, \quad (\lambda > 1)
+\end{equation}
+Given $N$ observations, the stochastic robust loss is
+\begin{equation*}
+\begin{aligned}
+l^*_N &= \frac{1}{N}\sum_{j=1}^N h_j(a,\lambda,\omega_j) \\
+&= \lambda \rho^2 + \frac{\lambda}{N(\lambda - 1)} \sum_{j=1}^N \|\omega_{j}-a\|_2^2
+\end{aligned}
+\end{equation*}
+We set $\rho = 1$ and $m$ is a dirac distribution where $\omega_j \equiv 1$.
+Figure \ref{fig:ep1} plots the trajectories of strategies during learning.
+%The Bregman algorithm converges faster than stochastic gradient descent, where both use $learning\_rate = 0.1$. In this particular setup we observe that, to reach the same accuracy level $(\pm 5\%)$ to the optimal strategies $(a_1^*,a_2^*)=(1,-1)$ it takes two times more iterations for gradient descent $(iter=30)$ than for the Bregman algorithm $(iter=15)$.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.45\textwidth]{FIGDRG/a1a2}
+\caption{The optimal strategies converges to $(a_1^*,a_2^*)=(1,-1)$}
+\label{fig:ep1}
+\end{figure}
+
+
+%{\color{blue} In order to reduce the oscillatory effect, we introduce a risk-aware Bregman algorithm which is a speedup-and-average version of the standard Bregman algorithm. The system dynamic is given by
+%\begin{equation}
+%\dddot{x} = -\frac{3}{t} \ddot{x} - (e^{\alpha} - \dot{\alpha})(\ddot{x}+\frac{2}{t}\dot{x}) -\frac{e^{2\alpha+\beta}}{t}\triangle g(x+[t+2e^{-\alpha}]\dot{x}+te^{-\alpha}\ddot{x})^{-1} \nabla l^*(x + t\dot{x})
+%\end{equation}
+%with the initial states $x(0), \dot{x}(0), \ddot{x}(0)$.
+%}
 
 
 \subsection{Train a Deep Generative Model}
+Image generative models such as VAE \cite{DBLP:journals/corr/KingmaW13}, GAN \cite{NIPS2014_5423}, WGAN \cite{DBLP:journals/corr/ArjovskyCB17} have shown great success in recent years. VAE trains a encoder network and a decoder network by minimizing the reconstruction loss, i.e., the negative log-likelihood with a regularizer. It tends to produce blurring images due to the additional noise terms in their model. GAN trains a generator network and a discriminator network by solving a minimax problem based on the KL-divergence. The model is unstable (Figure \ref{fig:defect}) due to the discontinuity of the information-based loss functions, and the generator is vulnerable to saturation as the discriminator getting better. \cite{DBLP:journals/corr/ArjovskyB17, DBLP:conf/nips/SalimansGZCRCC16} gives some empirical solutions to these problems, e.g., keeping balance in training generator and discriminator networks, designing a customized network structure. WGAN \cite{DBLP:journals/corr/ArjovskyCB17} defines a GAN model by an efficient approximation (equation \ref{eq:Kantorovich}) of the Earth Mover distance. During training, it simply crops all weights of the discriminator network to maintain the Lipschitz constraint.
 
-\begin{figure}
-  \centering
-  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-  \caption{Sample figure caption.}
-\end{figure}
+In our framework, generative learning is formulated as a distributionally robust game with two competitive groups of players, whose actions are defined on the parameter space $\theta = (\theta_a, \theta_d) \in \mathrm{\Theta}$. In stochastic settings, $\omega$, $\omega'$ and $\tilde{\omega}$ are instantiated to sample vectors $\{x_1, x_2, \ldots\}$, $\{x_1', x_2', \ldots\}$ and $\{\tilde{x}_1, \tilde{x}_2, \ldots\}$. The attacker produces indistinguishable artificial samples $\tilde{x}_i = G_{\theta_a}(z)$ to minimize the discrepancy $\inf_\theta D(\tilde{m},m')$, where $\tilde{x}_i \sim \tilde{m}$. Meanwhile, the defender produce adversarial samples $x'_i = G_{\theta_d}(x_i)$, which are substitutes of the real ones, to maximize the loss $\sup_{m' \in B_\rho(m)}D(\tilde{m},m')$, $x_i \sim m$, where $x'_i \sim m'$.
 
-All artwork must be neat, clean, and legible. Lines should be dark
-enough for purposes of reproduction. The figure number and caption
-always appear after the figure. Place one line space before the figure
-caption and one line space after the figure. The figure caption should
-be lower case (except for first word and proper nouns); figures are
-numbered consecutively.
-
-You may use color figures.  However, it is best for the figure
-captions and the paper body to be legible if the paper is printed in
-either black/white or in color.
+With Moreau-Yosida regularization, the defenders work on the following maximization problem to generate the optimal adversarial samples in Wasserstein ball $B_\rho(m)$,
+\begin{equation*}
+\theta_d^* \in \arg\max_{\theta_d} \ l(\theta_a, \omega') - \lambda d(\omega,\omega')
+\end{equation*}
+and the attackers work on the minimization problem to find the best generative parameters $\theta_a^*$
+\begin{equation*}
+\theta_a^* \in \arg\min_{\theta_a,\lambda} \ \lambda \rho + l(\tilde{x}, x'^*) - \lambda d(x,x'^*)
+\end{equation*}
+Given enough observations $\{x_1, x_2, \ldots\}$ from the unknown real distribution $m$, a similar distribution $\tilde{m}$ can be learned by solving the distributionally robust Nash equilibrium. New samples generated from $\tilde{x}_i \sim \tilde{m}$ should be indistinguishable from the real ones.
+The DRG algorithm is summarized in Algorithm \ref{alg:DRG}.
+\begin{algorithm}
+\caption{DRG with Wasserstein metric}
+\label{alg:DRG}
+\begin{algorithmic}
+\STATE \textbf{Input:} real data $(x_i)_{i=1}^N$, batch size $n$, initial attacker parameters ${\theta_a}_0$, Lagrangian multiplier $\lambda_0$, initial defender parameters ${\theta_d}_0$, number of defender updates per attacker loop $n_d$, Wasserstein ball radius $\rho$, learning rate $\eta_a, \eta_d$, low-dimension random noise $z \sim \zeta$
+\STATE \textbf{Output:} $\theta_a$, $\theta_d$, $\lambda$
+\WHILE{$\theta_a$ has not converged}
+\FOR {$t = 1,2,\ldots, n_d$}
+\STATE Sample $(x_i)_{i=1}^n \sim m$ from real dataset
+\STATE Sample $(\tilde{x}_i)_{i=1}^n \sim \tilde{m}$ from generator $G_{\theta_a}(z)$
+\STATE $y_i \leftarrow E_{\theta_d}(x_i)$, \quad $\tilde{y}_i \leftarrow E_{\theta_d}(\tilde{x}_i)$
+\STATE Modify to adversarial samples $y'_i \leftarrow G_{\theta_d}(y_i)$
+\STATE $g_d \leftarrow \nabla_{\theta_d} \ l(\tilde{y}_1^n, {y'}_1^n) - \lambda d(y_1^n,{y'}_1^n)$
+\STATE $\theta_d \leftarrow \theta_d + \eta_d RMSProp(g_d)$
+\ENDFOR
+\STATE Sample $(x_i)_{i=1}^n \sim m$ from real dataset
+\STATE Sample $(\tilde{x}_i)_{i=1}^n \sim \tilde{m}$ from generator $G_{\theta_a}(z)$
+\STATE $y_i \leftarrow E_{\theta_d}(x_i)$, \quad $\tilde{y}_i \leftarrow E_{\theta_d}(\tilde{x}_i)$
+\STATE Modify to adversarial samples $y'_i \leftarrow G_{\theta_d}(y_i)$
+\STATE $g_{a,\lambda} \leftarrow \nabla_{\theta_a, \lambda} \ \lambda \rho + l(\tilde{y}_1^n, {y'}_1^n) - \lambda d(y_1^n,{y'}_1^n)$
+\STATE $\theta_a \leftarrow \theta_a - \eta_a RMSProp(g_{a,\lambda})$
+\STATE $\lambda \leftarrow \lambda - \eta_a RMSProp(g_{a,\lambda})$
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
 
 
 \subsection{Case Study: Unsupervised Learning for Clustering}
+We apply our algorithm to learn a three-dimensional data distribution for the Fisher's Iris dataset \cite{Lichman:2013}. This dataset contains 150 samples, each having five attributes: petal length, petal width, sepal length, sepal width and class. We remove the class label and using PCA to extract three most prominent features. The observed data samples are plotted in Figure \ref{fig:flower}, each color represents a class of flower. The generative model is set as the affine transformations of three unit balls $z_1, z_2, z_3$. Initially, the attacker parameters $W_1, W_2, W_3$ are set as identity matrices and $b_1 = b_2 = b_3 = 0$, so all fake samples are located in a unit ball shown in Figure \ref{fig:flower}.
+\begin{equation*}
+\begin{aligned}
+\tilde{x} &= G_{\theta_a}(z) \in \{ W_1 z_1 + b_1, W_2 z_2 + b_2, W_3 z_3 + b_3 \} \\
+x' &= G_{\theta_d}(x) = W_0 x + b_0
+\end{aligned}
+\end{equation*}
+Hard samples are generated from the real ones by another affine transformation with parameters $W_0, b_0$. Since the dimension is low, we directly work with the raw data vectors. We set $n_d = 20, \rho = 0.1, \lambda_0 = 10, \eta_a = 0.1, \eta_d = 0.01$, and the training cost for attackers and defenders are displayed in Figure \ref{fig:flower_cost}. In each defender loop, the hard samples are refined to maximize the Wasserstein loss, and then the attackers minimize the worst-case cost. After 150 iterations, the algorithm converged at the distributionally robust Nash equilibrium. The generated samples (black dots in Figure \ref{fig:flower}) successfully covered the region of real samples, which demonstrated the effectiveness of our algorithm.
 
-All tables must be centered, neat, clean and legible.  The table
-number and title always appear before the table.  See
-Table~\ref{sample-table}.
+Next section will show the application of DRG on image synthesis, in which the attackers and defenders are realized with deep neural networks.
 
-Place one line space before the table title, one line space after the
-table title, and one line space after the table. The table title must
-be lower case (except for first word and proper nouns); tables are
-numbered consecutively.
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=0.4\textwidth]{FIG/defender_cost_10}
+%\caption{Defender cost in the first 10 iterations}
+%\label{fig:ep3_cost}
+%\end{figure}
 
-Note that publication-quality tables \emph{do not contain vertical
-  rules.} We strongly suggest the use of the \verb+booktabs+ package,
-which allows for typesetting high-quality, professional tables:
-\begin{center}
-  \url{https://www.ctan.org/pkg/booktabs}
-\end{center}
-This package was used to typeset Table~\ref{sample-table}.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{FIGDRG/flower}
+\caption{Generative learning for Iris Flower dataset}
+\label{fig:flower}
+\end{figure}
 
-\begin{table}
-  \caption{Sample table title}
-  \label{sample-table}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    \multicolumn{2}{c}{Part}                   \\
-    \cmidrule(r){1-2}
-    Name     & Description     & Size ($\mu$m) \\
-    \midrule
-    Dendrite & Input terminal  & $\sim$100     \\
-    Axon     & Output terminal & $\sim$10      \\
-    Soma     & Cell body       & up to $10^6$  \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.32\textwidth]{FIGDRG/defender_cost_10}
+\includegraphics[width=0.32\textwidth]{FIGDRG/defender_cost}
+\includegraphics[width=0.32\textwidth]{FIGDRG/attacker_cost}
+\caption{Attacker and defender cost during training}
+\label{fig:flower_cost}
+\end{figure}
 
 
 \subsection{Case Study: Generative Modeling for Image Synthesis}
+\paragraph{Dataset}
+We apply our DRG algorithm on the CelebA \cite{liu2015faceattributes} dataset to generate artificial human faces. The training set has 202K cropped face images with size $64\times64$, therefore each real sample $x_i \sim m$ has 12288 dimensions. The artificial samples are generated from low-dimensional noise vectors $z \sim \zeta$, where $\zeta$ is a random normal distribution.
 
+\paragraph{Network Structure}
+In this paper, the generative network $x = G_{\theta_a}(z)$ follows the DCGAN \cite{DBLP:journals/corr/RadfordMC15} architecture. We design $y' = G_{\theta_d}(y)$ as a single layer neural network to perform modification. For the encoding network $y = E_{\theta_d}(x)$, we use one CNN-ReLU layer followed by 3 CNN-BatchNorm layers and a fully connected layer to produce code vectors. Both networks have about 5 million training parameters.
 
-\newpage
+\paragraph{Loss Functions}
+In DRG algorithm, the Wasserstein distance $l(\tilde{x}^n, {x'}^n)$ is implemented by Sinkhorn-Knopp's algorithm \cite{sinkhorn1967}, and the ground cost $d(x^n,{x'}^n) = \frac{1}{n} \sum_{i=1}^{n}\|x_i - x'_i\|_2^2$. Instead of directly computing the L2-norm on raw data vectors, Algorithm \ref{alg:DRG} uses an encoder network $y = E_{\theta_d}(x)$ to learn useful features.
+
+\paragraph{Hyperparameters}
+The encoder maps the original data into a 100-dimension feature space, which matches the dimension of the random noise $z$. In all experiments, the cost based on Wasserstein metric is normalized to $[0,1]$, where the supremum indicates the cost between images that are all black and all white. The hyperparameters listed in Algorithm \ref{alg:DRG} are chosen by validation and listed in table \ref{tab:para}; others are set as the default values in their references. For training we choose the RMSProp optimizer \cite{DBLP:journals/corr/Ruder16} because it doesn't involve a momentum term. Empirically, we found momentum-related optimizers may deteriorate the training. The reason is, in robust games the payoff function is dynamic and changes every time the other players take actions. Since the structure of the objective surface is not stationary, it's meaningless to follow the velocity of the previous optimization steps.
+
+\begin{table}[htb]
+\caption{Hyper parameters}
+\label{tab:para}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+
+\hline
+parameters &  $n$  &  $\rho$  &  $\lambda_0$  &  $n_d$  &  $\eta_a, \eta_d$  &  ${\theta_a}_0$, ${\theta_d}_0, \eta$
+\\ \hline
+values     &  $64$ &  $0.1$   &  $10$         &  $1$    &  $0.00005$  &  random normal
+\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\paragraph{Evaluation}
+Experimental results are demonstrated in Figure \ref{fig:ep2}, in which the last line shows the most similar samples in the real dataset.
+The training curve for DRG is plotted in Figure \ref{fig:curve}. It means the Wasserstein loss is highly related to the sample quality. By optimizing the worst-case loss function, the DRG model converges very quickly to the real data distribution and successfully produce sharp and meaningful images. In experiments we found that the original GAN generator \cite{DBLP:journals/corr/RadfordMC15} suffers from unpredictable quality deterioration at iteration $5.3K$, $7.8K$, $10.2K$ (Figure \ref{fig:defect}), etc, while our algorithm keeps improving the sample quality. This problem is caused by the discontinuity of the KL-divergence.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.45\textwidth]{FIGDRG/result}
+\caption{DRG results on CelebA, attacker iteration = 300K }
+\label{fig:ep2}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.49\textwidth]{FIGDRG/defect}
+\caption{Stability of the generated models. Upper: DCGAN, Bottom: DRG }
+\label{fig:defect}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.488\textwidth]{FIGDRG/wloss}
+\caption{Training curve for DRG algorithm with Wasserstein metric. The loss goes down as generated samples getting better, and converges to the Wasserstein distance between two real data sets. The curves are smoothed for visualization purpose. }
+\label{fig:curve}
+\end{figure}
+
+The evaluation of generative models is itself a research topic. \cite{DBLP:journals/corr/TheisOB15} figured out that different evaluation metrics favor different models. For example, a high log-likelihood doesn't mean good visual quality, and vice versa. Therefore, the metric used in training and evaluation should fit for the specific application. In our case, the learned fake data distribution should be as close as to the real one. So we measure the discrepancy between these distributions using Wasserstein metric. We compare our algorithm with DCGAN \cite{DBLP:journals/corr/RadfordMC15} and WGAN \cite{DBLP:journals/corr/ArjovskyCB17}, and report the quantitative results in Table \ref{tab:evaluation}.
+
+The computation complexity per attacker iteration is linear $O(n)$ with respect to the batch size. We use a Titan Xp to train the model and plot the computation time in Figure \ref{fig:time}. When $n = 64$, it takes 0.2 seconds for an attacker update. Our algorithm has smaller constant factor than WGAN.
+
+\begin{table}[htb]
+\caption{Performance evaluation}
+\label{tab:evaluation}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+$W(m,\tilde{m})$ ($\times 10^{-5}$) &  1K samples     &  10K samples
+\\ \hline
+real - real                         &  12.9           &  1.74
+\\ \hline
+real - DRG                          &  \textbf{22.6}  &  \textbf{15.9}
+\\ \hline
+real - DCGAN                        &  37.3           &  16.4
+\\ \hline
+real - WGAN                         &  31.0           &  17.2
+\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.47\textwidth]{FIGDRG/computation_time}
+\caption{Computation time with respect to batch size. }
+\label{fig:time}
+\end{figure}
+
+\clearpage
+
 
 
 \section{Style Transfer as a Minimax Game}
@@ -328,7 +968,7 @@ This work has a wide range of applications. In visual and performing arts, it's 
 %In transfer learning, people use a pre-trained model in source domain to classify samplpes in target domain where labeled data is limited. Style transfer helps to translate source data to target domain as well as their corresponding labels.
 
 \subsection{Motivation} %Assumptions
-In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y|x)$, while generative models {\color{blue} synthesize} new data with desired labels by drawing samples from estimated distribution $p(x|y)$. From a perspective of probabilistic modelling, style transfer learns two conditional distributions $p(x_1|x_2)$ and $p(x_2|x_1)$. When paired data is available, it is easy to infer from the joint distribution $p(x_1,x_2)$. For nonparallel data, the problem is ill-posed because the joint solution is not unique given two marginal distributions $p(x_1), p(x_2)$.
+In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y\mid x)$, while generative models {\color{blue} synthesize} new data with desired labels by drawing samples from estimated distribution $p(x\mid y)$. From a perspective of probabilistic modelling, style transfer learns two conditional distributions $p(x_1\mid x_2)$ and $p(x_2\mid x_1)$. When paired data is available, it is easy to infer from the joint distribution $p(x_1,x_2)$. For nonparallel data, the problem is ill-posed because the joint solution is not unique given two marginal distributions $p(x_1), p(x_2)$.
 %According to coupling theory [1], the choice of valid joint distribution is generally not unique.
 %Therefore, we need to make a choice so that the marginal distributions are related in a desirable way.
 %There are bunch of assumptions and constrains proposed to deal with this ill-posed problem.
@@ -362,7 +1002,7 @@ The original objective of this topic is to generate new samples from scratch by 
 
 GANs build the generative model on the top of a discriminative network to force the output to be indistinguishable from the real samples. This model works pretty well for generating images with impressive visual quality [18] and high resolution [19]. Variations under this framework include conditional GAN [20] that generate samples conditioned on class labels, LAPGAN [21] that generates images in a coarse-to-fine fashion, WGAN-GP [22] that enables stable training of GANs without hyperparameter tuning.
 
-VAEs use an encoder-decoder framework to model data in a latent space and optimize the reconstruction loss plus a regularizer. The generative process has two steps of sampling: first draw latent variables from $p(z)$ and then draw datapoints from the conditional distribution $p(x|z)$. At test time, the encoder part is discarded and the decoder takes random noise as input to generate new samples. However, the reconstructed samples are blurry. This is because the VAE decoder assumes $p(x|z)$ to be an isotropic Gaussian, which leads to the use of L2 loss. To remedy this, VAE-GAN [23] suggests learning the loss through a GAN discriminator.
+VAEs use an encoder-decoder framework to model data in a latent space and optimize the reconstruction loss plus a regularizer. The generative process has two steps of sampling: first draw latent variables from $p(z)$ and then draw datapoints from the conditional distribution $p(x\mid z)$. At test time, the encoder part is discarded and the decoder takes random noise as input to generate new samples. However, the reconstructed samples are blurry. This is because the VAE decoder assumes $p(x\mid z)$ to be an isotropic Gaussian, which leads to the use of L2 loss. To remedy this, VAE-GAN [23] suggests learning the loss through a GAN discriminator.
 
 Auto-regressive model is quite different from the above two. It aims at modeling time-varying processes by assuming that the value of a time series depends on its previous values and a stochastic term. For a sequential data sample $x = (x_1, x_2, \ldots, x_T)$, the joint distribution $p(x)$ is factorised as a product of conditional distributions
 \begin{equation}
@@ -390,7 +1030,7 @@ There are many approaches to address this issue. One is to extract transferable 
 \paragraph{Voice Conversion}
 Voice conversion (VC) aims to change a speaker's voice to make it sounds like spoken by another person. It is a special case of voice transformation (VT), whose goal is to modify human speech without changing its content. VC transforms speacker identity by replacing speaker-dependent components of the signal while maintaining the linguistic information. Speech quality and speaker similarity are two important factors to evaluate a VC system. There are a bunch of VC applications, such as movie dubbing, personalized TTS (Text To Speach) systems, speaker accent or emotion transformation, speaking-aid devices, call quality enhancement, etc.
 
-Most VC frameworks involve three steps: feature extraction, feature conversion, waveform generation. In speech analysis, waveform signals are encoded into feature representations that are easy to control and modify. Spectral envelope, mel-cepstrum, fundamental frequency ($f0$), formant frequencies and bandwidths are the most widely used features to represent speech in short-time segments. To capture contextual information across frames, implicit methods such as hidden Markov models (HMMs), Long Short-Term Memory (LSTM) and recurrent neural networks (RNNs) [63] were developed.
+Most VC frameworks involve three steps: feature extraction, feature conversion, waveform generation. In speech analysis, waveform signals are encoded into feature representations that are easy to control and modify. Spectral envelope, mel-cepstrum, fundamental frequency ($f_0$), formant frequencies and bandwidths are the most widely used features to represent speech in short-time segments. To capture contextual information across frames, implicit methods such as hidden Markov models (HMMs), Long Short-Term Memory (LSTM) and recurrent neural networks (RNNs) [63] were developed.
 
 The main work in VC is to transform the source feature sequences to target feature sequences that capture the speaker identity. Most traditional VC systems perform frame-by-frame mapping under the assumption that speech segments are independent from each other. Some recent models such as HMM and RNN incorporate speech dynamics implicitly. There are four typical approaches to learn the mapping function: codebook mapping (e.g., Vector quantization (VQ) [56]), mixed linear mappings (e.g., Gaussian mixture model (GMM) [57]), neural network mapping (e.g., RBM, DNN, RNN [55]), and exemplar-based mapping (e.g., non-negative matrix factorization (NMF) [58]). Beyond these, an autoregressive neural network model called WaveNet [24] was proposed. It can directly learn the mapping based on raw audio and generate speech waveforms conditioning on the speaker identity.
 
@@ -413,7 +1053,7 @@ Parallel, text-dependent systems are supposed to have better performancce. Howev
 
 \subsection{Method}
 We propose a general approach for style transfer. %with {\color{blue} cooperative agents} and payoff uncertainty.
-Let $x_i \in \mathbb{X}_i$ be a datapoint sampled from domain $i$. The goal is to learn a conversion model $p(x_j|x_i)$ that maps $x_i$ to domain $j$ ($j\neq i$) by changing its style and preseving the original content. For unpaired training data, we have marginal distributions $p(x_i)$, $p(x_j)$ instead of the joint $p(x_i, x_j)$, so it requires additional constraints to determine $p(x_j|x_i)$. Inspired by disentangled representation learning in [32], we assume that each example $x_i \in \mathbb{X}_i$ can be decomposed into a content code $c\in \mathcal{C}$ that encodes domain-invariant information and a style code $s_i\in \mathcal{S}_i$ that encodes domain-dependent information. $\mathcal{C}$ is shared across domains and contains the information we want to preserve. $\mathcal{S}_i$ is domain-specific and contains the information we want to change. In conversion stage, we extract the content code of $x_i$ and recombine it with a style code randomly sampled from $\mathcal{S}_j$. A generative adversarial network (GAN) [15] is added to ensure that the converted samples are indistinguishable from the real ones.
+Let $x_i \in \mathbb{X}_i$ be a datapoint sampled from domain $i$. The goal is to learn a conversion model $p(x_j \mid x_i)$ that maps $x_i$ to domain $j$ ($j\neq i$) by changing its style and preseving the original content. For unpaired training data, we have marginal distributions $p(x_i)$, $p(x_j)$ instead of the joint $p(x_i, x_j)$, so it requires additional constraints to determine $p(x_j\mid x_i)$. Inspired by disentangled representation learning in [32], we assume that each example $x_i \in \mathbb{X}_i$ can be decomposed into a content code $c\in \mathcal{C}$ that encodes domain-invariant information and a style code $s_i\in \mathcal{S}_i$ that encodes domain-dependent information. $\mathcal{C}$ is shared across domains and contains the information we want to preserve. $\mathcal{S}_i$ is domain-specific and contains the information we want to change. In conversion stage, we extract the content code of $x_i$ and recombine it with a style code randomly sampled from $\mathcal{S}_j$. A generative adversarial network (GAN) [15] is added to ensure that the converted samples are indistinguishable from the real ones.
 
 Figure \ref{fig:model} shows the autoencoder model of style transfer with a partially shared latent space. Any pair of corresponding datapoints $(x_i, x_j)$ is assumed to have a shared latent code $c\in \mathcal{C}$ and domain-specific style codes $s_i\in \mathcal{S}_i$, $s_j\in \mathcal{S}_j$. The generative model of domain $i$ is an autoencoder that consists of a deterministic decoder $x_i = G_i(c_i,s_i)$ and two encoders $c_i = E_i^c(x_i)$, $s_i = E_i^s(x_i)$. The encoder $E_i = (E_i^c, E_i^s)$ and decoder $G_i$ are inverse operations such that $E_i = G_i^{-1}$. To generate converted sample $x_{j\leftarrow i}'$, we just extract and recombine the content code of $x_i$ with the style code of domain $j$.
 \begin{equation}
@@ -422,7 +1062,7 @@ x_{i\leftarrow j}' = G_i(c_j, s_i) = G_i(E_j^c(x_j), s_i) \\
 x_{j\leftarrow i}' = G_j(c_i, s_j) = G_j(E_i^c(x_i), s_j)
 \end{aligned}
 \end{equation}
-It should be noted that the style code $s_i$ is not inferred from one example, but learnt from the entire target domain $j$, which is a major difference from [32]. This is because the style extracted from a single example is ambiguous and may not capture the general characteristics of the target domain. To restrict the mapping $p(x_j|x_i)$, we use an constriant that is slightly different from the cycle consistency [10]. It assumes that an example converted to another domain and converted back should be unchanged, i.e., $x_{i\leftarrow j\leftarrow i}'' = x_i$. Instead, we apply a semi-cycle consistency in the latent space by assuming that only the latent codes remain unchanged $E_i^c(x_{i\leftarrow j}') = c_i$ and $E_i^s(x_{i\leftarrow j}') = s_i$. The relaxed constriant provides diversity to the generated samples.
+It should be noted that the style code $s_i$ is not inferred from one example, but learnt from the entire target domain $j$, which is a major difference from [32]. This is because the style extracted from a single example is ambiguous and may not capture the general characteristics of the target domain. To restrict the mapping $p(x_j\mid x_i)$, we use an constriant that is slightly different from the cycle consistency [10]. It assumes that an example converted to another domain and converted back should be unchanged, i.e., $x_{i\leftarrow j\leftarrow i}'' = x_i$. Instead, we apply a semi-cycle consistency in the latent space by assuming that only the latent codes remain unchanged $E_i^c(x_{i\leftarrow j}') = c_i$ and $E_i^s(x_{i\leftarrow j}') = s_i$. The relaxed constriant provides diversity to the generated samples.
 
 \begin{figure}[htb]
 \center
@@ -560,88 +1200,165 @@ There are three metrics for performance evaluation: emotion correctness, voice q
 %$E^c, E^s_i, E^s_j, G, D, i, j$
 %fake, class label, real
 
-
-
 \newpage
 
 
 
-\section{Dissertation Outline}
+\section{Dissertation Outline and Research Timeline}
 \label{Sec:Outline}
 
-The research will be split into the following four stages:
+\subsection{Dissertation Outline}
+Below is the proposed outline of the planned dissertation. 
 
-\subsection{Introduction}
+\begin{enumerate}
+	\item Introduction
+    \begin{enumerate}
+    	\item Generative Learning Background
+        \item Game Theory Background
+        \item Motivation
+        \item Summary of Contributions
+    \end{enumerate}
+    
+    \item Distributionally Robust Games
+    \begin{enumerate}
+    	\item Introduction
+        \item Related Work
+        \item Problem Formulation
+        \item Minimax Robust Game
+        \begin{enumerate}
+            \item Infinite Dimension
+            \item Triality Theory
+            \item Dimension Reduction
+        \end{enumerate}
+        \item Case Study: Unsupervised Generative Learning
+    \end{enumerate}
+    
+    \item Wassertein Metric
+    \begin{enumerate}
+    	\item Introduction
+        \item Optimal Transportation Problem
+        \item From KL divergence to Wasserstein Metric
+        \item Displacement Interpolation
+        \item Case Study: A Toy Example Simulation
+    \end{enumerate}
+    
+    \item Learning Generative Models
+    \begin{enumerate}
+    	\item Distributionally Robust Optimization
+        \item Numerical Investigation
+        \item Train a Deep Generative Model
+        \item Case Study: Unsupervised Learning for Clustering
+        \item Case Study: Generative Modeling for Image Synthesis
+    \end{enumerate}
+    
+    \item Image Style Transfer
+    \begin{enumerate}
+    	\item Introduction
+        \item Motivation
+        \item Related Work
+        \item Method
+        \begin{enumerate}
+          \item Two-domain Transformation
+          \item Multi-domain Transformation
+        \end{enumerate}
+        \item Experiments
+    \end{enumerate}
+    
+    \item Emotional Voice Conversion
+    \begin{enumerate}
+    	\item Introduction
+        \item Related Work
+        \begin{enumerate}
+            \item Emotion-related Features
+            \item Nonparallel Training Approaches
+            \item Disentangled Representation Learning
+        \end{enumerate}
+        
+        \item Method
+        \begin{enumerate}
+          \item Assumptions
+          \item Model
+          \item Loss functions
+        \end{enumerate}
+        \item Experiments
+        \begin{enumerate}
+          \item Corpus
+          \item Network Structure
+          \item Performance Evaluation
+        \end{enumerate}
+        \item Discussions
+    \end{enumerate}
+   
+    \item Conclusions and Future Work
+    \item[] Bibliography
+\end{enumerate}
+%\subsection{Introduction}
+%
+%\subsection{Related Work}
+%
+%\subsection{Distributionally Robust Games}
+%%Problem Formulation
+%In this part we introduce distributionally robust games and develop new filtering and learning architectures under this framework. The system may contain several competing neural networks: the attackers learn to generate synthetic samples that are supposed to have the same distribution as the original ones, while the defenders try to find counter-examples and create difficulties for the other side. Each player tries to perform better and beat the others, which forms a multi-agent zero-sum game with uncertain payoffs. The players use a robust optimization approach to contend with the worst-case scenario payoff. The attacker network is constructed based on the outcome of defender networks, and vice versa. The competing networks are trained together iteratively until achieving the distributional robust Nash equilibrium.
+%
+%\subsection{Wasserstein Metric}
+%The loss function is designed to measure the similarity of two probability distributions. Unsupervised learning is conducted by minimizing the loss. We plan to study the properties of several widely used loss metrics:
+%\begin{itemize}
+%\item Compare L1, L2-loss, KL-divergence, f-divergence, and Wasserstein distance
+%\item Study the time-dependent formulation of the optimal transportation cost
+%\item Test the effect of translation and perturbation for a certain loss metric
+%\end{itemize}
+%
+%\subsection{Learning Algorithms for Robust Optimization}
+%\begin{itemize}
+%\item Develop a specific learning algorithm to find robust Nash equilibria, which should be stable and efficient
+%\item Compare with existing numerical optimization approaches in large-scale machine learning: SGD, Adam, Momentum, Ishikawa-Nesterov, Newton's method, conjugate gradient, natural gradient, etc.
+%\item Compare with existing deep generative models: RBM, VAE, GAN, WGAN, etc.
+%\end{itemize}
+%
+%\subsection{Generative Modeling for Vehicle Tracking}
+%\subsection{Generative Modeling for Image Synthesis}
+%\subsection{Generative Modeling for Voice Conversion}
+%
+%\subsection{Experiments on Large-scale Machine Learning datasets}
+%\begin{itemize}
+%\item Maryland Traffic Surveillance Dataset (Vehicle tracking)
+%\item Large-scale CelebFaces Attributes Dataset (CelebA, image synthesis)
+%\item Large-scale Scene Understanding Challenge (LSUN, image synthesis)
+%\item Interactive Emotional Dyadic Motion Capture (IEMOCAP, emotional voice conversion)
+%\end{itemize}
+%
+%\subsection{Discussion}
+%
+%\subsection{Conclusion and Future Work}
 
-\subsection{Related Work}
 
-\subsection{Distributionally Robust Games}
-%Problem Formulation
-In this part we introduce distributionally robust games and develop new filtering and learning architectures under this framework. The system may contain several competing neural networks: the attackers learn to generate synthetic samples that are supposed to have the same distribution as the original ones, while the defenders try to find counter-examples and create difficulties for the other side. Each player tries to perform better and beat the others, which forms a multi-agent zero-sum game with uncertain payoffs. The players use a robust optimization approach to contend with the worst-case scenario payoff. The attacker network is constructed based on the outcome of defender networks, and vice versa. The competing networks are trained together iteratively until achieving the distributional robust Nash equilibrium.
+%\subsection{Research Plan}
+%
+%\subsubsection{Research Progress}
+%\begin{itemize}
+%\item[] Literature review, planning
+%\item[] Theory part on distributional robust games, Bregman learning and convex optimization
+%\item[] Theoretical analysis and comparison for L2 distance, f-divergence and Wasserstein metric
+%\item[] Algorithm design, overall integration, simulations, specific implementations on real problems
+%\item[] Application part on large-scale machine learning: experiments, evaluation and revision
+%\item[] Documentation and Defence
+%\end{itemize}
+%
+%\subsubsection{Application on Image and Audio Synthesis}
+%\begin{itemize}
+%\item Test on large-scale image dataset MNIST, CelebA and LSUN
+%\item Literature review on emotional speech classification and audio synthesis
+%\item Compare two sound representations in generative learning: waveform and spectrogram
+%\item Design deep generative models for emotional speech generation
+%\item Test on voice conversion or music style transfer if possible
+%\end{itemize}
 
-\subsection{Wasserstein Metric}
-The loss function is designed to measure the similarity of two probability distributions. Unsupervised learning is conducted by minimizing the loss. We plan to study the properties of several widely used loss metrics:
-\begin{itemize}
-\item Compare L1, L2-loss, KL-divergence, f-divergence, and Wasserstein distance
-\item Study the time-dependent formulation of the optimal transportation cost
-\item Test the effect of translation and perturbation for a certain loss metric
-\end{itemize}
-
-\subsection{Learning Algorithms for Robust Optimization}
-\begin{itemize}
-\item Develop a specific learning algorithm to find robust Nash equilibria, which should be stable and efficient
-\item Compare with existing numerical optimization approaches in large-scale machine learning: SGD, Adam, Momentum, Ishikawa-Nesterov, Newton's method, conjugate gradient, natural gradient, etc.
-\item Compare with existing deep generative models: RBM, VAE, GAN, WGAN, etc.
-\end{itemize}
-
-\subsection{Generative Modeling for Vehicle Tracking}
-\subsection{Generative Modeling for Image Synthesis}
-\subsection{Generative Modeling for Voice Conversion}
-
-\subsection{Experiments on Large-scale Machine Learning datasets}
-\begin{itemize}
-\item Maryland Traffic Surveillance Dataset (Vehicle tracking)
-\item Large-scale CelebFaces Attributes Dataset (CelebA, image synthesis)
-\item Large-scale Scene Understanding Challenge (LSUN, image synthesis)
-\item Interactive Emotional Dyadic Motion Capture (IEMOCAP, emotional voice conversion)
-\end{itemize}
-
-\subsection{Discussion}
-
-\subsection{Conclusion and Future Work}
-
-
-
-\section{Research Plan}
-\label{Sec:Plan}
-
-\subsection{Research Progress}
-\begin{itemize}
-\item[] Literature review, planning
-\item[] Theory part on distributional robust games, Bregman learning and convex optimization
-\item[] Theoretical analysis and comparison for L2 distance, f-divergence and Wasserstein metric
-\item[] Algorithm design, overall integration, simulations, specific implementations on real problems
-\item[] Application part on large-scale machine learning: experiments, evaluation and revision
-\item[] Documentation and Defence
-\end{itemize}
-
-\subsection{Application on Image and Audio Synthesis}
-\begin{itemize}
-\item Test on large-scale image dataset MNIST, CelebA and LSUN
-\item Literature review on emotional speech classification and audio synthesis
-\item Compare two sound representations in generative learning: waveform and spectrogram
-\item Design deep generative models for emotional speech generation
-\item Test on voice conversion or music style transfer if possible
-\end{itemize}
-
-
-\subsection{Timeline}
+\subsection{Research Timeline}
 \begin{align*}
 &\text{Fall 2018} && \text{Study on Generative Models for Voice Conversion} \\
 &\text{Spring 2019} && \text{Write Thesis} \\
-&\text{August 2019} && \text{Thesis Defense}
+&\text{Fall 2019} && \text{Thesis Defense}
 \end{align*}
-
 
 %\subsection{Long-term, from Feb 2018}
 %\subsection{Short-term, from Spet 2018 (need discussion)}
@@ -656,11 +1373,13 @@ The loss function is designed to measure the similarity of two probability distr
 \section{Conclusion}
 \label{Sec:Con}
 
-Tackling the aforementioned problems would take us much closer to
-real intelligent systems, and defines three core pillars
-of Artificial Intelligence. However, there are many other problems which
-need to be solved and integrated to achieve a fully
-intelligent system, e.g. navigation, learning by imitation, cooperation, and many others.
+This proposal contains my plan for graduating with a PhD in the early Fall of 2019, and described how game theory models can be used in generative learning. While this thesis focus on image synthesis and speech conversion, it is a general model and can apply to other kinds of data by replacing the data representation network. Its contributions can help shed a light to a much unexplored field, and help create a path towards fully automatic data generation and manipulation.
+
+%Tackling the aforementioned problems would take us much closer to
+%real intelligent systems, and defines three core pillars
+%of Artificial Intelligence. However, there are many other problems which
+%need to be solved and integrated to achieve a fully
+%intelligent system, e.g. navigation, learning by imitation, cooperation, and many others.
 
 %However, I think that all that skills can be integrated by means of external interface, and
 %don't have to be modeled in any special way. For instance, navigation skill could emerge
@@ -673,31 +1392,38 @@ intelligent system, e.g. navigation, learning by imitation, cooperation, and man
 %leads to wars. The only way to prevent it is to have abundance of resources.
 %Artificial intelligence could provide abundance of all resources.
 
+\clearpage
+
 
 
 \section{List of Publications}
 \label{Sec:Pub}
 
 \subsection{Thesis Related Publications}
+The following publications are directly related to my dissertation.
 \begin{enumerate}
-\item[] Jian Gao and Hamidou Tembine, Distributionally Robust Games for Deep Generative Learning, July 2018. DOI: 10.13140/RG.2.2.15305.44644
-\item[] Jian Gao, Yida Xu, Julian Barreiro-Gomez, Massa Ndong, Michalis Smyrnakis and Hamidou Tembine (September 5th 2018) \href{https://www.intechopen.com/books/optimization-algorithms-examples/distributionally-robust-optimization}{Distributionally Robust Optimization}. In Jan Valdman, Optimization Algorithms, IntechOpen. DOI: 10.5772/intechopen.76686. ISBN: 978-1-78923-677-4
-\item[] Jian Gao and Hamidou Tembine, Distributionally Robust Games: Wasserstein Metric, International Joint Conference on Neural Networks (IJCNN), Rio de Janeiro, Brazil, July 2018
-\item[] Jian Gao and Hamidou Tembine, Bregman Learning for Generative Adversarial Networks, Chinese Control and Decision Conference (CCDC), Shenyang, China, June 2018 \textit{(Best Paper Finalist Award)}
-\item[] Jian Gao and Hamidou Tembine, Distributed Mean-Field-Type Filter for Vehicle Tracking, in American Control Conference (ACC), Seattle, USA, May 2017 \textit{(Student Travel Award)}
-\item[] Dario Bauso, Jian Gao and Hamidou Tembine, Distributionally Robust Games: f-Divergence and Learning, 11th EAI International Conference on Performance Evaluation Methodologies and Tools (VALUETOOLS), Venice, Italy, Dec 2017
+\item Jian Gao, Deep Chakraborty, Hamidou Tembine, and Olaitan Olaleye, “Nonparallel emotional speech conversion,” CoRR, vol. abs/1904.00848. (submitted to ICASSP 2019)
+\item Jian Gao and Hamidou Tembine, Distributionally Robust Games for Deep Generative Learning, July 2018. DOI: 10.13140/RG.2.2.15305.44644
+\item Jian Gao, Yida Xu, Julian Barreiro-Gomez, Massa Ndong, Michalis Smyrnakis and Hamidou Tembine (September 5th 2018) \href{https://www.intechopen.com/books/optimization-algorithms-examples/distributionally-robust-optimization}{Distributionally Robust Optimization}. In Jan Valdman, Optimization Algorithms, IntechOpen. DOI: 10.5772/intechopen.76686. ISBN: 978-1-78923-677-4
+\item Jian Gao and Hamidou Tembine, Distributionally Robust Games: Wasserstein Metric, International Joint Conference on Neural Networks (IJCNN), Rio de Janeiro, Brazil, July 2018
+\item Jian Gao and Hamidou Tembine, Bregman Learning for Generative Adversarial Networks, Chinese Control and Decision Conference (CCDC), Shenyang, China, June 2018 \textit{(Best Paper Finalist Award)}
+\item Jian Gao and Hamidou Tembine, Distributed Mean-Field-Type Filter for Vehicle Tracking, in American Control Conference (ACC), Seattle, USA, May 2017 \textit{(Student Travel Award)}
+\item Dario Bauso, Jian Gao and Hamidou Tembine, Distributionally Robust Games: f-Divergence and Learning, 11th EAI International Conference on Performance Evaluation Methodologies and Tools (VALUETOOLS), Venice, Italy, Dec 2017
 %    \item Jian Gao and Hamidou Tembine, A mean-field filter for two-step ahead forward-looking problems, Workshop on Frontiers of Networks: Theory and Algorithms , Seventeenth International Symposium on Mobile Ad Hoc Networking and Computing, MobiHoc, July 5-7,2016, Paderborn, Germany
 \end{enumerate}
 
 
 \subsection{Other Publications}
+The papers below were published during my PhD, but will not be included in the thesis, as they diverge too much from the main topic of the research.
 \begin{enumerate}
-\item[] J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Traffic Networks," in IEEE Transactions on Intelligent Transportation Systems. doi: 10.1109/TITS.2018.2816811
-\item[] J. Gao and H. Tembine, "Empathy and berge equilibria in the forwarding dilemma in relay-enabled networks," 2017 International Conference on Wireless Networks and Mobile Communications (WINCOM), Rabat, 2017, pp. 1-8. doi: 10.1109/WINCOM.2017.8238199 \href{https://nyuad.nyu.edu/en/news/latest-news/science-and-technology/2017/december/next-generation-cell-phone-networks.html}{(\textit{Best paper Award})}
-\item[] J. Gao and H. Tembine, "Correlative mean-field filter for sequential and spatial data processing," IEEE EUROCON 2017 -17th International Conference on Smart Technologies, Ohrid, 2017, pp. 243-248. doi: 10.1109/EUROCON.2017.8011113
-\item[] Fanhuai Shi, Jian Gao, Xixia Huang, An affine invariant approach for dense wide baseline image matching. International Journal of Distributed Sensor Networks (IJDSN) 12(12) (2016)
-\item[] J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Big Data Assimilation," 2016 IEEE 18th International Conference on High Performance Computing and Communications; IEEE 14th International Conference on Smart City; IEEE 2nd International Conference on Data Science and Systems (HPCC/SmartCity/DSS), Sydney, NSW, 2016, pp. 1446-1453. doi: 10.1109/HPCC-SmartCity-DSS.2016.0206
+\item J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Traffic Networks," in IEEE Transactions on Intelligent Transportation Systems. doi: 10.1109/TITS.2018.2816811
+\item J. Gao and H. Tembine, "Empathy and berge equilibria in the forwarding dilemma in relay-enabled networks," 2017 International Conference on Wireless Networks and Mobile Communications (WINCOM), Rabat, 2017, pp. 1-8. doi: 10.1109/WINCOM.2017.8238199 \href{https://nyuad.nyu.edu/en/news/latest-news/science-and-technology/2017/december/next-generation-cell-phone-networks.html}{(\textit{Best paper Award})}
+\item J. Gao and H. Tembine, "Correlative mean-field filter for sequential and spatial data processing," IEEE EUROCON 2017 -17th International Conference on Smart Technologies, Ohrid, 2017, pp. 243-248. doi: 10.1109/EUROCON.2017.8011113
+\item Fanhuai Shi, Jian Gao, Xixia Huang, An affine invariant approach for dense wide baseline image matching. International Journal of Distributed Sensor Networks (IJDSN) 12(12) (2016)
+\item J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Big Data Assimilation," 2016 IEEE 18th International Conference on High Performance Computing and Communications; IEEE 14th International Conference on Smart City; IEEE 2nd International Conference on Data Science and Systems (HPCC/SmartCity/DSS), Sydney, NSW, 2016, pp. 1446-1453. doi: 10.1109/HPCC-SmartCity-DSS.2016.0206
 \end{enumerate}
+
+
 
 
 
@@ -706,8 +1432,6 @@ intelligent system, e.g. navigation, learning by imitation, cooperation, and man
 %Use unnumbered third level headings for the acknowledgments. All
 %acknowledgments go at the end of the paper. Do not include
 %acknowledgments in the anonymized submission, only in the final paper.
-
-\cite{NIPS2014_5423}
 
 
 
@@ -738,10 +1462,10 @@ intelligent system, e.g. navigation, learning by imitation, cooperation, and man
 %modulation in rat hippocampal region CA3. {\it Journal of
 %  Neuroscience} {\bf 15}(7):5249-5262.
 
-
+\clearpage
 
 \bibliographystyle{unsrt}
-\bibliography{ref}
+\bibliography{ref,refPE,refGAN,refVC}
 
 
 
@@ -828,3 +1552,6 @@ intelligent system, e.g. navigation, learning by imitation, cooperation, and man
 %[77] Generating Text through Adversarial Training using Skip-Thought Vectors
 %[78] A Universal Music Translation Network
 %[79] ImageNet: A Large-Scale Hierarchical Image Database
+%[80] Kullback, S. (1959), Information Theory and Statistics, John Wiley & Sons. Republished by Dover Publications in 1968; reprinted in 1978: ISBN 0-8446-5625-9.
+%[81] Fuglede, B.; Topsoe, F. (2004). Jensen-Shannon divergence and Hilbert space embedding (PDF). Proc. Int'l Symp. on Information Theory. p. 30. doi:10.1109/ISIT.2004.1365067. ISBN 0-7803-8280-3.
+ 

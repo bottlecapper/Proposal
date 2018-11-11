@@ -4,55 +4,36 @@
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Distribution Uncertainty Set}{subsection.2.1}% 4
 \BOOKMARK [3][-]{subsubsection.2.1.2}{Related Work}{subsection.2.1}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Problem Formulation}{section.2}% 6
-\BOOKMARK [3][-]{subsubsection.2.2.1}{From unsupervised learning to Generative Model}{subsection.2.2}% 7
-\BOOKMARK [3][-]{subsubsection.2.2.2}{Game Theoretic Framework for Learning}{subsection.2.2}% 8
-\BOOKMARK [3][-]{subsubsection.2.2.3}{Definition}{subsection.2.2}% 9
-\BOOKMARK [3][-]{subsubsection.2.2.4}{The Existence of Distributionally Robust Nash Equilibria}{subsection.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.3}{Minimax Robust Game}{section.2}% 11
-\BOOKMARK [3][-]{subsubsection.2.3.1}{From Duality to Triality Theory}{subsection.2.3}% 12
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Dimension Reduction}{subsection.2.3}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Evaluation}{subsection.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.4}{Case Study: Learning a Generative Adversarial Model}{section.2}% 15
-\BOOKMARK [1][-]{section.3}{Wasserstein Metric}{}% 16
-\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 17
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Optimal Transportation Problem}{subsection.3.1}% 18
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Definition}{subsection.3.1}% 19
-\BOOKMARK [2][-]{subsection.3.2}{From KL divergence to Wasserstein Metric}{section.3}% 20
-\BOOKMARK [2][-]{subsection.3.3}{Other Metrics: L1, L2, Maximum Mean Discrepancy}{section.3}% 21
-\BOOKMARK [2][-]{subsection.3.4}{Dynamic Optimal Transport}{section.3}% 22
-\BOOKMARK [2][-]{subsection.3.5}{Case Study: A Toy Example}{section.3}% 23
-\BOOKMARK [1][-]{section.4}{Learning Algorithms}{}% 24
-\BOOKMARK [2][-]{subsection.4.1}{Bregman Learning under f-divergence}{section.4}% 25
-\BOOKMARK [2][-]{subsection.4.2}{Distributionally Robust Optimization}{section.4}% 26
-\BOOKMARK [2][-]{subsection.4.3}{Train a Deep Generative Model}{section.4}% 27
-\BOOKMARK [2][-]{subsection.4.4}{Case Study: Unsupervised Learning for Clustering}{section.4}% 28
-\BOOKMARK [2][-]{subsection.4.5}{Case Study: Generative Modeling for Image Synthesis}{section.4}% 29
-\BOOKMARK [1][-]{section.5}{Style Transfer as a Minimax Game}{}% 30
-\BOOKMARK [2][-]{subsection.5.1}{Introduction}{section.5}% 31
-\BOOKMARK [2][-]{subsection.5.2}{Motivation}{section.5}% 32
-\BOOKMARK [2][-]{subsection.5.3}{Related Work}{section.5}% 33
-\BOOKMARK [2][-]{subsection.5.4}{Method}{section.5}% 34
-\BOOKMARK [3][-]{subsubsection.5.4.1}{Two-domain transformation}{subsection.5.4}% 35
-\BOOKMARK [3][-]{subsubsection.5.4.2}{Multi-domain transformation}{subsection.5.4}% 36
-\BOOKMARK [2][-]{subsection.5.5}{Case Study: Image Style Transfer}{section.5}% 37
-\BOOKMARK [2][-]{subsection.5.6}{Case Study: Emotional Voice Conversion}{section.5}% 38
-\BOOKMARK [1][-]{section.6}{Dissertation Outline}{}% 39
-\BOOKMARK [2][-]{subsection.6.1}{Introduction}{section.6}% 40
-\BOOKMARK [2][-]{subsection.6.2}{Related Work}{section.6}% 41
-\BOOKMARK [2][-]{subsection.6.3}{Distributionally Robust Games}{section.6}% 42
-\BOOKMARK [2][-]{subsection.6.4}{Wasserstein Metric}{section.6}% 43
-\BOOKMARK [2][-]{subsection.6.5}{Learning Algorithms for Robust Optimization}{section.6}% 44
-\BOOKMARK [2][-]{subsection.6.6}{Generative Modeling for Vehicle Tracking}{section.6}% 45
-\BOOKMARK [2][-]{subsection.6.7}{Generative Modeling for Image Synthesis}{section.6}% 46
-\BOOKMARK [2][-]{subsection.6.8}{Generative Modeling for Voice Conversion}{section.6}% 47
-\BOOKMARK [2][-]{subsection.6.9}{Experiments on Large-scale Machine Learning datasets}{section.6}% 48
-\BOOKMARK [2][-]{subsection.6.10}{Discussion}{section.6}% 49
-\BOOKMARK [2][-]{subsection.6.11}{Conclusion and Future Work}{section.6}% 50
-\BOOKMARK [1][-]{section.7}{Research Plan}{}% 51
-\BOOKMARK [2][-]{subsection.7.1}{Research Progress}{section.7}% 52
-\BOOKMARK [2][-]{subsection.7.2}{Application on Image and Audio Synthesis}{section.7}% 53
-\BOOKMARK [2][-]{subsection.7.3}{Timeline}{section.7}% 54
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 55
-\BOOKMARK [1][-]{section.9}{List of Publications}{}% 56
-\BOOKMARK [2][-]{subsection.9.1}{Thesis Related Publications}{section.9}% 57
-\BOOKMARK [2][-]{subsection.9.2}{Other Publications}{section.9}% 58
+\BOOKMARK [2][-]{subsection.2.3}{Minimax Robust Game}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Infinite Dimension}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Triality Theory}{subsection.2.3}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Dimension Reduction}{subsection.2.3}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Case Study: Unsupervised Generative Learning}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Wasserstein Metric}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Optimal Transportation Problem}{subsection.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.2}{From KL divergence to Wasserstein Metric}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{Dynamic Optimal Transport}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.4}{Case Study: A Toy Example}{section.3}% 17
+\BOOKMARK [1][-]{section.4}{Learning Algorithms}{}% 18
+\BOOKMARK [2][-]{subsection.4.1}{Distributionally Robust Optimization}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.2}{Numerical Investigation}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.3}{Train a Deep Generative Model}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.4}{Case Study: Unsupervised Learning for Clustering}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.5}{Case Study: Generative Modeling for Image Synthesis}{section.4}% 23
+\BOOKMARK [1][-]{section.5}{Style Transfer as a Minimax Game}{}% 24
+\BOOKMARK [2][-]{subsection.5.1}{Introduction}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.2}{Motivation}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.3}{Related Work}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.4}{Method}{section.5}% 28
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Two-domain transformation}{subsection.5.4}% 29
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Multi-domain transformation}{subsection.5.4}% 30
+\BOOKMARK [2][-]{subsection.5.5}{Case Study: Image Style Transfer}{section.5}% 31
+\BOOKMARK [2][-]{subsection.5.6}{Case Study: Emotional Voice Conversion}{section.5}% 32
+\BOOKMARK [1][-]{section.6}{Dissertation Outline and Research Timeline}{}% 33
+\BOOKMARK [2][-]{subsection.6.1}{Dissertation Outline}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.2}{Research Timeline}{section.6}% 35
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 36
+\BOOKMARK [1][-]{section.8}{List of Publications}{}% 37
+\BOOKMARK [2][-]{subsection.8.1}{Thesis Related Publications}{section.8}% 38
+\BOOKMARK [2][-]{subsection.8.2}{Other Publications}{section.8}% 39

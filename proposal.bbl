@@ -1,4 +1,117 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Villani}
+C\'{e}dric Villani.
+\newblock {\em {Optimal Transport: Old and New}}.
+\newblock Grundlehren der mathematischen Wissenschaften. Springer, 2009
+  edition, September 2008.
+
+\bibitem{Aghassi2006}
+Michele Aghassi and Dimitris Bertsimas.
+\newblock Robust game theory.
+\newblock {\em Mathematical Programming}, 107(1):231--273, Jun 2006.
+
+\bibitem{doi:10.1137/080734510}
+Dimitris Bertsimas, David~B. Brown, and Constantine Caramanis.
+\newblock Theory and applications of robust optimization.
+\newblock {\em SIAM Review}, 53(3):464--501, 2011.
+
+\bibitem{scarf1957min}
+H.E. Scarf.
+\newblock {\em A Min-max Solution of an Inventory Problem}.
+\newblock P (Rand Corporation). Rand Corporation, 1957.
+
+\bibitem{sion1958}
+Maurice Sion.
+\newblock On general minimax theorems.
+\newblock {\em Pacific J. Math.}, 8(1):171--176, 1958.
+
+\bibitem{DBLP:journals/ior/Soyster73}
+Allen~L. Soyster.
+\newblock Technical note - convex programming with set-inclusive constraints
+  and applications to inexact linear programming.
+\newblock {\em Operations Research}, 21(5):1154--1157, 1973.
+
+\bibitem{Csiszar1963}
+Imre Csisz\'ar.
+\newblock Eine informationstheoretische ungleichung und ihre anwendung auf den
+  beweis der ergodizitat von markoffschen ketten.
+\newblock {\em Magyar. Tud. Akad. Mat. Kutat\'o Int. K\"ozl}, 8:85--108, 1963.
+
+\bibitem{Morimoto1963}
+Tetsuzo Morimoto.
+\newblock Markov processes and the h-theorem.
+\newblock {\em Journal of the Physical Society of Japan}, 18(3):328--331, 1963.
+
+\bibitem{Silvey1966}
+S.~M. Ali and S.~D. Silvey.
+\newblock A general class of coefficients of divergence of one distribution
+  from another.
+\newblock {\em Journal of the Royal Statistical Society. Series B},
+  28(1):131--142, 1966.
+
+\bibitem{Tembine:2012:DSL:2378729}
+Hamidou Tembine.
+\newblock {\em Distributed Strategic Learning for Wireless Engineers}.
+\newblock CRC Press, Inc., Boca Raton, FL, USA, 2012.
+
+\bibitem{FRIEDMAN2013743}
+Evolutionary dynamics over continuous action spaces for population games that
+  arise from symmetric two-player games.
+\newblock {\em Journal of Economic Theory}, 148(2):743 -- 777, 2013.
+
+\bibitem{conti1}
+Lacra Pavel.
+\newblock {\em Game Theory for Control of Optical Networks}.
+\newblock Static \& Dynamic Game Theory: Foundations \& Applications. 1
+  edition.
+
+\bibitem{FRIEDMAN2010691}
+Gradient dynamics in population games: Some basic results.
+\newblock {\em Journal of Mathematical Economics}, 46(5):691 -- 707, 2010.
+\newblock Mathematical Economics: Special Issue in honour of Andreu Mas-Colell,
+  Part 1.
+
+\bibitem{7727688}
+B.~D. Nichols.
+\newblock A comparison of action selection methods for implicit policy method
+  reinforcement learning in continuous action-space.
+\newblock In {\em 2016 International Joint Conference on Neural Networks
+  (IJCNN)}, pages 3785--3792, July 2016.
+
+\bibitem{PERKINS2014179}
+Stochastic fictitious play with continuous action sets.
+\newblock {\em Journal of Economic Theory}, 152:179 -- 213, 2014.
+
+\bibitem{CHEUNG2014344}
+Pairwise comparison dynamics for games with continuous strategy space.
+\newblock {\em Journal of Economic Theory}, 153:344 -- 375, 2014.
+
+\bibitem{Bauso2016}
+Dario Bauso, Hamidou Tembine, and Tamer Ba{\c{s}}ar.
+\newblock Robust mean field games.
+\newblock {\em Dynamic Games and Applications}, 6(3):277--303, Sep 2016.
+
+\bibitem{Csiszar1967}
+I.~Csisz\'{a}r.
+\newblock {Information-type measures of difference of probability distributions
+  and indirect observations}.
+\newblock {\em Studia Scientiarum Mathematicarum Hungarica}, 2:299--318, 1967.
+
+\bibitem{gan05}
+Ian Goodfellow and et~al.
+\newblock Generative adversarial nets.
+\newblock In {\em NIPS}. 2014.
+
+\bibitem{DBLP:journals/corr/WuBSG16}
+Yuhuai Wu, Yuri Burda, Ruslan Salakhutdinov, and Roger~B. Grosse.
+\newblock On the quantitative analysis of decoder-based generative models.
+\newblock {\em CoRR}, abs/1611.04273, 2016.
+
+\bibitem{DBLP:journals/corr/KingmaW13}
+Diederik~P. Kingma and Max Welling.
+\newblock Auto-encoding variational bayes.
+\newblock {\em CoRR}, abs/1312.6114, 2013.
 
 \bibitem{NIPS2014_5423}
 Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley,
@@ -7,5 +120,55 @@ Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley,
 \newblock In Z.~Ghahramani, M.~Welling, C.~Cortes, N.~D. Lawrence, and K.~Q.
   Weinberger, editors, {\em Advances in Neural Information Processing Systems
   27}, pages 2672--2680. Curran Associates, Inc., 2014.
+
+\bibitem{DBLP:journals/corr/ArjovskyCB17}
+Mart{\'{\i}}n Arjovsky, Soumith Chintala, and L{\'{e}}on Bottou.
+\newblock Wasserstein {GAN}.
+\newblock {\em CoRR}, abs/1701.07875, 2017.
+
+\bibitem{DBLP:journals/corr/ArjovskyB17}
+Mart{\'{\i}}n Arjovsky and L{\'{e}}on Bottou.
+\newblock Towards principled methods for training generative adversarial
+  networks.
+\newblock {\em CoRR}, abs/1701.04862, 2017.
+
+\bibitem{DBLP:conf/nips/SalimansGZCRCC16}
+Tim Salimans, Ian~J. Goodfellow, Wojciech Zaremba, Vicki Cheung, Alec Radford,
+  and Xi~Chen.
+\newblock Improved techniques for training gans.
+\newblock In {\em Advances in Neural Information Processing Systems 29: Annual
+  Conference on Neural Information Processing Systems 2016, December 5-10,
+  2016, Barcelona, Spain}, pages 2226--2234, 2016.
+
+\bibitem{Lichman:2013}
+M.~Lichman.
+\newblock {UCI} machine learning repository, 2013.
+
+\bibitem{liu2015faceattributes}
+Ziwei Liu, Ping Luo, Xiaogang Wang, and Xiaoou Tang.
+\newblock Deep learning face attributes in the wild.
+\newblock In {\em Proceedings of International Conference on Computer Vision
+  (ICCV)}, 2015.
+
+\bibitem{DBLP:journals/corr/RadfordMC15}
+Alec Radford, Luke Metz, and Soumith Chintala.
+\newblock Unsupervised representation learning with deep convolutional
+  generative adversarial networks.
+\newblock {\em CoRR}, abs/1511.06434, 2015.
+
+\bibitem{sinkhorn1967}
+Richard Sinkhorn and Paul Knopp.
+\newblock Concerning nonnegative matrices and doubly stochastic matrices.
+\newblock {\em Pacific J. Math.}, 21(2):343--348, 1967.
+
+\bibitem{DBLP:journals/corr/Ruder16}
+Sebastian Ruder.
+\newblock An overview of gradient descent optimization algorithms.
+\newblock {\em CoRR}, abs/1609.04747, 2016.
+
+\bibitem{DBLP:journals/corr/TheisOB15}
+Lucas Theis, A{\"{a}}ron van~den Oord, and Matthias Bethge.
+\newblock A note on the evaluation of generative models.
+\newblock {\em CoRR}, abs/1511.01844, 2015.
 
 \end{thebibliography}
