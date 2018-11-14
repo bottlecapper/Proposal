@@ -1,10 +1,61 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
+
+\bibitem{5206848}
+J.~Deng, W.~Dong, R.~Socher, L.~Li, Kai Li, and Li~Fei-Fei.
+\newblock Imagenet: A large-scale hierarchical image database.
+\newblock In {\em 2009 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 248--255, June 2009.
+
+\bibitem{DBLP:journals/corr/abs-1710-10196}
+Tero Karras, Timo Aila, Samuli Laine, and Jaakko Lehtinen.
+\newblock Progressive growing of gans for improved quality, stability, and
+  variation.
+\newblock {\em CoRR}, abs/1710.10196, 2017.
+
+\bibitem{DBLP:conf/aaai/DongHYY18}
+Hao{-}Wen Dong, Wen{-}Yi Hsiao, Li{-}Chia Yang, and Yi{-}Hsuan Yang.
+\newblock Musegan: Multi-track sequential generative adversarial networks for
+  symbolic music generation and accompaniment.
+\newblock In {\em Proceedings of the Thirty-Second {AAAI} Conference on
+  Artificial Intelligence, (AAAI-18), the 30th innovative Applications of
+  Artificial Intelligence (IAAI-18), and the 8th {AAAI} Symposium on
+  Educational Advances in Artificial Intelligence (EAAI-18), New Orleans,
+  Louisiana, USA, February 2-7, 2018}, pages 34--41, 2018.
+
+\bibitem{DBLP:journals/corr/abs-1711-09020}
+Yunjey Choi, Min{-}Je Choi, Munyoung Kim, Jung{-}Woo Ha, Sunghun Kim, and
+  Jaegul Choo.
+\newblock Stargan: Unified generative adversarial networks for multi-domain
+  image-to-image translation.
+\newblock {\em CoRR}, abs/1711.09020, 2017.
+
+\bibitem{DBLP:journals/corr/abs-1808-08703}
+Afroz Ahamad.
+\newblock Generating text through adversarial training using skip-thought
+  vectors.
+\newblock {\em CoRR}, abs/1808.08703, 2018.
+
+\bibitem{DBLP:journals/corr/abs-1805-07848}
+Noam Mor, Lior Wolf, Adam Polyak, and Yaniv Taigman.
+\newblock A universal music translation network.
+\newblock {\em CoRR}, abs/1805.07848, 2018.
 
 \bibitem{Villani}
 C\'{e}dric Villani.
 \newblock {\em {Optimal Transport: Old and New}}.
 \newblock Grundlehren der mathematischen Wissenschaften. Springer, 2009
   edition, September 2008.
+
+\bibitem{kullback_1978}
+Solomon Kullback.
+\newblock {\em Information theory and statistics}.
+\newblock Peter Smith, 1978.
+
+\bibitem{1365067}
+B.~Fuglede and F.~Topsoe.
+\newblock Jensen-shannon divergence and hilbert space embedding.
+\newblock In {\em International Symposium onInformation Theory, 2004. ISIT
+  2004. Proceedings.}, pages 31--, June 2004.
 
 \bibitem{Aghassi2006}
 Michele Aghassi and Dimitris Bertsimas.
@@ -108,6 +159,11 @@ Yuhuai Wu, Yuri Burda, Ruslan Salakhutdinov, and Roger~B. Grosse.
 \newblock On the quantitative analysis of decoder-based generative models.
 \newblock {\em CoRR}, abs/1611.04273, 2016.
 
+\bibitem{DBLP:journals/corr/GatysEB15a}
+Leon~A. Gatys, Alexander~S. Ecker, and Matthias Bethge.
+\newblock A neural algorithm of artistic style.
+\newblock {\em CoRR}, abs/1508.06576, 2015.
+
 \bibitem{DBLP:journals/corr/KingmaW13}
 Diederik~P. Kingma and Max Welling.
 \newblock Auto-encoding variational bayes.
@@ -170,5 +226,398 @@ Sebastian Ruder.
 Lucas Theis, A{\"{a}}ron van~den Oord, and Matthias Bethge.
 \newblock A note on the evaluation of generative models.
 \newblock {\em CoRR}, abs/1511.01844, 2015.
+
+\bibitem{8099501}
+K.~Bousmalis, N.~Silberman, D.~Dohan, D.~Erhan, and D.~Krishnan.
+\newblock Unsupervised pixel-level domain adaptation with generative
+  adversarial networks.
+\newblock In {\em 2017 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 95--104, July 2017.
+
+\bibitem{Shrivastava_2017_CVPR}
+Ashish Shrivastava, Tomas Pfister, Oncel Tuzel, Joshua Susskind, Wenda Wang,
+  and Russell Webb.
+\newblock Learning from simulated and unsupervised images through adversarial
+  training.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, July 2017.
+
+\bibitem{DBLP:journals/corr/TaigmanPW16}
+Yaniv Taigman, Adam Polyak, and Lior Wolf.
+\newblock Unsupervised cross-domain image generation.
+\newblock {\em CoRR}, abs/1611.02200, 2016.
+
+\bibitem{Zhu_2017_ICCV}
+JY~Zhu, T.~Park, P.~Isola, and A.A. Efros.
+\newblock Unpaired image-to-image translation using cycle-consistent
+  adversarial networks.
+\newblock In {\em IEEE ICCV}, Oct 2017.
+
+\bibitem{Gong:2016:DAC:3045390.3045689}
+Mingming Gong, Kun Zhang, Tongliang Liu, Dacheng Tao, Clark Glymour, and
+  Bernhard Sch\"{o}lkopf.
+\newblock Domain adaptation with conditional transferable components.
+\newblock In {\em Proceedings of the 33rd International Conference on
+  International Conference on Machine Learning - Volume 48}, ICML'16, pages
+  2839--2848. JMLR.org, 2016.
+
+\bibitem{NIPS2017_6672}
+M.Y. Liu, T.~Breuel, and J.~Kautz.
+\newblock Unsupervised image-to-image translation networks.
+\newblock In {\em Advances in Neural Information Processing Systems (NIPS)},
+  pages 700--708. Curran Associates, Inc., 2017.
+
+\bibitem{Huang_2018_ECCV}
+X.~Huang, MY. Liu, S.~Belongie, and J.~Kautz.
+\newblock Multimodal unsupervised image-to-image translation.
+\newblock In {\em The European Conference on Computer Vision (ECCV)}, September
+  2018.
+
+\bibitem{4967588}
+S.~Si, D.~Tao, and B.~Geng.
+\newblock Bregman divergence-based regularization for transfer subspace
+  learning.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  22(7):929--942, July 2010.
+
+\bibitem{Ganin:2016:DTN:2946645.2946704}
+Yaroslav Ganin, Evgeniya Ustinova, Hana Ajakan, Pascal Germain, Hugo
+  Larochelle, Fran\c{c}ois Laviolette, Mario Marchand, and Victor Lempitsky.
+\newblock Domain-adversarial training of neural networks.
+\newblock {\em J. Mach. Learn. Res.}, 17(1):2096--2030, January 2016.
+
+\bibitem{10.1007/978-3-030-01225-0_28}
+Bharath~Bhushan Damodaran, Benjamin Kellenberger, R{\'e}mi Flamary, Devis Tuia,
+  and Nicolas Courty.
+\newblock Deepjdot: Deep joint distribution optimal transport for unsupervised
+  domain adaptation.
+\newblock In Vittorio Ferrari, Martial Hebert, Cristian Sminchisescu, and Yair
+  Weiss, editors, {\em Computer Vision -- ECCV 2018}, pages 467--483, Cham,
+  2018. Springer International Publishing.
+
+\bibitem{VanDenOord:2016:PRN:3045390.3045575}
+A\"{a}ron Van Den~Oord, Nal Kalchbrenner, and Koray Kavukcuoglu.
+\newblock Pixel recurrent neural networks.
+\newblock In {\em Proceedings of the 33rd International Conference on
+  International Conference on Machine Learning - Volume 48}, ICML'16, pages
+  1747--1756. JMLR.org, 2016.
+
+\bibitem{DBLP:journals/corr/MirzaO14}
+Mehdi Mirza and Simon Osindero.
+\newblock Conditional generative adversarial nets.
+\newblock {\em CoRR}, abs/1411.1784, 2014.
+
+\bibitem{NIPS2015_5773}
+Emily~L Denton, Soumith Chintala, arthur szlam, and Rob Fergus.
+\newblock Deep generative image models using a laplacian pyramid of adversarial
+  networks.
+\newblock In C.~Cortes, N.~D. Lawrence, D.~D. Lee, M.~Sugiyama, and R.~Garnett,
+  editors, {\em Advances in Neural Information Processing Systems 28}, pages
+  1486--1494. Curran Associates, Inc., 2015.
+
+\bibitem{NIPS2017_7159}
+Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron~C
+  Courville.
+\newblock Improved training of wasserstein gans.
+\newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
+  S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information
+  Processing Systems 30}, pages 5767--5777. Curran Associates, Inc., 2017.
+
+\bibitem{Larsen:2016:ABP:3045390.3045555}
+Anders Boesen~Lindbo Larsen, S{\o}ren~Kaae S{\o}nderby, Hugo Larochelle, and
+  Ole Winther.
+\newblock Autoencoding beyond pixels using a learned similarity metric.
+\newblock In {\em Proceedings of the 33rd International Conference on
+  International Conference on Machine Learning - Volume 48}, ICML'16, pages
+  1558--1566. JMLR.org, 2016.
+
+\bibitem{van2016wavenet}
+A.~Van Den~Oord, S.~Dieleman, H.~Zen, K.~Simonyan, O.~Vinyals, A.~Graves,
+  N.~Kalchbrenner, A.W. Senior, and K.~Kavukcuoglu.
+\newblock Wavenet: A generative model for raw audio.
+\newblock In {\em SSW}, page 125, 2016.
+
+\bibitem{NIPS2016_6527}
+Aaron van~den Oord, Nal Kalchbrenner, Lasse Espeholt, koray kavukcuoglu, Oriol
+  Vinyals, and Alex Graves.
+\newblock Conditional image generation with pixelcnn decoders.
+\newblock In D.~D. Lee, M.~Sugiyama, U.~V. Luxburg, I.~Guyon, and R.~Garnett,
+  editors, {\em Advances in Neural Information Processing Systems 29}, pages
+  4790--4798. Curran Associates, Inc., 2016.
+
+\bibitem{6243138}
+J.~E. Kyprianidis, J.~Collomosse, T.~Wang, and T.~Isenberg.
+\newblock State of the "art”: A taxonomy of artistic stylization techniques
+  for images and video.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  19(5):866--885, May 2013.
+
+\bibitem{7874180}
+M.~Elad and P.~Milanfar.
+\newblock Style transfer via texture synthesis.
+\newblock {\em IEEE Transactions on Image Processing}, 26(5):2338--2351, May
+  2017.
+
+\bibitem{10.1007/978-3-319-46454-1_36}
+Jun-Yan Zhu, Philipp Kr{\"a}henb{\"u}hl, Eli Shechtman, and Alexei~A. Efros.
+\newblock Generative visual manipulation on the natural image manifold.
+\newblock In Bastian Leibe, Jiri Matas, Nicu Sebe, and Max Welling, editors,
+  {\em Computer Vision -- ECCV 2016}, pages 597--613, Cham, 2016. Springer
+  International Publishing.
+
+\bibitem{Li_2018_ECCV}
+Yijun Li, Ming-Yu Liu, Xueting Li, Ming-Hsuan Yang, and Jan Kautz.
+\newblock A closed-form solution to photorealistic image stylization.
+\newblock In {\em The European Conference on Computer Vision (ECCV)}, September
+  2018.
+
+\bibitem{gatys2016image}
+L.A. Gatys, A.S. Ecker, and M.~Bethge.
+\newblock Image style transfer using convolutional neural networks.
+\newblock In {\em CVPR}, pages 2414--2423. IEEE, 2016.
+
+\bibitem{Ledig_2017_CVPR}
+Christian Ledig, Lucas Theis, Ferenc Huszar, Jose Caballero, Andrew Cunningham,
+  Alejandro Acosta, Andrew Aitken, Alykhan Tejani, Johannes Totz, Zehan Wang,
+  and Wenzhe Shi.
+\newblock Photo-realistic single image super-resolution using a generative
+  adversarial network.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, July 2017.
+
+\bibitem{10.1007/978-3-319-46487-9_40}
+Richard Zhang, Phillip Isola, and Alexei~A. Efros.
+\newblock Colorful image colorization.
+\newblock In Bastian Leibe, Jiri Matas, Nicu Sebe, and Max Welling, editors,
+  {\em Computer Vision -- ECCV 2016}, pages 649--666, Cham, 2016. Springer
+  International Publishing.
+
+\bibitem{Kaneko_2017_CVPR}
+Takuhiro Kaneko, Kaoru Hiramatsu, and Kunio Kashino.
+\newblock Generative attribute controller with conditional filtered generative
+  adversarial networks.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, July 2017.
+
+\bibitem{NIPS2017_6642}
+Yijun Li, Chen Fang, Jimei Yang, Zhaowen Wang, Xin Lu, and Ming-Hsuan Yang.
+\newblock Universal style transfer via feature transforms.
+\newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
+  S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information
+  Processing Systems 30}, pages 386--396. Curran Associates, Inc., 2017.
+
+\bibitem{DBLP:journals/corr/abs-1711-11585}
+Ting{-}Chun Wang, Ming{-}Yu Liu, Jun{-}Yan Zhu, Andrew Tao, Jan Kautz, and
+  Bryan Catanzaro.
+\newblock High-resolution image synthesis and semantic manipulation with
+  conditional gans.
+\newblock {\em CoRR}, abs/1711.11585, 2017.
+
+\bibitem{DBLP:journals/corr/KaracanAEE16}
+Levent Karacan, Zeynep Akata, Aykut Erdem, and Erkut Erdem.
+\newblock Learning to generate images of outdoor scenes from attributes and
+  semantic layouts.
+\newblock {\em CoRR}, abs/1612.00215, 2016.
+
+\bibitem{Zhang_2017_CVPR}
+Zhifei Zhang, Yang Song, and Hairong Qi.
+\newblock Age progression/regression by conditional adversarial autoencoder.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, July 2017.
+
+\bibitem{Isola_2017_CVPR}
+Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, and Alexei~A. Efros.
+\newblock Image-to-image translation with conditional adversarial networks.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, July 2017.
+
+\bibitem{10.1007/978-3-319-46475-6_43}
+Justin Johnson, Alexandre Alahi, and Li~Fei-Fei.
+\newblock Perceptual losses for real-time style transfer and super-resolution.
+\newblock In Bastian Leibe, Jiri Matas, Nicu Sebe, and Max Welling, editors,
+  {\em Computer Vision -- ECCV 2016}, pages 694--711, Cham, 2016. Springer
+  International Publishing.
+
+\bibitem{10.1007/978-3-319-46493-0_20}
+Xiaolong Wang and Abhinav Gupta.
+\newblock Generative image modeling using style and structure adversarial
+  networks.
+\newblock In Bastian Leibe, Jiri Matas, Nicu Sebe, and Max Welling, editors,
+  {\em Computer Vision -- ECCV 2016}, pages 318--335, Cham, 2016. Springer
+  International Publishing.
+
+\bibitem{Long:2015:LTF:3045118.3045130}
+Mingsheng Long, Yue Cao, Jianmin Wang, and Michael~I. Jordan.
+\newblock Learning transferable features with deep adaptation networks.
+\newblock In {\em Proceedings of the 32Nd International Conference on
+  International Conference on Machine Learning - Volume 37}, ICML'15, pages
+  97--105. JMLR.org, 2015.
+
+\bibitem{Venkateswara_2017_CVPR}
+Hemanth Venkateswara, Jose Eusebio, Shayok Chakraborty, and Sethuraman
+  Panchanathan.
+\newblock Deep hashing network for unsupervised domain adaptation.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, July 2017.
+
+\bibitem{7586038}
+N.~Courty, R.~Flamary, D.~Tuia, and A.~Rakotomamonjy.
+\newblock Optimal transport for domain adaptation.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  39(9):1853--1865, Sept 2017.
+
+\bibitem{NIPS2017_6963}
+Nicolas Courty, R\'{e}mi Flamary, Amaury Habrard, and Alain Rakotomamonjy.
+\newblock Joint distribution optimal transportation for domain adaptation.
+\newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
+  S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information
+  Processing Systems 30}, pages 3730--3739. Curran Associates, Inc., 2017.
+
+\bibitem{7552917}
+L.~Sun, K.~Li, H.~Wang, S.~Kang, and H.~Meng.
+\newblock Phonetic posteriorgrams for many-to-one voice conversion without
+  parallel data training.
+\newblock In {\em 2016 IEEE International Conference on Multimedia and Expo
+  (ICME)}, pages 1--6, July 2016.
+
+\bibitem{196671}
+M.~Abe, S.~Nakamura, K.~Shikano, and H.~Kuwabara.
+\newblock Voice conversion through vector quantization.
+\newblock In {\em ICASSP-88., International Conference on Acoustics, Speech,
+  and Signal Processing}, pages 655--658 vol.1, April 1988.
+
+\bibitem{661472}
+Y.~Stylianou, O.~Cappe, and E.~Moulines.
+\newblock Continuous probabilistic transform for voice conversion.
+\newblock {\em IEEE Transactions on Speech and Audio Processing},
+  6(2):131--142, March 1998.
+
+\bibitem{DBLP:conf/interspeech/NakashikaTA14}
+Toru Nakashika, Tetsuya Takiguchi, and Yasuo Ariki.
+\newblock High-order sequence modeling using speaker-dependent recurrent
+  temporal restricted boltzmann machines for voice conversion.
+\newblock In {\em {INTERSPEECH} 2014, 15th Annual Conference of the
+  International Speech Communication Association, Singapore, September 14-18,
+  2014}, pages 2278--2282, 2014.
+
+\bibitem{6843941}
+Z.~Wu, T.~Virtanen, E.~S. Chng, and H.~Li.
+\newblock Exemplar-based sparse representation with residual compensation for
+  voice conversion.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, 22(10):1506--1521, Oct 2014.
+
+\bibitem{1172092}
+D.~Griffin and Jae Lim.
+\newblock Signal estimation from modified short-time fourier transform.
+\newblock In {\em ICASSP '83. IEEE International Conference on Acoustics,
+  Speech, and Signal Processing}, volume~8, pages 804--807, April 1983.
+
+\bibitem{DBLP:conf/interspeech/ErroSNH11}
+Daniel Erro, I{\~{n}}aki Sainz, Eva Navas, and Inma Hern{\'{a}}ez.
+\newblock Improved hnm-based vocoder for statistical synthesizers.
+\newblock In {\em {INTERSPEECH} 2011, 12th Annual Conference of the
+  International Speech Communication Association, Florence, Italy, August
+  27-31, 2011}, pages 1809--1812, 2011.
+
+\bibitem{tamamori2017speaker}
+A.~Tamamori, T.~Hayashi, K.~Kobayashi, K.~Takeda, and T.~Toda.
+\newblock Speaker-dependent wavenet vocoder.
+\newblock In {\em Proc. Interspeech}, volume 2017, pages 1118--1122, 2017.
+
+\bibitem{mohammadi2017overview}
+S.H. Mohammadi and A.~Kain.
+\newblock An overview of voice conversion systems.
+\newblock {\em Speech Communication}, 88:65--82, 2017.
+
+\bibitem{1659962}
+D.~Sundermann, H.~Hoge, A.~Bonafonte, H.~Ney, A.~Black, and S.~Narayanan.
+\newblock Text-independent voice conversion based on unit selection.
+\newblock In {\em 2006 IEEE International Conference on Acoustics Speech and
+  Signal Processing Proceedings}, volume~1, pages I--I, May 2006.
+
+\bibitem{Xie2016AKD}
+Feng-Long Xie, Frank~K. Soong, and Haifeng Li.
+\newblock A kl divergence and dnn-based approach to voice conversion without
+  parallel training sentences.
+\newblock In {\em INTERSPEECH}, 2016.
+
+\bibitem{Hsu2017VoiceCF}
+Chin-Cheng Hsu, Hsin-Te Hwang, Yi-Chiao Wu, Yu~Tsao, and Hsin-Min Wang.
+\newblock Voice conversion from unaligned corpora using variational
+  autoencoding wasserstein generative adversarial networks.
+\newblock In {\em INTERSPEECH}, 2017.
+
+\bibitem{DBLP:journals/corr/abs-1804-04262}
+Jaime Lorenzo{-}Trueba, Junichi Yamagishi, Tomoki Toda, Daisuke Saito, Fernando
+  Villavicencio, Tomi Kinnunen, and Zhen{-}Hua Ling.
+\newblock The voice conversion challenge 2018: Promoting development of
+  parallel and nonparallel methods.
+\newblock {\em CoRR}, abs/1804.04262, 2018.
+
+\bibitem{kawahara1999restructuring}
+H.~Kawahara, I.~Masuda-Katsuse, and A.~De~Cheveigne.
+\newblock Restructuring speech representations using a pitch-adaptive
+  time--frequency smoothing and an instantaneous-frequency-based f0 extraction:
+  Possible role of a repetitive structure in sounds1.
+\newblock {\em Speech communication}, 27(3-4):187--207, 1999.
+
+\bibitem{kaneko2017parallel}
+T.~Kaneko and H.~Kameoka.
+\newblock Parallel-data-free voice conversion using cycle-consistent
+  adversarial networks.
+\newblock {\em arXiv preprint arXiv:1711.11293}, 2017.
+
+\bibitem{zhao2018accent}
+G.~Zhao, S.~Sonsaat, J.~Levis, E.~Chukharev-Hudilainen, and R.~Gutierrez-Osuna.
+\newblock Accent conversion using phonetic posteriorgrams.
+\newblock In {\em ICASSP}, pages 5314--5318. IEEE, 2018.
+
+\bibitem{Wang2012EmotionalVC}
+Miaomiao Wang, Miaomiao Wen, Keikichi Hirose, and Nobuaki Minematsu.
+\newblock Emotional voice conversion for mandarin using tone nucleus model –
+  small corpus and high efficiency.
+\newblock 2012.
+
+\bibitem{wang2014multi}
+Z.~Wang and Y.~Yu.
+\newblock Multi-level prosody and spectrum conversion for emotional speech
+  synthesis.
+\newblock In {\em Signal Processing (ICSP)}, pages 588--593. IEEE, 2014.
+
+\bibitem{xue2018voice}
+Y.~Xue, Y.~Hamada, and M.~Akagi.
+\newblock Voice conversion for emotional speech: Rule-based synthesis with
+  degree of emotion controllable in dimensional space.
+\newblock {\em Speech Communication}, 102:54--67, 2018.
+
+\bibitem{fujisaki1984analysis}
+H.~Fujisaki and K.~Hirose.
+\newblock Analysis of voice fundamental frequency contours for declarative
+  sentences of japanese.
+\newblock {\em ASJs Japan (E)}, 5(4):233--242, 1984.
+
+\bibitem{xue2016study}
+Y.~Xue and M.~Akagi.
+\newblock A study on applying target prediction model to parameterize power
+  envelope of emotional speech.
+\newblock In {\em RISP workshop NCSP'16}, 2016.
+
+\bibitem{dauphin2017language}
+Y.N. Dauphin, A.~Fan, M.~Auli, and D.~Grangier.
+\newblock Language modeling with gated convolutional networks.
+\newblock In {\em ICML}, pages 933--941, 2017.
+
+\bibitem{busso2008iemocap}
+C.~Busso, M.~Bulut, CC~Lee, A.~Kazemzadeh, E.~Mower, S.~Kim, J.N. Chang,
+  S.~Lee, and S.S. Narayanan.
+\newblock Iemocap: Interactive emotional dyadic motion capture database.
+\newblock {\em Language resources and evaluation}, 42(4):335, 2008.
+
+\bibitem{mirsamadi2017automatic}
+S.~Mirsamadi, E.~Barsoum, and C.~Zhang.
+\newblock Automatic speech emotion recognition using recurrent neural networks
+  with local attention.
+\newblock In {\em ICASSP}, pages 2227--2231. IEEE, 2017.
 
 \end{thebibliography}
