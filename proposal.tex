@@ -174,7 +174,7 @@ f^*(\xi) = \sup_{x}[\langle x,\xi\rangle-f(x)] =-\inf_{x}[ f(x)-\langle x,\xi\ra
 Strategic learning has proven to be a powerful approach in stochastic games. In particular, its algorithmic nature is well suited to accommodate parallel and distributed information exchange and processing as well as hardware realizability. However, almost all existing learning approaches work well only for specific classes of games such as concave-convex zero-sum games, convex potential games, and some S-modular game problems with unimodal objective functions. For more general classes of games, convergence of strategic learning dynamics is still an open issue. In addition, learning algorithms for finding fixed points or equilibria for general classes of games still present several challenges. For polymatrix games with finite action spaces, there have been great progress including Cournot adjustment, Brown-von Neumann-Nash dynamics, reinforcement learning, combined learning (see \cite{Tembine:2012:DSL:2378729} and the references therein). For continuous action spaces, however, only few handful works are available. Evolutionary dynamics and revision protocols based actions has been proposed \cite{FRIEDMAN2013743,conti1,FRIEDMAN2010691}. The exploration of continuous action takes too much time if the dynamics is based on individual action or measurable subsets \cite{7727688,PERKINS2014179,CHEUNG2014344}. Moreover, the convergence time of these existing strategic learning algorithms (when a convergence to a point or a limit cycle occurs) are unacceptably high even for potential games and it often requires strong assumptions such as bounded densities. The above mentioned prior works do not consider robust games setting. In \cite{Aghassi2006,doi:10.1137/080734510} a robust game framework is presented. The authors defined a distributed-free approach by considering the worst-case performance. However the choice of the uncertainty set remains an important part of the robust game modelling \cite{Bauso2016}. In this chapter we are interested in learning in distributionally robust games under $f$-divergence \cite{Csiszar1963,Morimoto1963,Silvey1966,Csiszar1967}.
 
 \subsection{Problem Formulation}
-In distributionally robust games, each agent $j$ adjusts his action $a_j\in \mathcal{A}_j$ to optimize the worst-case payoff functional $\mathbb{E}_{\tilde{m}} l_j(a,\omega)$ subject to the constraint that the divergence $D_f(\tilde{m}\parallel m )\leq \rho$. This means that the worst-case performance is obtained under the assumption that a virtual player (nature) acts as a defender who modifies the distribution $m$ into $\tilde{m}$ with an effort capacity that should not exceed $\rho>0$. 
+In distributionally robust games, each agent $j$ adjusts his action $a_j\in \mathcal{A}_j$ to optimize the worst-case payoff functional $\mathbb{E}_{\tilde{m}} l_j(a,\omega)$ subject to the constraint that the divergence $D_f(\tilde{m}\parallel m )\leq \rho$. This means that the worst-case performance is obtained under the assumption that a virtual player (nature) acts as a defender who modifies the distribution $m$ into $\tilde{m}$ with an effort capacity that should not exceed $\rho>0$.
 %The robust stochastic optimization of agent $j$ given $a_{-j}, m, \rho$ is formulated as a minimax problem
 %\begin{equation}\label{eq00} (P_j):
 %\begin{array}{l}
@@ -259,38 +259,38 @@ and similarly
 \end{array}
 \end{equation}
 \end{proposition}
-\begin{proof}
-First we shall prove the $\sup \inf$ inequality. Define
-$$g(a_2,a_3) = \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3).
-$$
-Thus, for all $a_2,a_3$ one has $g(a_2,a_3) \leq l_3(a_1,a_2, a_3)$. It follows that, for any $a_1, a_3$,
-$$\sup_{a_2\in \mathcal{A}_2} g(a_2,a_3)\leq \sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3).\
-$$
-Using the definition of $g$, one obtains
-$$\sup_{a_2\in \mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)\leq \sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),\ \forall a_1,a_3.
-$$
-Taking the infinimum in $a_1$ yields:
-\begin{equation}\label{eq:minmax}
-\sup_{a_2\in \mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)\leq  \inf_{a_1\in \mathcal{A}_1}\sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),\  \forall a_3
-\end{equation}
-Now, for variable in $a_3$ we use two operations:
-\begin{enumerate}
-\item Taking the infininum in inequality (\ref{eq:minmax}) in $a_3$ yields
-\begin{equation}
-\begin{aligned}
-\inf_{a_3 \in \mathcal{A}_3} \sup_{a_2\in\mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)
-\leq &\inf_{a_3\in\mathcal{A}_3}\inf_{a_1\in\mathcal{A}_1}\sup_{a_2\in\mathcal{A}_2} l_3(a_1,a_2, a_3) \\
-= &\inf_{(a_1,a_3) \in \mathcal{A}_1 \times \mathcal{A}_3 } \sup_{a_2 \in \mathcal{A}_2} l_3(a_1,a_2, a_3),
-\end{aligned}
-\end{equation}
-which proves the second part of the inequalities (\ref{eqtri}). The first part of the inequalities (\ref{eqtri}) follows immediately from (\ref{eq:minmax}).
-\item Taking the supremum in inequality (\ref{eq:minmax}) in $a_3$ yields
-$$\sup_{(a_2,a_3)\in \mathcal{A}_2\times \mathcal{A}_3} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3) \leq   \sup_{a_3\in \mathcal{A}_3}\inf_{a_1\in \mathcal{A}_1}\sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),
-$$
-which proves the first part of the inequalities (\ref{eqtri2}). The second part of the inequalities (\ref{eqtri2}) follows immediately from (\ref{eq:minmax}).
-\end{enumerate}
-This completes the proof.
-\end{proof}
+%\begin{proof}
+%First we shall prove the $\sup \inf$ inequality. Define
+%$$g(a_2,a_3) = \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3).
+%$$
+%Thus, for all $a_2,a_3$ one has $g(a_2,a_3) \leq l_3(a_1,a_2, a_3)$. It follows that, for any $a_1, a_3$,
+%$$\sup_{a_2\in \mathcal{A}_2} g(a_2,a_3)\leq \sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3).\
+%$$
+%Using the definition of $g$, one obtains
+%$$\sup_{a_2\in \mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)\leq \sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),\ \forall a_1,a_3.
+%$$
+%Taking the infinimum in $a_1$ yields:
+%\begin{equation}\label{eq:minmax}
+%\sup_{a_2\in \mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)\leq  \inf_{a_1\in \mathcal{A}_1}\sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),\  \forall a_3
+%\end{equation}
+%Now, for variable in $a_3$ we use two operations:
+%\begin{enumerate}
+%\item Taking the infininum in inequality (\ref{eq:minmax}) in $a_3$ yields
+%\begin{equation}
+%\begin{aligned}
+%\inf_{a_3 \in \mathcal{A}_3} \sup_{a_2\in\mathcal{A}_2} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3)
+%\leq &\inf_{a_3\in\mathcal{A}_3}\inf_{a_1\in\mathcal{A}_1}\sup_{a_2\in\mathcal{A}_2} l_3(a_1,a_2, a_3) \\
+%= &\inf_{(a_1,a_3) \in \mathcal{A}_1 \times \mathcal{A}_3 } \sup_{a_2 \in \mathcal{A}_2} l_3(a_1,a_2, a_3),
+%\end{aligned}
+%\end{equation}
+%which proves the second part of the inequalities (\ref{eqtri}). The first part of the inequalities (\ref{eqtri}) follows immediately from (\ref{eq:minmax}).
+%\item Taking the supremum in inequality (\ref{eq:minmax}) in $a_3$ yields
+%$$\sup_{(a_2,a_3)\in \mathcal{A}_2\times \mathcal{A}_3} \inf_{a_1\in \mathcal{A}_1}l_3(a_1,a_2, a_3) \leq   \sup_{a_3\in \mathcal{A}_3}\inf_{a_1\in \mathcal{A}_1}\sup_{a_2\in \mathcal{A}_2} l_3(a_1,a_2, a_3),
+%$$
+%which proves the first part of the inequalities (\ref{eqtri2}). The second part of the inequalities (\ref{eqtri2}) follows immediately from (\ref{eq:minmax}).
+%\end{enumerate}
+%This completes the proof.
+%\end{proof}
 We use the above inequalities in the Lagrangean relaxation of the minimax robust game.
 
 \subsubsection{Dimension Reduction}
@@ -307,75 +307,76 @@ l_j^*(a,\lambda,\mu,m) = \lambda(\rho+f(1))+\mu +\int \lambda f^*(\frac{ {l}_j-\
 where $h_i$ is the integrand cost $\lambda(\rho+f(1))+\mu + \lambda f^*(\frac{ {l}_i-\mu}{\lambda})$.
 \end{proposition}
 
-\begin{proof}
-The (distributionally) robust best-response problem of agent $j$ is equivalent to
-\begin{equation}\label{eq022}
-\begin{array}{l}
-\inf_{a_j} \sup_{L\in L_{\rho}(m)} \mathbb{E}_{m} [l_j L]
-\end{array}
-\end{equation}
-where $L(\omega)=\frac{d\tilde{m}}{dm}(\omega)$ is the likelihood, and set $L_{\rho}(m)$ is
-$$L_{\rho}(m)=\{ L\  | \   \int_{\omega}  f(L(\omega)) d{m} -f(1)\leq \rho,\ \  \int_{\omega} L(\omega)dm=1\}.
-$$
-We introduce the Lagrangian as
-$$\begin{array}{ll}
-\tilde{l}_j(a,L,\lambda,\mu) &= \int_{\omega} l_j(a,\omega) L(\omega) dm + \lambda(\rho+f(1) - \int_{\omega}  f(L(\omega)) d{m}) \\
-&+ \mu(1-\int_{\omega} L(\omega)dm),
-\end{array}
-$$
-where $\lambda \geq 0$ and $\mu\in \mathbb{R}$. The problem solved by Player $j$ becomes
-\begin{equation}\label{eq02} (\tilde{P}^*_j):
-\begin{array}{l}
-\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu).
-\end{array}
-\end{equation}\
-A full understanding of problem $(\tilde{P}^*_j)$ requires a triality theory (not a duality theory) whose main principles were streamlined in Section \ref{sec:TT}. The underlying idea is that one can use a transformation of the last two terms to derive a finite dimensional optimization problem. The Lagrangian $\tilde{l}_j$ of agent $j$  is clearly concave in $L$ and convex in $\lambda,\mu$, and is semi-continuous jointly. By the triality theory above, $\tilde{l}_j: (a,L,\lambda,\mu) \mapsto \tilde{l}_j(a,L,\lambda,\mu)$ satisfies the $\sup\inf$ inequality and has the following inequality:
-$$\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu)
-\leq \inf_{a_j}\inf_{\lambda\geq 0,\mu\in \mathbb{R}}  \sup_{L\in L_{\rho}(m)}\tilde{l}_j(a,L,\lambda,\mu).
-$$
-In this case there is no gap in the second part of the optimization and the following equality holds:
-$$\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu)
-=\inf_{a_j}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \sup_{L\in L_{\rho}(m)}\tilde{l}_j(a,L,\lambda,\mu).
-$$
-The latter problem can be rewritten as
-\begin{equation}\label{eq04} (\tilde{P}^*_j):
-\begin{array}{l}
-\inf_{a_j\in \mathcal{A}_j,\lambda\geq 0,\mu\in \mathbb{R}}[\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu)].
-\end{array}
-\end{equation}\
-The Lagrangian function takes the form as
-\begin{equation}
-\tilde{l}_j=  \lambda(\rho+f(1))+\mu +\int \{ L [ {l}_j-\mu] -\lambda f(L)\} dm
-\end{equation}
-It follows that
-\begin{equation}
-\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu) = \lambda(\rho+f(1))+\mu +\sup_{L}\int \{ L [{l}_j-\mu] - \lambda f(L)\} dm
-\end{equation}
-Introducing the Fenchel-Legendre transform on $L$ and exchanging $\sup$ and $\int$, one gets
-\begin{equation}
-\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu) = \lambda(\rho+f(1))+\mu +\int \lambda f^*(\frac{ {l}_j-\mu}{\lambda}) dm.
-\end{equation}
-Since $\mathcal{A}_j\times\mathbb{R}_+\times \mathbb{R}$ is a subset of a finite dimensional vector space, it follows that the robust best-response problem of agent $j$ is equivalent to the finite dimensional stochastic optimization problem:
-\begin{equation}\label{eq:finite2} ({P}^*_j)\left\{
-\begin{array}{l}
-\inf_{a_j\in \mathcal{A}_j,\lambda\geq 0,\mu\in \mathbb{R}}l_j^*(a,\lambda,\mu,m)
-\\ l_j^*(a,\lambda,\mu,m) = \mathbb{E}_{m} h_j.
-\end{array} \right.
-\end{equation}
-where $h_j$ is the integrand cost $\lambda(\rho+f(1))+\mu + \lambda f^*(\frac{ {l}_j-\mu}{\lambda})$.
-\end{proof}
+%\begin{proof}
+%The (distributionally) robust best-response problem of agent $j$ is equivalent to
+%\begin{equation}\label{eq022}
+%\begin{array}{l}
+%\inf_{a_j} \sup_{L\in L_{\rho}(m)} \mathbb{E}_{m} [l_j L]
+%\end{array}
+%\end{equation}
+%where $L(\omega)=\frac{d\tilde{m}}{dm}(\omega)$ is the likelihood, and set $L_{\rho}(m)$ is
+%$$L_{\rho}(m)=\{ L\  | \   \int_{\omega}  f(L(\omega)) d{m} -f(1)\leq \rho,\ \  \int_{\omega} L(\omega)dm=1\}.
+%$$
+%We introduce the Lagrangian as
+%$$\begin{array}{ll}
+%\tilde{l}_j(a,L,\lambda,\mu) &= \int_{\omega} l_j(a,\omega) L(\omega) dm + \lambda(\rho+f(1) - \int_{\omega}  f(L(\omega)) d{m}) \\
+%&+ \mu(1-\int_{\omega} L(\omega)dm),
+%\end{array}
+%$$
+%where $\lambda \geq 0$ and $\mu\in \mathbb{R}$. The problem solved by Player $j$ becomes
+%\begin{equation}\label{eq02} (\tilde{P}^*_j):
+%\begin{array}{l}
+%\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu).
+%\end{array}
+%\end{equation}\
+%A full understanding of problem $(\tilde{P}^*_j)$ requires a triality theory (not a duality theory) whose main principles were streamlined in Section \ref{sec:TT}. The underlying idea is that one can use a transformation of the last two terms to derive a finite dimensional optimization problem. The Lagrangian $\tilde{l}_j$ of agent $j$  is clearly concave in $L$ and convex in $\lambda,\mu$, and is semi-continuous jointly. By the triality theory above, $\tilde{l}_j: (a,L,\lambda,\mu) \mapsto \tilde{l}_j(a,L,\lambda,\mu)$ satisfies the $\sup\inf$ inequality and has the following inequality:
+%$$\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu)
+%\leq \inf_{a_j}\inf_{\lambda\geq 0,\mu\in \mathbb{R}}  \sup_{L\in L_{\rho}(m)}\tilde{l}_j(a,L,\lambda,\mu).
+%$$
+%In this case there is no gap in the second part of the optimization and the following equality holds:
+%$$\inf_{a_j} \sup_{L\in L_{\rho}(m)}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \tilde{l}_j(a,L,\lambda,\mu)
+%=\inf_{a_j}\inf_{\lambda\geq 0,\mu\in \mathbb{R}} \sup_{L\in L_{\rho}(m)}\tilde{l}_j(a,L,\lambda,\mu).
+%$$
+%The latter problem can be rewritten as
+%\begin{equation}\label{eq04} (\tilde{P}^*_j):
+%\begin{array}{l}
+%\inf_{a_j\in \mathcal{A}_j,\lambda\geq 0,\mu\in \mathbb{R}}[\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu)].
+%\end{array}
+%\end{equation}\
+%The Lagrangian function takes the form as
+%\begin{equation}
+%\tilde{l}_j=  \lambda(\rho+f(1))+\mu +\int \{ L [ {l}_j-\mu] -\lambda f(L)\} dm
+%\end{equation}
+%It follows that
+%\begin{equation}
+%\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu) = \lambda(\rho+f(1))+\mu +\sup_{L}\int \{ L [{l}_j-\mu] - \lambda f(L)\} dm
+%\end{equation}
+%Introducing the Fenchel-Legendre transform on $L$ and exchanging $\sup$ and $\int$, one gets
+%\begin{equation}
+%\sup_{L\in L_{\rho}(m)} \tilde{l}_j(a,L,\lambda,\mu) = \lambda(\rho+f(1))+\mu +\int \lambda f^*(\frac{ {l}_j-\mu}{\lambda}) dm.
+%\end{equation}
+%Since $\mathcal{A}_j\times\mathbb{R}_+\times \mathbb{R}$ is a subset of a finite dimensional vector space, it follows that the robust best-response problem of agent $j$ is equivalent to the finite dimensional stochastic optimization problem:
+%\begin{equation}\label{eq:finite2} ({P}^*_j)\left\{
+%\begin{array}{l}
+%\inf_{a_j\in \mathcal{A}_j,\lambda\geq 0,\mu\in \mathbb{R}}l_j^*(a,\lambda,\mu,m)
+%\\ l_j^*(a,\lambda,\mu,m) = \mathbb{E}_{m} h_j.
+%\end{array} \right.
+%\end{equation}
+%where $h_j$ is the integrand cost $\lambda(\rho+f(1))+\mu + \lambda f^*(\frac{ {l}_j-\mu}{\lambda})$.
+%\end{proof}
 
 We have converted the infinite dimensional problem $(P_j)$ into a finite dimensional problem $(P_j^*)$. The above calculations culminate in the following result:
 \begin{proposition}
 If $a, \lambda^*(a), \mu^*(a)$ is a solution of $(P_j^*)$ then the optimal likelihood $L^*$ is such that $\int_{\omega} L^* dm=1,\ f'(L^*)=\frac{ l_j-\mu^*}{\lambda^*}$. This means that $a_j$ and $d\tilde{m}^*=L^*dm$ provide a solution of the original problem $(P_j)$.
 \end{proposition}
 
-\begin{proof}
-Let $\lambda^*(a), \mu^*(a)$ be solution to $(P_j^*)$ associated with the profile $a$, then the optimal likelihood $L^*$ is obtained by differentiating $f^*$ or by inverting the equation $f'(L^*)=\frac{ l_j-\mu^*}{\lambda^*}$. As $\tilde{m}$ is a probability measure, using the definition of $L^*$ one gets
-$$d\tilde{m}^*(\omega)=  L^*dm(\omega).
-$$
-It follows that $a^*_j, L^*$ solves the original problem $(P_j)$.
-\end{proof}
+%\begin{proof}
+%Let $\lambda^*(a), \mu^*(a)$ be solution to $(P_j^*)$ associated with the profile $a$, then the optimal likelihood $L^*$ is obtained by differentiating $f^*$ or by inverting the equation $f'(L^*)=\frac{ l_j-\mu^*}{\lambda^*}$. As $\tilde{m}$ is a probability measure, using the definition of $L^*$ one gets
+%$$d\tilde{m}^*(\omega)=  L^*dm(\omega).
+%$$
+%It follows that $a^*_j, L^*$ solves the original problem $(P_j)$.
+%\end{proof}
+
 
 %Next we look at the existence of robust equilibria.
 
@@ -1208,7 +1209,7 @@ There are three metrics for performance evaluation: emotion correctness, voice q
 \label{Sec:Outline}
 
 \subsection{Dissertation Outline}
-Below is the proposed outline of the planned dissertation. 
+Below is the proposed outline of the planned dissertation.
 
 \begin{enumerate}
 	\item Introduction
@@ -1218,7 +1219,7 @@ Below is the proposed outline of the planned dissertation.
         \item Motivation
         \item Summary of Contributions
     \end{enumerate}
-    
+
     \item Distributionally Robust Games
     \begin{enumerate}
     	\item Introduction
@@ -1232,7 +1233,7 @@ Below is the proposed outline of the planned dissertation.
         \end{enumerate}
         \item Case Study: Unsupervised Generative Learning
     \end{enumerate}
-    
+
     \item Wassertein Metric
     \begin{enumerate}
     	\item Introduction
@@ -1241,7 +1242,7 @@ Below is the proposed outline of the planned dissertation.
         \item Displacement Interpolation
         \item Case Study: A Toy Example Simulation
     \end{enumerate}
-    
+
     \item Learning Generative Models
     \begin{enumerate}
     	\item Distributionally Robust Optimization
@@ -1250,7 +1251,7 @@ Below is the proposed outline of the planned dissertation.
         \item Case Study: Unsupervised Learning for Clustering
         \item Case Study: Generative Modeling for Image Synthesis
     \end{enumerate}
-    
+
     \item Image Style Transfer
     \begin{enumerate}
     	\item Introduction
@@ -1263,7 +1264,7 @@ Below is the proposed outline of the planned dissertation.
         \end{enumerate}
         \item Experiments
     \end{enumerate}
-    
+
     \item Emotional Voice Conversion
     \begin{enumerate}
     	\item Introduction
@@ -1273,7 +1274,7 @@ Below is the proposed outline of the planned dissertation.
             \item Nonparallel Training Approaches
             \item Disentangled Representation Learning
         \end{enumerate}
-        
+
         \item Method
         \begin{enumerate}
           \item Assumptions
@@ -1288,7 +1289,7 @@ Below is the proposed outline of the planned dissertation.
         \end{enumerate}
         \item Discussions
     \end{enumerate}
-   
+
     \item Conclusions and Future Work
     \item[] Bibliography
 \end{enumerate}
@@ -1402,25 +1403,31 @@ This proposal contains my plan for graduating with a PhD in the early Fall of 20
 \subsection{Thesis Related Publications}
 The following publications are directly related to my dissertation.
 \begin{enumerate}
-\item Jian Gao, Deep Chakraborty, Hamidou Tembine, and Olaitan Olaleye, “Nonparallel emotional speech conversion,” CoRR, vol. abs/1904.00848. (submitted to ICASSP 2019)
+\item Jian Gao, Deep Chakraborty, Hamidou Tembine, and Olaitan Olaleye, “Nonparallel emotional speech conversion,” CoRR, vol. abs/1811.01174. (submitted to ICASSP 2019)
 \item Jian Gao and Hamidou Tembine, Distributionally Robust Games for Deep Generative Learning, July 2018. DOI: 10.13140/RG.2.2.15305.44644
 \item Jian Gao, Yida Xu, Julian Barreiro-Gomez, Massa Ndong, Michalis Smyrnakis and Hamidou Tembine (September 5th 2018) \href{https://www.intechopen.com/books/optimization-algorithms-examples/distributionally-robust-optimization}{Distributionally Robust Optimization}. In Jan Valdman, Optimization Algorithms, IntechOpen. DOI: 10.5772/intechopen.76686. ISBN: 978-1-78923-677-4
 \item Jian Gao and Hamidou Tembine, Distributionally Robust Games: Wasserstein Metric, International Joint Conference on Neural Networks (IJCNN), Rio de Janeiro, Brazil, July 2018
 \item Jian Gao and Hamidou Tembine, Bregman Learning for Generative Adversarial Networks, Chinese Control and Decision Conference (CCDC), Shenyang, China, June 2018 \textit{(Best Paper Finalist Award)}
-\item Jian Gao and Hamidou Tembine, Distributed Mean-Field-Type Filter for Vehicle Tracking, in American Control Conference (ACC), Seattle, USA, May 2017 \textit{(Student Travel Award)}
 \item Dario Bauso, Jian Gao and Hamidou Tembine, Distributionally Robust Games: f-Divergence and Learning, 11th EAI International Conference on Performance Evaluation Methodologies and Tools (VALUETOOLS), Venice, Italy, Dec 2017
 %    \item Jian Gao and Hamidou Tembine, A mean-field filter for two-step ahead forward-looking problems, Workshop on Frontiers of Networks: Theory and Algorithms , Seventeenth International Symposium on Mobile Ad Hoc Networking and Computing, MobiHoc, July 5-7,2016, Paderborn, Germany
 \end{enumerate}
 
 
+\subsection{Relevant Publications}
+These papers are relevant publications on other generative models. 
+\begin{enumerate}
+\item J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Traffic Networks," in IEEE Transactions on Intelligent Transportation Systems. doi: 10.1109/TITS.2018.2816811
+\item J. Gao and H. Tembine, "Correlative mean-field filter for sequential and spatial data processing," IEEE EUROCON 2017 -17th International Conference on Smart Technologies, Ohrid, 2017, pp. 243-248. doi: 10.1109/EUROCON.2017.8011113
+\item Jian Gao and Hamidou Tembine, Distributed Mean-Field-Type Filter for Vehicle Tracking, in American Control Conference (ACC), Seattle, USA, May 2017 \textit{(Student Travel Award)}
+\item J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Big Data Assimilation," 2016 IEEE 18th International Conference on High Performance Computing and Communications; IEEE 14th International Conference on Smart City; IEEE 2nd International Conference on Data Science and Systems (HPCC/SmartCity/DSS), Sydney, NSW, 2016, pp. 1446-1453. doi: 10.1109/HPCC-SmartCity-DSS.2016.0206
+\end{enumerate}
+
+    
 \subsection{Other Publications}
 The papers below were published during my PhD, but will not be included in the thesis, as they diverge too much from the main topic of the research.
 \begin{enumerate}
-\item J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Traffic Networks," in IEEE Transactions on Intelligent Transportation Systems. doi: 10.1109/TITS.2018.2816811
 \item J. Gao and H. Tembine, "Empathy and berge equilibria in the forwarding dilemma in relay-enabled networks," 2017 International Conference on Wireless Networks and Mobile Communications (WINCOM), Rabat, 2017, pp. 1-8. doi: 10.1109/WINCOM.2017.8238199 \href{https://nyuad.nyu.edu/en/news/latest-news/science-and-technology/2017/december/next-generation-cell-phone-networks.html}{(\textit{Best paper Award})}
-\item J. Gao and H. Tembine, "Correlative mean-field filter for sequential and spatial data processing," IEEE EUROCON 2017 -17th International Conference on Smart Technologies, Ohrid, 2017, pp. 243-248. doi: 10.1109/EUROCON.2017.8011113
 \item Fanhuai Shi, Jian Gao, Xixia Huang, An affine invariant approach for dense wide baseline image matching. International Journal of Distributed Sensor Networks (IJDSN) 12(12) (2016)
-\item J. Gao and H. Tembine, "Distributed Mean-Field-Type Filters for Big Data Assimilation," 2016 IEEE 18th International Conference on High Performance Computing and Communications; IEEE 14th International Conference on Smart City; IEEE 2nd International Conference on Data Science and Systems (HPCC/SmartCity/DSS), Sydney, NSW, 2016, pp. 1446-1453. doi: 10.1109/HPCC-SmartCity-DSS.2016.0206
 \end{enumerate}
 
 
@@ -1540,4 +1547,3 @@ The papers below were published during my PhD, but will not be included in the t
 %[79] ImageNet: A Large-Scale Hierarchical Image Database
 %[80] Kullback, S. (1959), Information Theory and Statistics, John Wiley & Sons. Republished by Dover Publications in 1968; reprinted in 1978: ISBN 0-8446-5625-9.
 %[81] Fuglede, B.; Topsoe, F. (2004). Jensen-Shannon divergence and Hilbert space embedding (PDF). Proc. Int'l Symp. on Information Theory. p. 30. doi:10.1109/ISIT.2004.1365067. ISBN 0-7803-8280-3.
- 
