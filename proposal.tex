@@ -124,7 +124,7 @@ The following chapters first describes the already completed work: the theory pa
 
 \section{Distributionally Robust Games}
 \label{Sec:DRG}
-One fundamental problem in generative learning is to estimate the full data distribution given finite noisy observations. Suppose the training samples $x$ are drawn from a distribution $m$, and the generative model produces new data $\tilde{x}$ by sampling from an estimated distribution $\tilde{m}$. The objective is to minimize the statistical distance between $m$ and $\tilde{m}$ so that the synthesized data is similar to the real ones. Since the comparison is made on two statistical objects instead of two individual sample points, {\color{blue} there is no deterministic objective to use.} We formulate the problem as a distributionally robust game (DRG) with payoff uncertainty, and offer a corresponding distributionally robust equilibrium concept.
+One fundamental problem in generative learning is to estimate the full data distribution given finite noisy observations. Suppose the training samples $x$ are drawn from a distribution $m$, and the generative model produces new data $\tilde{x}$ by sampling from an estimated distribution $\tilde{m}$. The objective is to minimize the statistical distance between $m$ and $\tilde{m}$ so that the synthesized data is similar to the real ones. Since the comparison is made on two statistical objects instead of two individual sample points, one needs to design a performance functional that captures the discrepancy between two distributions. We formulate the problem as a distributionally robust game (DRG) with payoff uncertainty, and offer a corresponding distributionally robust equilibrium concept.
 %and then solve it by stochastic robust optimization.
 
 In this chapter, we first introduce the definition of distribution uncertainty set and formulate the distributionally robust game as a minimax optimization problem. Then, we define the distributionally robust equilibrium, analysis the complexity of the problem, and use triality theory to reduce model dimensionality via Lagrangian relaxation. Finally, we apply this model to solve an unsupervised generative learning problem.
@@ -133,7 +133,7 @@ In this chapter, we first introduce the definition of distribution uncertainty s
 
 
 \subsection{Introduction}
-Games with payoff uncertainty refer to games where the outcome of a play is not known with certainty by the players. Such games are also called incomplete information games and can be formalized in different ways. Distribution-free models of incomplete information games, both with and without private information are examined in \cite{Aghassi2006,doi:10.1137/080734510}. There the players use a robust optimization approach to contend with the worst-case scenario payoff. The distribution free approach relaxes the well-known Bayesian game model approach by Harsanyi. The limitation of the distribution-free model is that the uncertainty set has to be carefully designed and in most cases such approach leads to too conservative and unrealistic scenarios. {\color{blue} We propose a distribution-dependent model in which the uncertainty set contains all possible distributions within a bounded region.}
+Games with payoff uncertainty refer to games where the outcome of a play is not known with certainty by the players. Such games are also called incomplete information games and can be formalized in different ways. Distribution-free models of incomplete information games, both with and without private information are examined in \cite{Aghassi2006,doi:10.1137/080734510}. There the players use a robust optimization approach to contend with the worst-case scenario payoff. The distribution free approach relaxes the well-known Bayesian game model approach by Harsanyi. The limitation of the distribution-free model is that the uncertainty set has to be carefully designed and in most cases such approach leads to too conservative and unrealistic scenarios. We propose a distribution-dependent model in which the uncertainty set contains all possible distributions within a bounded region.
 
 Distributionally robust game (DRG) is a game with incomplete information. Instead of assuming an underlying mean-field or exactly known probability distribution, one acts with an uncertainty set, which could be distributions chosen by other players. The set of distributions should be chosen to fit for the applications at hand. In robust best-response problems, the uncertain sets are represented by deterministic models. The opponent players have a bounded capability to change the uncertain parameters, and therefore affects the objective function the decision maker seeks to optimize. Each player has his own robust best response optimization problem to solve. Thus, the standard best response problem of agent $j$: $\inf_{a_j \in \mathcal{A}_j} l_j(a_j,a_{-j},\omega)$ becomes the minimax robust best response:
 \begin{equation}
@@ -584,7 +584,7 @@ Initially, the intermediate states are set as linear interpolations, where a uni
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=0.5\textwidth]{FIGDRG/Jw}
-\caption{{\color{blue} Transportation cost during optimization.}}
+\caption{Transportation cost during optimization.}
 \label{fig:cost}
 \end{figure}
 
@@ -1088,7 +1088,7 @@ Based on the analysis above, there are five modules need to learn:
 
 The encoders and decoders form a group to synthesize converted samples in the target domain. Another group is the discriminator and classifier. They work on the opposite side to distinguish between real/fake samples and predict the domain label. The intergroup competition and intragroup collaboration are listed in table \ref{tab:game}.
 
-{\color{blue} How to define the game? \\
+{\color{brown} How to define the game? \\
 When Nash equilibrium reaches, the autoencoder $(E^{c*}_i, E^{s*}_i, G^*_i)$ minimizes the reconstruction error $L^x_{rec}\rightarrow0, L^c_{rec}\rightarrow0, L^s_{rec}\rightarrow0$. The GAN network $(D^*_i, G^*_i)$ and adversarial loss $L^{x_i}_{GAN}$ converge at saddle points that minimize the distance between $p(x_i)$ and $p(x_{j\leftarrow i}')$. The classifier $D^{cls*}_i$ correctly predicts the domain category of both real and fake samples $D^{cls*}_i(x_i)=i$, $D^{cls*}_i(x_{i\leftarrow j}')=i$.
 }
 

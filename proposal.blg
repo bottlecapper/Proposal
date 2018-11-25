@@ -1,0 +1,214 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: proposal.aux
+The style file: unsrt.bst
+Database file #1: ref.bib
+Repeated entry---line 273 of file ref.bib
+ : @article{DBLP:journals/corr/TaigmanPW16
+ :                                        ,
+I'm skipping whatever remains of this entry
+Database file #2: refPE.bib
+You're missing a field name---line 283 of file refPE.bib
+ : 
+ : %editor = {Z. Ghahramani and M. Welling and C. Cortes and N. D. Lawrence and K. Q. Weinberger},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 297 of file refPE.bib
+ : 
+ : %pages = {2672--2680},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 306 of file refPE.bib
+ : 
+ : %editor = {Tamir Hazan, George Papandreou, and Daniel Tarlow},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 320 of file refPE.bib
+ : 
+ : %  booktitle = {Advances in Neural Information Processing Systems 29: Annual Conference
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 342 of file refPE.bib
+ : 
+ : %  url       = {http://dx.doi.org/10.1137/140985676},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 358 of file refPE.bib
+ : 
+ : %  url       = {http://dx.doi.org/10.1137/140985676},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 373 of file refPE.bib
+ : 
+ : %note = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 396 of file refPE.bib
+ : 
+ : %doi = {10.1143/JPSJ.18.328},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 409 of file refPE.bib
+ : 
+ : % publisher = {[Royal Statistical Society, Wiley]},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 456 of file refPE.bib
+ : 
+ : %url = "http://projecteuclid.org/euclid.pjm/1103040253",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 470 of file refPE.bib
+ : 
+ : % url = {http://dx.doi.org/10.1162/153244303321897726},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 485 of file refPE.bib
+ : 
+ : %  crossref  = {DBLP:conf/icml/2015},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 498 of file refPE.bib
+ : 
+ : % Publisher = {Omnipress},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 507 of file refPE.bib
+ : Sciences}, issue={113}, volume={47}, year=-
+ :                                            { 2016},
+I'm skipping whatever remains of this entry
+You're missing a field name---line 519 of file refPE.bib
+ : 
+ : %  url       = {http://arxiv.org/abs/1505.00853},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 532 of file refPE.bib
+ : 
+ : %  url = "http://arxiv.org/abs/1511.01844"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 543 of file refPE.bib
+ : 
+ : %  url = {http://leon.bottou.org/papers/bottou-98x},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 565 of file refPE.bib
+ : 
+ : %doi = "http://dx.doi.org/10.1016/0041-5553(64)90137-5",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 589 of file refPE.bib
+ : 
+ : %  url       = {http://arxiv.org/abs/1412.6980},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 609 of file refPE.bib
+ : 
+ : %  url       = {http://arxiv.org/abs/1212.5701},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 625 of file refPE.bib
+ : 
+ : % numpages = {39},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 647 of file refPE.bib
+ : 
+ : %  url       = {http://arxiv.org/abs/1702.05371},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 661 of file refPE.bib
+ : 
+ : %  url       = {http://arxiv.org/abs/1702.05371},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 682 of file refPE.bib
+ : 
+ : %url="https://doi.org/10.1007/s10107-005-0686-0"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 693 of file refPE.bib
+ : 
+ : %doi = {10.1137/080734510},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 722 of file refPE.bib
+ : 
+ : % URL = {http://www.pnas.org/content/113/47/E7351},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 737 of file refPE.bib
+ : 
+ : %url = "http://www.sciencedirect.com/science/article/pii/S0304406810000819",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 751 of file refPE.bib
+ : 
+ : %url = "http://www.sciencedirect.com/science/article/pii/S0022053113000124",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 764 of file refPE.bib
+ : 
+ : %url = "http://www.sciencedirect.com/science/article/pii/S0022053114000623",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 777 of file refPE.bib
+ : 
+ : %url = "http://www.sciencedirect.com/science/article/pii/S0022053114000945",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 788 of file refPE.bib
+ :   
+ :   publisher     = "Birkhäuser Basel",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 804 of file refPE.bib
+ : 
+ : %url = "http://www.sciencedirect.com/science/article/pii/0041555367900407",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 808 of file refPE.bib
+ : @article{sion1958
+ :                  ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 836 of file refPE.bib
+ : 
+ : %url="https://doi.org/10.1007/s13235-015-0160-4"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Database file #3: refGAN.bib
+Repeated entry---line 209 of file refGAN.bib
+ : @article{Aghassi2006
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--string name "december" is undefined
+--line 298 of file refGAN.bib
+Repeated entry---line 390 of file refGAN.bib
+ : @article{DBLP:journals/corr/ArjovskyB17
+ :                                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 465 of file refGAN.bib
+ : @article{sion1958
+ :                  ,
+I'm skipping whatever remains of this entry
+Database file #4: refVC.bib
+A bad cross reference---entry "DBLP:conf/aaai/DongHYY18"
+refers to entry "DBLP:conf/aaai/2018", which doesn't exist
+A bad cross reference---entry "DBLP:conf/nips/SalimansGZCRCC16"
+refers to entry "DBLP:conf/nips/2016", which doesn't exist
+A bad cross reference---entry "DBLP:conf/interspeech/NakashikaTA14"
+refers to entry "DBLP:conf/interspeech/2014", which doesn't exist
+A bad cross reference---entry "DBLP:conf/interspeech/ErroSNH11"
+refers to entry "DBLP:conf/interspeech/2011", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/interspeech/2011"
+Warning--I didn't find a database entry for "DBLP:conf/interspeech/2014"
+Warning--I didn't find a database entry for "DBLP:conf/aaai/2018"
+Warning--I didn't find a database entry for "DBLP:conf/nips/2016"
+Warning--empty author in FRIEDMAN2013743
+Warning--can't use both author and editor fields in conti1
+Warning--empty publisher in conti1
+Warning--empty year in conti1
+Warning--empty author in FRIEDMAN2010691
+Warning--empty author in PERKINS2014179
+Warning--empty author in CHEUNG2014344
+Warning--empty publisher in gan05
+Warning--empty booktitle in Wang2012EmotionalVC
+(There were 42 error messages)
