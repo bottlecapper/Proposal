@@ -1,10 +1,10 @@
 SyncTeX Version:1
-Input:1:D:\Dropbox\JianTembine\Thesis\Proposal\proposal.tex
+Input:1:E:\Dropbox\JianTembine\Thesis\Proposal\proposal.tex
 Input:2:C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls
 Input:3:C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo
-Input:4:D:\Dropbox\JianTembine\Thesis\Proposal\proposal.sty
-Input:5:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\lineno\lineno.sty
-Input:6:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
+Input:4:E:\Dropbox\JianTembine\Thesis\Proposal\proposal.sty
+Input:5:C:\Program Files\MiKTeX 2.9\tex\latex\lineno\lineno.sty
+Input:6:C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty
 Input:7:C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty
 Input:8:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
 Input:9:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
@@ -25,16 +25,16 @@ Input:23:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty
 Input:24:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
 Input:25:C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
 Input:26:C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg
-Input:27:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+Input:27:C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty
 Input:28:C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
 Input:29:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
-Input:30:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\booktabs\booktabs.sty
+Input:30:C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
 Input:31:C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
-Input:32:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\units\nicefrac.sty
+Input:32:C:\Program Files\MiKTeX 2.9\tex\latex\units\nicefrac.sty
 Input:33:C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty
-Input:34:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\microtype.sty
-Input:35:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\microtype-pdftex.def
-Input:36:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\microtype.cfg
+Input:34:C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.sty
+Input:35:C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def
+Input:36:C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.cfg
 Input:37:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
 Input:38:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
 Input:39:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
@@ -42,9 +42,9 @@ Input:40:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
 Input:41:C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
 Input:42:C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
 Input:43:C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
-Input:44:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithm.sty
+Input:44:C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty
 Input:45:C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty
-Input:46:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithmic.sty
+Input:46:C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithmic.sty
 Input:47:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty
 Input:48:C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
 Input:49:C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
@@ -52,95 +52,95 @@ Input:50:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
 Input:51:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
 Input:52:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
 Input:53:C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
-Input:54:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\frontendlayer\tikz.sty
-Input:55:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
-Input:56:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
-Input:57:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-common.tex
-Input:58:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex
-Input:59:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-latex.def
-Input:60:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty
-Input:61:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
-Input:62:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgfcore.sty
-Input:63:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
-Input:64:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
-Input:65:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
-Input:66:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
-Input:67:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgf.cfg
-Input:68:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
-Input:69:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
-Input:70:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
-Input:71:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
-Input:72:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+Input:54:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty
+Input:55:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty
+Input:56:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty
+Input:57:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex
+Input:58:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex
+Input:59:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def
+Input:60:C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty
+Input:61:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
+Input:62:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+Input:63:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+Input:64:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
+Input:65:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+Input:66:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
+Input:67:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg
+Input:68:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+Input:69:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+Input:70:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+Input:71:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+Input:72:C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
 Input:73:C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
-Input:74:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
-Input:75:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex
-Input:76:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathcalc.code.tex
-Input:77:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathutil.code.tex
-Input:78:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathparser.code.tex
-Input:79:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex
-Input:80:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex
-Input:81:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex
-Input:82:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex
-Input:83:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex
-Input:84:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex
-Input:85:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex
-Input:86:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex
-Input:87:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex
-Input:88:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
-Input:89:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
-Input:90:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex
-Input:91:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex
-Input:92:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
-Input:93:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex
-Input:94:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex
-Input:95:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex
-Input:96:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex
-Input:97:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex
-Input:98:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
-Input:99:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
-Input:100:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex
-Input:101:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex
-Input:102:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
-Input:103:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex
-Input:104:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex
-Input:105:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex
-Input:106:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex
-Input:107:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
-Input:108:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
-Input:109:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgffor.sty
-Input:110:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfkeys.sty
-Input:111:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
-Input:112:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\math\pgfmath.sty
-Input:113:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex
-Input:114:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgffor.code.tex
-Input:115:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex
-Input:116:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
-Input:117:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex
-Input:118:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex
-Input:119:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
-Input:120:D:\Dropbox\JianTembine\Thesis\Proposal\proposal.aux
+Input:74:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
+Input:75:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex
+Input:76:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex
+Input:77:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex
+Input:78:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex
+Input:79:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex
+Input:80:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex
+Input:81:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex
+Input:82:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex
+Input:83:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex
+Input:84:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex
+Input:85:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex
+Input:86:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex
+Input:87:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex
+Input:88:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
+Input:89:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+Input:90:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex
+Input:91:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex
+Input:92:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+Input:93:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex
+Input:94:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex
+Input:95:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex
+Input:96:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex
+Input:97:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex
+Input:98:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+Input:99:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
+Input:100:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex
+Input:101:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex
+Input:102:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+Input:103:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex
+Input:104:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex
+Input:105:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex
+Input:106:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex
+Input:107:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+Input:108:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+Input:109:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty
+Input:110:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty
+Input:111:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+Input:112:C:\Program Files\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty
+Input:113:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex
+Input:114:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex
+Input:115:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex
+Input:116:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
+Input:117:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex
+Input:118:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex
+Input:119:C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
+Input:120:E:\Dropbox\JianTembine\Thesis\Proposal\proposal.aux
 Input:121:C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd
 Input:122:C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
 Input:123:C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
-Input:124:D:\Dropbox\JianTembine\Thesis\Proposal\proposal.out
-Input:125:D:\Dropbox\JianTembine\Thesis\Proposal\proposal.out
-Input:126:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-ptm.cfg
-Input:127:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+Input:124:E:\Dropbox\JianTembine\Thesis\Proposal\proposal.out
+Input:125:E:\Dropbox\JianTembine\Thesis\Proposal\proposal.out
+Input:126:C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-ptm.cfg
+Input:127:C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
 Input:128:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
 Input:129:C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
 Input:130:C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd
-Input:131:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-cmr.cfg
+Input:131:C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg
 Input:132:C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
-Input:133:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-msa.cfg
+Input:133:C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg
 Input:134:C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
-Input:135:C:\Users\bottl\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-msb.cfg
+Input:135:C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg
 Output:pdf
 Magnification:1000
 Unit:1
 X Offset:0
 Y Offset:0
 Content:
-!11418
+!10298
 {1
 [1,96:4736286,49328946:28417720,44592660,0
 h1,96:4736286,4736286:0,0,0
@@ -53993,7 +53993,7 @@ k1,1459:33154006,49328946:12697108
 ]
 !42100
 }29
-Input:137:D:\Dropbox\JianTembine\Thesis\Proposal\proposal.bbl
+Input:137:E:\Dropbox\JianTembine\Thesis\Proposal\proposal.bbl
 !73
 {30
 [137,125:4736286,49328946:28417720,44592660,6548
@@ -65124,7 +65124,7 @@ k1,1466:33154006,49328946:12697108
 ]
 !37549
 }35
-Input:138:D:\Dropbox\JianTembine\Thesis\Proposal\proposal.aux
+Input:138:E:\Dropbox\JianTembine\Thesis\Proposal\proposal.aux
 !73
 Postamble:
 Count:39862
