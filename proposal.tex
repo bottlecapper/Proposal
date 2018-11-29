@@ -950,14 +950,14 @@ real - WGAN                         &  31.0           &  17.2
 %Generative learning: the construction of relationships between existing knowledge and stimuli
 
 \subsection{Introduction}
-Style transfer originally means rendering an image in different styles. This meaning can be extended to other kinds of data like music and speech. More generally, it refers to mapping data from one domain to anther while keeping {\color{blue} its semantic (underlying) content / the domain-invariant knowledge}. For example, transfer photographs to artistic paintings, convert one person's voice to another, or translate music to imitate different instruments. Another case is transfer learning. It adapts a pre-trained model in source domain to classify samplpes in target domain where labeled data is limited.
+Style transfer originally means rendering an image in the style of other images. This meaning can be extended to other kinds of data like music and speech. More generally, it refers to mapping data from one domain to anther while keeping its semantic content or domain-invariant knowledge. For example, transfer photographs to artistic paintings, convert one person's voice to another, or translate music to imitate different instruments. Another case is transfer learning. It adapts a pre-trained model in source domain to classify samplpes in target domain where labeled data is limited.
 %It applies pre-trained model on source data to sovle a different but related problem, which involves tranferring knowledge between domains.
 %Supervised learning assumes that training and test data have the same distribution, but it's not always true as these two sets may have domain shift. Thus knowledge nees to be transferred across domains. The general problem is to learn a mapping from one domain to another, on condition that it changes the appearance style while keeps the underlying content.
 
 % Definition of the problem
-Let $x_1 \in \mathbb{X}_1$ be samples in the source domain and $x_2 \in \mathbb{X}_2$ be samples in the target domain. The goal of {\color{blue} style} transfer is to learn a mapping function $\mathcal{T}: \mathbb{X}_1 \rightarrow \mathbb{X}_2$ such that the generated output $x_{2\leftarrow1}' = \mathcal{T}(x_1)$ is indistinguishable from the real samples drawn from the target domain. The optimal mapping $\mathcal{T}^*$ transforms $x_1$ to $x_{2\leftarrow1}'$ such that $x_{2\leftarrow1}' \overset{d}{=} x_2$. Semantic content should be preserved during the transformation.
+Let $x_1 \in \mathbb{X}_1$ be samples in the source domain and $x_2 \in \mathbb{X}_2$ be samples in the target domain. The goal of style transfer is to learn a mapping function $\mathcal{T}: \mathbb{X}_1 \rightarrow \mathbb{X}_2$ such that the generated output $x_{2\leftarrow1}' = \mathcal{T}(x_1)$ is indistinguishable from the real samples drawn from the target domain. The optimal mapping $\mathcal{T}^*$ transforms $x_1$ to $x_{2\leftarrow1}'$ such that $x_{2\leftarrow1}' \overset{d}{=} x_2$. Semantic content should be preserved during the transformation.
 
-We propose a game-theoretic approach to learn the mapping. The domain-invariant content information and domain-specific style information are decomposed by disentangled representation learning. For high dimensional data like image and speech waveform, we employ autoencoders to independently model the high-level semantic content and the low-level style information. The learning problem is formulated as a distributionally robust game with {\color{blue} cooperative agents} and payoff uncertainty. In this game, several groups of players run with different objectives. The intergroup competition and intragroup collaboration enable the players to learn from each other and optimize their worst-case performance.
+We propose a game-theoretic approach to learn the mapping. The domain-invariant content information and domain-specific style information are decomposed by disentangled representation learning. For high dimensional data like image and speech waveform, we employ autoencoders to independently model the high-level semantic content and the low-level style information. The learning problem is formulated as a distributionally robust game with cooperative agents and payoff uncertainty. In this game, several groups of players run with different objectives. The intergroup competition and intragroup collaboration enable the players to learn from each other and optimize their worst-case performance.
 %The approach is based on neural network representations to capture the high-level and low-level features, and distributionally robust optimization to find the Nash equilibrium.
 %cooperative games, form coalitions of the players
 %the players are partitioned into a certain collection of coalitions
@@ -969,7 +969,7 @@ This work has a wide range of applications. In visual and performing arts, it's 
 %In transfer learning, people use a pre-trained model in source domain to classify samplpes in target domain where labeled data is limited. Style transfer helps to translate source data to target domain as well as their corresponding labels.
 
 \subsection{Motivation} %Assumptions
-In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y\mid x)$, while generative models {\color{blue} synthesize} new data with desired labels by drawing samples from estimated distribution $p(x\mid y)$. From a perspective of probabilistic modelling, style transfer learns two conditional distributions $p(x_1\mid x_2)$ and $p(x_2\mid x_1)$. When paired data is available, it is easy to infer from the joint distribution $p(x_1,x_2)$. For nonparallel data, the problem is ill-posed because the joint solution is not unique given two marginal distributions $p(x_1), p(x_2)$.
+In machine learning, discriminative models predict labels from data by learning a conditional distribution $p(y\mid x)$, while generative models synthesize new data with desired labels by drawing samples from estimated distribution $p(x\mid y)$. From a perspective of probabilistic modelling, style transfer learns two conditional distributions $p(x_1\mid x_2)$ and $p(x_2\mid x_1)$. When paired data is available, it is easy to infer from the joint distribution $p(x_1,x_2)$. For nonparallel data, the problem is ill-posed because the joint solution is not unique given two marginal distributions $p(x_1), p(x_2)$.
 %According to coupling theory [1], the choice of valid joint distribution is generally not unique.
 %Therefore, we need to make a choice so that the marginal distributions are related in a desirable way.
 %There are bunch of assumptions and constrains proposed to deal with this ill-posed problem.
@@ -1088,9 +1088,8 @@ Based on the analysis above, there are five modules need to learn:
 
 The encoders and decoders form a group to synthesize converted samples in the target domain. Another group is the discriminator and classifier. They work on the opposite side to distinguish between real/fake samples and predict the domain label. The intergroup competition and intragroup collaboration are listed in table \ref{tab:game}.
 
-{\color{brown} How to define the game? \\
+% The definition of the game. 
 When Nash equilibrium reaches, the autoencoder $(E^{c*}_i, E^{s*}_i, G^*_i)$ minimizes the reconstruction error $L^x_{rec}\rightarrow0, L^c_{rec}\rightarrow0, L^s_{rec}\rightarrow0$. The GAN network $(D^*_i, G^*_i)$ and adversarial loss $L^{x_i}_{GAN}$ converge at saddle points that minimize the distance between $p(x_i)$ and $p(x_{j\leftarrow i}')$. The classifier $D^{cls*}_i$ correctly predicts the domain category of both real and fake samples $D^{cls*}_i(x_i)=i$, $D^{cls*}_i(x_{i\leftarrow j}')=i$.
-}
 
 \begin{table}[htb]
 \centering
@@ -1113,9 +1112,7 @@ $E_1^c, E_2^c$      & \circled{1}       & $\min L^c_{cyc}$      \\ \hline
 \label{tab:game}
 \end{table}
 
-{\color{blue}
-The collaboration means, agents in different domains can help each other as they may have common interests. For instance, a sample can be used to update the real/fake discriminator even if its class label is missing. Except for the autoencoders $E^c_i, E^s_i, G_i$, other coalitions are cross-domain. $(G_1, G_2)$ works on data synthesis, $D_1, D_2$ works on real/fake discrimination, $E^c_1, E^c_2$ extracts high-level content information that we want to preserve.
-}
+The collaboration means, agents in different domains can help each other as they may have common interests. For instance, a sample can be used to update the real/fake discriminator even if its class label is missing. Except for the autoencoders $E^c_i, E^s_i, G_i$, other agents form cross-domain coalitions. $(G_1, G_2)$ works on data synthesis, $(D_1, D_2)$ works on real/fake discrimination, $(E^c_1, E^c_2)$ extracts high-level content information that we want to preserve.
 
 We jointly train the encoders, decoders and GAN's discriminators with multiple objectives. To keep encoder and decoder as inverse operations, a reconstruction loss is applied in the direction $x_i \rightarrow (c_i, s_i) \rightarrow x_i'$, ($i,j \in {1,2}$). Sample $x_i$ should not be changed after encoding and decoding.
 \begin{equation}
@@ -1152,7 +1149,7 @@ where $\lambda_s, \lambda_c, \lambda_x, \lambda_g$ control the weights of the co
 
 
 \subsubsection{Multi-domain transformation}
-In multi-domain case, there are $4n$ agents in the game. To reduce complexity, we replace the domain-specific models $E^c_i, G_i, D_i$ with a shared content encoder $E^c$, a shared decoder $G$, and a single multiclass classifier $D^{cls}$. Thus, only $n+3$ agents left. {\color{blue} (form coalition?)} Figure \ref{fig:multi} shows the multi-domain transformation model.
+In multi-domain case, there are $4n$ agents in the game. To reduce complexity, we replace the domain-specific models $E^c_i, G_i, D_i$ with a shared content encoder $E^c$, a shared decoder $G$, and a single multiclass classifier $D^{cls}$. Thus, only $n+3$ agents left. Figure \ref{fig:multi} shows the multi-domain transformation model.
 
 \begin{figure}[htb]
 \center
@@ -1161,7 +1158,7 @@ In multi-domain case, there are $4n$ agents in the game. To reduce complexity, w
 \label{fig:multi}
 \end{figure}
 
-When $n=2$, there are 3 kinds of data: real in $\mathbb{X}_1$, real in $\mathbb{X}_2$ and fake in $\mathbb{X}_{fake}$. Two real/fake discriminators $D_1,D_2$ are enough for classification.
+When $n=2$, there are three kinds of data: real samples in $\mathbb{X}_1$, real samples in $\mathbb{X}_2$ and fake samples in $\mathbb{X}_{fake}$. Two real/fake discriminators $D_1,D_2$ are enough for classification.
 %, so $D^{cls}$ is ommitted.
 If this idea is extended to multiple domains, there will be $n$ binary discriminators and $2^n$ outputs. Instead, we replace them with one binary real/fake discriminator $D$ and one multiclass domain classifier $D^{cls}$. The two-step classification not only reduces complexity ($2n$ outputs) but also makes the most of the training data. An example in domain $i$ is also useful to train the generative model for other domains, as it is the common interest of all agents $G_1, G_2, \ldots G_n$ to synthesize realistic data. Therefore, the multi-domain transformation model can be trained on different datasets with partially labeled data.
 
@@ -1374,7 +1371,7 @@ Below is the proposed outline of the planned dissertation.
 \section{Conclusion}
 \label{Sec:Con}
 
-This proposal contains my plan for graduating with a PhD in the early Fall of 2019, and describes game theoretic concepts in the design of generative models. While this thesis focuses on image synthesis and speech conversion, it is a general approach and can apply to other kinds of data by replacing the data representation network. Its contributions can shed new light on a much unexplored field of game-theoretic machine learning, and help to create a path towards fully automatic data generation and manipulation.
+This proposal contains my plan for graduating with a PhD in the early Fall of 2019, and describes game theoretic concepts in the design of generative models. While this thesis focuses on image synthesis and speech conversion, it is a general approach and can be applied to other kinds of data by replacing the data representation network. Its contributions can shed new light on a much unexplored field of game-theoretic machine learning, and help to create a path towards fully automatic data generation and manipulation.
 
 %Tackling the aforementioned problems would take us much closer to
 %real intelligent systems, and defines three core pillars
