@@ -464,7 +464,7 @@ Based on the ideas above, we formulate the generative learning problem into the 
 \label{fig:DRGmodel}
 \end{figure}
 
-As displayed in the right column of Figure \ref{fig:model}, initially, the fake samples are drawn from an arbitrary distribution $\tilde{m}_0$, e.g., a uniform distribution. In each iteration, the attackers refine it closer to the hard sample distribution $m'$, while the defenders keep looking for the worst-case approximation $m'$ within the uncertain set $B_\rho(m)$. Once the algorithm converges, i.e. $D(\tilde{m}, m') \leq \epsilon$, we can ensure that the discrepancy is bounded by a small value if $D(\cdot,\cdot)$ satisfies triangle inequality:
+As displayed in the right column of Figure \ref{fig:DRGmodel}, initially, the fake samples are drawn from an arbitrary distribution $\tilde{m}_0$, e.g., a uniform distribution. In each iteration, the attackers refine it closer to the hard sample distribution $m'$, while the defenders keep looking for the worst-case approximation $m'$ within the uncertain set $B_\rho(m)$. Once the algorithm converges, i.e. $D(\tilde{m}, m') \leq \epsilon$, we can ensure that the discrepancy is bounded by a small value if $D(\cdot,\cdot)$ satisfies triangle inequality:
 \begin{equation}
 D(\tilde{m}, m) \leq D(\tilde{m}, m') + D(m',m) \leq \epsilon + \rho
 \end{equation}
@@ -1088,7 +1088,7 @@ Based on the analysis above, there are five modules need to learn:
 
 The encoders and decoders form a group to synthesize converted samples in the target domain. Another group is the discriminator and classifier. They work on the opposite side to distinguish between real/fake samples and predict the domain label. The intergroup competition and intragroup collaboration are listed in table \ref{tab:game}.
 
-% The definition of the game. 
+% The definition of the game.
 When Nash equilibrium reaches, the autoencoder $(E^{c*}_i, E^{s*}_i, G^*_i)$ minimizes the reconstruction error $L^x_{rec}\rightarrow0, L^c_{rec}\rightarrow0, L^s_{rec}\rightarrow0$. The GAN network $(D^*_i, G^*_i)$ and adversarial loss $L^{x_i}_{GAN}$ converge at saddle points that minimize the distance between $p(x_i)$ and $p(x_{j\leftarrow i}')$. The classifier $D^{cls*}_i$ correctly predicts the domain category of both real and fake samples $D^{cls*}_i(x_i)=i$, $D^{cls*}_i(x_{i\leftarrow j}')=i$.
 
 \begin{table}[htb]

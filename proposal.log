@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  27 NOV 2018 04:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  12 DEC 2018 21:32
 entering extended mode
 **./proposal.tex
 (proposal.tex
@@ -1191,19 +1191,19 @@ Package pdftex.def Info: FIGDRG/w4.jpg used on input line 462.
                                                   \fi \fi 
 l.473 
        <./FIGDRG/w4.jpg>] [8]
-<FIGDRG/w5.jpg, id=313, 604.50844pt x 459.21562pt>
+<FIGDRG/w5.jpg, id=312, 604.50844pt x 459.21562pt>
 File: FIGDRG/w5.jpg Graphic file (type jpg)
  <use FIGDRG/w5.jpg>
 Package pdftex.def Info: FIGDRG/w5.jpg used on input line 515.
 (pdftex.def)             Requested size: 158.99156pt x 120.77362pt.
  [9]
-<FIGDRG/w6.jpg, id=324, 715.17188pt x 265.74281pt>
+<FIGDRG/w6.jpg, id=323, 715.17188pt x 265.74281pt>
 File: FIGDRG/w6.jpg Graphic file (type jpg)
  <use FIGDRG/w6.jpg>
 Package pdftex.def Info: FIGDRG/w6.jpg used on input line 524.
 (pdftex.def)             Requested size: 238.49341pt x 88.6199pt.
 
-<FIGDRG/w7.jpg, id=326, 986.18437pt x 267.24844pt>
+<FIGDRG/w7.jpg, id=325, 986.18437pt x 267.24844pt>
 File: FIGDRG/w7.jpg Graphic file (type jpg)
  <use FIGDRG/w7.jpg>
 Package pdftex.def Info: FIGDRG/w7.jpg used on input line 544.
@@ -1227,25 +1227,25 @@ l.553
                                                   \fi \fi 
 l.553 
        <./FIGDRG/w5.jpg> <./FIGDRG/w6.jpg> <./FIGDRG/w7.jpg>]
-<FIGDRG/f0f1.jpg, id=334, 421.575pt x 163.3603pt>
+<FIGDRG/f0f1.jpg, id=333, 421.575pt x 163.3603pt>
 File: FIGDRG/f0f1.jpg Graphic file (type jpg)
  <use FIGDRG/f0f1.jpg>
 Package pdftex.def Info: FIGDRG/f0f1.jpg used on input line 563.
 (pdftex.def)             Requested size: 119.2467pt x 46.2067pt.
 
-<FIGDRG/iter0.jpg, id=339, 347.04657pt x 279.29344pt>
+<FIGDRG/iter0.jpg, id=338, 347.04657pt x 279.29344pt>
 File: FIGDRG/iter0.jpg Graphic file (type jpg)
  <use FIGDRG/iter0.jpg>
 Package pdftex.def Info: FIGDRG/iter0.jpg used on input line 572.
 (pdftex.def)             Requested size: 158.99156pt x 127.9566pt.
 
-<FIGDRG/iter1000.jpg, id=340, 346.29375pt x 279.29344pt>
+<FIGDRG/iter1000.jpg, id=339, 346.29375pt x 279.29344pt>
 File: FIGDRG/iter1000.jpg Graphic file (type jpg)
 
 <use FIGDRG/iter1000.jpg>
 Package pdftex.def Info: FIGDRG/iter1000.jpg used on input line 576.
 (pdftex.def)             Requested size: 158.99156pt x 128.23363pt.
- <FIGDRG/Jw.png, id=341, 755.07094pt x 591.71063pt>
+ <FIGDRG/Jw.png, id=340, 755.07094pt x 591.71063pt>
 File: FIGDRG/Jw.png Graphic file (type png)
 
 <use FIGDRG/Jw.png>
@@ -1270,13 +1270,13 @@ l.601 \newpage
                                                   \fi \fi 
 l.601 \newpage
                <./FIGDRG/f0f1.jpg> <./FIGDRG/iter0.jpg> <./FIGDRG/iter1000.jpg>
- <./FIGDRG/Jw.png>] [12] <FIGDRG/action.jpg, id=365, 959.08313pt x 439.6425pt>
+ <./FIGDRG/Jw.png>] [12] <FIGDRG/action.jpg, id=364, 959.08313pt x 439.6425pt>
 File: FIGDRG/action.jpg Graphic file (type jpg)
 
 <use FIGDRG/action.jpg>
 Package pdftex.def Info: FIGDRG/action.jpg used on input line 732.
 (pdftex.def)             Requested size: 119.2467pt x 54.66pt.
- <FIGDRG/a1a2.png, id=367, 462.528pt x 346.896pt>
+ <FIGDRG/a1a2.png, id=366, 462.528pt x 346.896pt>
 File: FIGDRG/a1a2.png Graphic file (type png)
 
 <use FIGDRG/a1a2.png>
@@ -1298,27 +1298,27 @@ put line 796.
                                                   \fi \fi 
 l.829 \end{equation*}
                       <./FIGDRG/a1a2.png>]
-<FIGDRG/flower.jpg, id=409, 914.66719pt x 546.54187pt>
+<FIGDRG/flower.jpg, id=408, 914.66719pt x 546.54187pt>
 File: FIGDRG/flower.jpg Graphic file (type jpg)
  <use FIGDRG/flower.jpg>
 Package pdftex.def Info: FIGDRG/flower.jpg used on input line 843.
 (pdftex.def)             Requested size: 317.9892pt x 190.00822pt.
 
-<FIGDRG/defender_cost_10.png, id=410, 439.6425pt x 349.305pt>
+<FIGDRG/defender_cost_10.png, id=409, 439.6425pt x 349.305pt>
 File: FIGDRG/defender_cost_10.png Graphic file (type png)
 
 <use FIGDRG/defender_cost_10.png>
 Package pdftex.def Info: FIGDRG/defender_cost_10.png used on input line 850.
 (pdftex.def)             Requested size: 127.1981pt x 101.06133pt.
 
-<FIGDRG/defender_cost.png, id=411, 440.39531pt x 348.55219pt>
+<FIGDRG/defender_cost.png, id=410, 440.39531pt x 348.55219pt>
 File: FIGDRG/defender_cost.png Graphic file (type png)
 
 <use FIGDRG/defender_cost.png>
 Package pdftex.def Info: FIGDRG/defender_cost.png used on input line 851.
 (pdftex.def)             Requested size: 127.1981pt x 100.66801pt.
 
-<FIGDRG/attacker_cost.png, id=412, 439.6425pt x 348.55219pt>
+<FIGDRG/attacker_cost.png, id=411, 439.6425pt x 348.55219pt>
 File: FIGDRG/attacker_cost.png Graphic file (type png)
 
 <use FIGDRG/attacker_cost.png>
@@ -1331,19 +1331,19 @@ Package pdftex.def Info: FIGDRG/attacker_cost.png used on input line 852.
                                                   \fi \fi 
 l.858 ... Generative Modeling for Image Synthesis}
                                                    <./FIGDRG/flower.jpg>]
-<FIGDRG/result.jpg, id=448, 506.6428pt x 553.31718pt>
+<FIGDRG/result.jpg, id=447, 506.6428pt x 553.31718pt>
 File: FIGDRG/result.jpg Graphic file (type jpg)
  <use FIGDRG/result.jpg>
 Package pdftex.def Info: FIGDRG/result.jpg used on input line 892.
 (pdftex.def)             Requested size: 178.86702pt x 195.34406pt.
 
-<FIGDRG/defect.jpg, id=449, 940.26282pt x 327.47343pt>
+<FIGDRG/defect.jpg, id=448, 940.26282pt x 327.47343pt>
 File: FIGDRG/defect.jpg Graphic file (type jpg)
  <use FIGDRG/defect.jpg>
 Package pdftex.def Info: FIGDRG/defect.jpg used on input line 899.
 (pdftex.def)             Requested size: 194.76982pt x 67.83205pt.
 
-<FIGDRG/wloss.jpg, id=450, 845.40843pt x 637.63219pt>
+<FIGDRG/wloss.jpg, id=449, 845.40843pt x 637.63219pt>
 File: FIGDRG/wloss.jpg Graphic file (type jpg)
  <use FIGDRG/wloss.jpg>
 Package pdftex.def Info: FIGDRG/wloss.jpg used on input line 906.
@@ -1362,7 +1362,7 @@ l.912
                                                   \fi \fi 
 l.912 
        <./FIGDRG/defender_cost_10.png> <./FIGDRG/defender_cost.png> <./FIGDRG/a
-ttacker_cost.png>] <FIGDRG/computation_time.jpg, id=476, 642.4pt x 481.8pt>
+ttacker_cost.png>] <FIGDRG/computation_time.jpg, id=475, 642.4pt x 481.8pt>
 File: FIGDRG/computation_time.jpg Graphic file (type jpg)
 
 <use FIGDRG/computation_time.jpg>
@@ -1412,7 +1412,7 @@ Underfull \vbox (badness 5771) has occurred while \output is active []
 Underfull \vbox (badness 3128) has occurred while \output is active []
 
  [22]
-<FIG/model.png, id=636, 859.71187pt x 523.9575pt>
+<FIG/model.png, id=635, 859.71187pt x 523.9575pt>
 File: FIG/model.png Graphic file (type png)
  <use FIG/model.png>
 Package pdftex.def Info: FIG/model.png used on input line 1070.
@@ -1460,7 +1460,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1463.
 Here is how much of TeX's memory you used:
  20440 strings out of 493323
  367392 string characters out of 3139066
- 469325 words of memory out of 3000000
+ 469326 words of memory out of 3000000
  23046 multiletter control sequences out of 15000+200000
  45395 words of font info for 182 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1480,7 +1480,7 @@ s/type1/public/amsfonts/symbols/msbm7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
 utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on proposal.pdf (35 pages, 1517442 bytes).
+Output written on proposal.pdf (35 pages, 1517439 bytes).
 PDF statistics:
  914 PDF objects out of 1000 (max. 8388607)
  331 named destinations out of 1000 (max. 500000)
