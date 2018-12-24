@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  12 DEC 2018 21:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.26)  13 DEC 2018 05:43
 entering extended mode
 **./proposal.tex
 (proposal.tex
@@ -1460,7 +1460,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1463.
 Here is how much of TeX's memory you used:
  20440 strings out of 493323
  367392 string characters out of 3139066
- 469326 words of memory out of 3000000
+ 469325 words of memory out of 3000000
  23046 multiletter control sequences out of 15000+200000
  45395 words of font info for 182 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1480,7 +1480,7 @@ s/type1/public/amsfonts/symbols/msbm7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
 utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on proposal.pdf (35 pages, 1517439 bytes).
+Output written on proposal.pdf (35 pages, 1517355 bytes).
 PDF statistics:
  914 PDF objects out of 1000 (max. 8388607)
  331 named destinations out of 1000 (max. 500000)

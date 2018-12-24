@@ -621,12 +621,12 @@ the attacker and defender work against each other to find the robust Nash equili
 \end{equation*}
 Since $B_\rho(m)$ is a subset of Lebesgue space (the set of integrable measurable functions under $m$), the original problem $(P_j)$ has infinite dimensions, which does not facilitate the computation of robust optimal strategies. It has been proved in section \ref{sec:dimReduct} that $(P_j)$ can be reduced to a finite dimensional stochastic optimization problem when $\omega' \mapsto l_j(a,\omega')$ is upper semi-continuous and $(\Omega, d)$ is a Polish space. We introduce a Lagrangian function for constraint (\ref{eq:setwass}),
 \begin{equation}
-\tilde{l_j}(a,\lambda, m,m') = \int_\omega' l_j(a,\omega') dm' + \lambda(\rho - W(m,m'))
+\tilde{l_j}(a,\lambda, m,m') = \int_{\omega'} l_j(a,\omega') dm' + \lambda(\rho - W(m,m'))
 \end{equation}
 the original problem $(P_j)$ becomes
 \begin{equation}\label{eq:Pj*}(\tilde{P_j}):
 \begin{array}{l}
-\inf_{a_j\in \mathcal{A}_j, \lambda \geq 0} \sup_{m' \in B_\rho(m)}\tilde{l_j}(a,\lambda,m,m') \\
+\inf_{a_j\in \mathcal{A}_j, \lambda \geq 0} \sup_{m'}\tilde{l_j}(a,\lambda,m,m') \\
 \end{array}
 \end{equation}
 In robust game $\mathcal{G}(m)$, the defenders search for the worst hard sample distribution $m'$ in the Wasserstein neighborhood of $m$ to maximize its loss against the model $\tilde{m}$. According to the definition of Wasserstein metric with ground distance $d(\cdot,\cdot)$,
@@ -1005,7 +1005,7 @@ GANs build the generative model on the top of a discriminative network to force 
 
 VAEs use an encoder-decoder framework to model data in a latent space and optimize the reconstruction loss plus a regularizer. The generative process has two steps of sampling: first draw latent variables from $p(z)$ and then draw datapoints from the conditional distribution $p(x\mid z)$. At test time, the encoder part is discarded and the decoder takes random noise as input to generate new samples. However, the reconstructed samples are blurry. This is because the VAE decoder assumes $p(x\mid z)$ to be an isotropic Gaussian, which leads to the use of L2 loss. To remedy this, VAE-GAN \cite{Larsen:2016:ABP:3045390.3045555} suggests learning the loss through a GAN discriminator.
 
-Auto-regressive model is quite different from the above two. It aims at modeling time-varying processes by assuming that the value of a time series depends on its previous values and a stochastic term. For a sequential data sample $x = (x_1, x_2, \ldots, x_T)$, the joint distribution $p(x)$ is factorised as a product of conditional distributions
+Auto-regressive model is quite different from the above two. It aims at modeling time-varying processes by assuming that the value of a time series depends on its previous values and a stochastic term. For a sequential data sample $x = (x_1, x_2, \ldots, x_T)$, the joint distribution $p(x)$ is factorized as a product of conditional distributions
 \begin{equation}
 p(x) = \prod_{t=1}^{T} p(x_t|x_1, \ldots, x_{t-1})
 \end{equation}
